@@ -1,0 +1,9 @@
+{
+  "name": "Turtle",
+  "short_name": "Turtle",
+  "version": "0.1",
+  "icons": [],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+/* FONTS
+font-family: 'Nunito', sans-serif;
+font-family: 'Roboto', sans-serif; 
+font-family: 'Lato', sans-serif;
+*/
+
+/** COLOR PALETTE **/
+/* :root {
+  --primary: #4cb44a;
+  --primary-dark: #3b8d39;
+  --primary-light: #59d457;
+  --primary-darker: #398536;
+
+  --secondary: #448cde;
+  --secondary-dark: #2870c3;
+
+  --info: #ffb400;
+  --warning: #f61d1d;
+
+  --white: #ffffff;
+  --offWhite: #f2f2f3;
+  --dark: #3b3b3b;
+  --darker: #252525;
+  --outline: #c3c0c0;
+
+  --appBackground: #222222;
+} */
+
+.content-container {
+  margin-top: 80px;
+}
+
+/* prevents all the links in the app from having default underline */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* prevents all the links in the app from turning purple after visiting */
+a:visited {
+  color: inherit;
+}
+
+/* prevents all the inputs in the app from having that blue outline when in focus */
+input:focus {
+  outline: none;
+}
