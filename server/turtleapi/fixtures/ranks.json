@@ -1,0 +1,51 @@
+[
+  {
+    "model": "turtleapi.rank",
+    "pk": 1,
+    "fields": {
+      "rank": "Team Member"
+    }
+  },
+  {
+    "model": "turtleapi.rank",
+    "pk": 2,
+    "fields": {
+      "rank": "Team Trainer"
+    }
+  },
+  {
+    "model": "turtleapi.rank",
+    "pk": 3,
+    "fields": {
+      "rank": "Shift Leader"
+    }
+  },
+  {
+    "model": "turtleapi.rank",
+    "pk": 4,
+    "fields": {
+      "rank": "Crew Chief"
+    }
+  },
+  {
+    "model": "turtleapi.rank",
+    "pk": 5,
+    "fields": {
+      "rank": "Manager"
+    }
+  },
+  {
+    "model": "turtleapi.rank",
+    "pk": 6,
+    "fields": {
+      "rank": "Assistant Manager"
+    }
+  },
+  {
+    "model": "turtleapi.rank",
+    "pk": 7,
+    "fields": {
+      "rank": "General Manager"
+    }
+  }
+]

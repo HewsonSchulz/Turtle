@@ -1,0 +1,314 @@
+[
+  {
+    "model": "turtleapi.custard",
+    "pk": 1,
+    "fields": {
+      "flavor": "Andes Mint Avalanche",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 2,
+    "fields": {
+      "flavor": "Blackberry Cobbler",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 3,
+    "fields": {
+      "flavor": "Butter Pecan",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 4,
+    "fields": {
+      "flavor": "Cappuccino Cookie Crumble",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 5,
+    "fields": {
+      "flavor": "Caramel Cashew",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 6,
+    "fields": {
+      "flavor": "Caramel Chocolate Pecan",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 7,
+    "fields": {
+      "flavor": "Caramel Fudge Cookie Dough",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 8,
+    "fields": {
+      "flavor": "Caramel Peanut Buttercup",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 9,
+    "fields": {
+      "flavor": "Caramel Pecan",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 10,
+    "fields": {
+      "flavor": "Caramel Turtle",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 11,
+    "fields": {
+      "flavor": "Chocolate Caramel Twist",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 12,
+    "fields": {
+      "flavor": "Chocolate Covered Strawberry",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 13,
+    "fields": {
+      "flavor": "Chocolate Heath Crunch",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 14,
+    "fields": {
+      "flavor": "Chocolate Volcano",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 15,
+    "fields": {
+      "flavor": "Crazy for Cookie Dough",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 16,
+    "fields": {
+      "flavor": "Creamy Lemon Crumble",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 17,
+    "fields": {
+      "flavor": "Dark Chocolate Decadence",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 18,
+    "fields": {
+      "flavor": "Dark Chocolate PB Crunch",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 19,
+    "fields": {
+      "flavor": "Devil's Food Cake",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 20,
+    "fields": {
+      "flavor": "Double Strawberry",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 21,
+    "fields": {
+      "flavor": "Espresso Toffee Bar",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 22,
+    "fields": {
+      "flavor": "Georgia Peach",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 23,
+    "fields": {
+      "flavor": "Lemon Berry Layer Cake",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 24,
+    "fields": {
+      "flavor": "Midnight Toffee",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 25,
+    "fields": {
+      "flavor": "Mint Cookie",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 26,
+    "fields": {
+      "flavor": "Mint Explosion",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 27,
+    "fields": {
+      "flavor": "OREO® Cookie Cheesecake",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 28,
+    "fields": {
+      "flavor": "OREO® Cookie Overload",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 29,
+    "fields": {
+      "flavor": "Peach Crisp",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 30,
+    "fields": {
+      "flavor": "Raspberry Cheesecake",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 31,
+    "fields": {
+      "flavor": "Really Reese's",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 32,
+    "fields": {
+      "flavor": "Red Raspberry",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 33,
+    "fields": {
+      "flavor": "Salted Caramel Pecan Pie",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 34,
+    "fields": {
+      "flavor": "Salted Double Caramel Pecan",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 35,
+    "fields": {
+      "flavor": "Snickers Swirl",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 36,
+    "fields": {
+      "flavor": "Strawberry Chocolate Parfait",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 37,
+    "fields": {
+      "flavor": "Turtle",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 38,
+    "fields": {
+      "flavor": "Turtle Cheesecake",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 39,
+    "fields": {
+      "flavor": "Turtle Dove",
+      "image_path": null
+    }
+  }
+]
