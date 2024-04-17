@@ -1,5 +1,3 @@
-'''Register user'''
-
 import json
 from django.http import HttpResponseNotAllowed, JsonResponse
 from django.contrib.auth import authenticate
@@ -8,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.authtoken.models import Token
+from .view_utils import calc_missing_props
 
 
 @csrf_exempt
@@ -21,7 +20,7 @@ def register_user(request):
         if User.objects.filter(username=req_body['username']).exists():
             # username is taken
             return JsonResponse(
-                {'valid': False, 'message': 'That username is taken'},
+                {'valid': False, 'message': 'That username is already in use'},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -54,9 +53,19 @@ def login_user(request):
 
     if request.method == 'POST':
 
-        name = req_body['username']
-        pwd = req_body['password']
-        auth_user = authenticate(username=name, password=pwd)
+        missing_props_msg = calc_missing_props(req_body, ['username', 'password'])
+        if missing_props_msg:
+            return JsonResponse(
+                {
+                    'valid': False,
+                    'message': missing_props_msg,
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        auth_user = authenticate(
+            username=req_body['username'], password=req_body['password']
+        )
 
         if auth_user:
             # user exists
@@ -67,6 +76,9 @@ def login_user(request):
             return JsonResponse({'valid': True, 'token': token.key, 'id': auth_user.id})
         else:
             # user does not exist
-            return JsonResponse({'valid': False}, status=status.HTTP_400_BAD_REQUEST)
+            return JsonResponse(
+                {'valid': False, 'message': 'Invalid username or password'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
     return HttpResponseNotAllowed(['POST'])
