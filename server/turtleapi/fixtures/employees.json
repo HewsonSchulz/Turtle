@@ -1,0 +1,15 @@
+[
+  {
+    "model": "turtleapi.employee",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "date_employed": "2021-01-01T00:00:00.000Z",
+      "date_unemployed": null,
+      "fav_position": null,
+      "fav_food": null,
+      "fav_custard": null,
+      "rank": null
+    }
+  }
+]
