@@ -1,4 +1,5 @@
 import json
+from json.decoder import JSONDecodeError
 from django.http import HttpResponseNotAllowed, JsonResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
@@ -15,7 +16,24 @@ def register_user(request):
 
     if request.method == 'POST':
 
-        req_body = json.loads(request.body)
+        try:
+            req_body = json.loads(request.body)
+        except JSONDecodeError as ex:
+            return JsonResponse(
+                {
+                    'message': 'Your request contains invalid json',
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        missing_props_msg = calc_missing_props(
+            req_body, ['username', 'email', 'password', 'first_name', 'last_name']
+        )
+        if missing_props_msg:
+            return JsonResponse(
+                {'valid': False, 'message': missing_props_msg},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         if User.objects.filter(username=req_body['username']).exists():
             # username is taken
@@ -48,8 +66,15 @@ def register_user(request):
 def login_user(request):
     '''user authentication'''
 
-    body = request.body.decode('utf-8')
-    req_body = json.loads(body)
+    try:
+        req_body = json.loads(request.body)
+    except JSONDecodeError as ex:
+        return JsonResponse(
+            {
+                'message': 'Your request contains invalid json',
+            },
+            status=status.HTTP_400_BAD_REQUEST,
+        )
 
     if request.method == 'POST':
 
