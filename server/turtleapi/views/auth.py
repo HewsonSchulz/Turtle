@@ -18,7 +18,7 @@ def register_user(request):
 
         try:
             req_body = json.loads(request.body)
-        except JSONDecodeError as ex:
+        except JSONDecodeError:
             return JsonResponse(
                 {
                     'message': 'Your request contains invalid json',
