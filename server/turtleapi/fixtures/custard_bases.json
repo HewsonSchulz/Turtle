@@ -1,0 +1,121 @@
+[
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 1,
+    "fields": {
+      "base": "Butter Pecan"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 2,
+    "fields": {
+      "base": "Caramel"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 3,
+    "fields": {
+      "base": "Cheesecake"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 4,
+    "fields": {
+      "base": "Chocolate"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 5,
+    "fields": {
+      "base": "Dark Chocolate"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 6,
+    "fields": {
+      "base": "Espresso"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 7,
+    "fields": {
+      "base": "Lemon"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 8,
+    "fields": {
+      "base": "Lemon Swirl"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 9,
+    "fields": {
+      "base": "Mango"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 10,
+    "fields": {
+      "base": "Marshmallow"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 11,
+    "fields": {
+      "base": "Mint"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 12,
+    "fields": {
+      "base": "Peanut Butter"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 13,
+    "fields": {
+      "base": "Peach"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 14,
+    "fields": {
+      "base": "Raspberry"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 15,
+    "fields": {
+      "base": "Strawberry"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 16,
+    "fields": {
+      "base": "Vanilla"
+    }
+  },
+  {
+    "model": "turtleapi.CustardBase",
+    "pk": 17,
+    "fields": {
+      "base": "Vanilla-Chocolate Swirl"
+    }
+  }
+]
