@@ -6,7 +6,6 @@ from .ingredient import Ingredient
 from .item_ingredient import ItemIngredient
 from .custard import Custard
 from .custard_base import CustardBase
-from .base import Base
 from .custard_topping import CustardTopping
 from .topping import Topping
 from .game_history import GameHistory

@@ -1,0 +1,282 @@
+[
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 1,
+    "fields": {
+      "flavor": 1,
+      "topping": 1
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 2,
+    "fields": {
+      "flavor": 1,
+      "topping": 23
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 3,
+    "fields": {
+      "flavor": 1,
+      "topping": 25
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 4,
+    "fields": {
+      "flavor": 2,
+      "topping": 3
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 5,
+    "fields": {
+      "flavor": 2,
+      "topping": 16
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 6,
+    "fields": {
+      "flavor": 3,
+      "topping": 28
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 7,
+    "fields": {
+      "flavor": 4,
+      "topping": 25
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 8,
+    "fields": {
+      "flavor": 4,
+      "topping": 36
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 9,
+    "fields": {
+      "flavor": 5,
+      "topping": 8
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 10,
+    "fields": {
+      "flavor": 5,
+      "topping": 32
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 11,
+    "fields": {
+      "flavor": 6,
+      "topping": 14
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 12,
+    "fields": {
+      "flavor": 6,
+      "topping": 28
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 13,
+    "fields": {
+      "flavor": 6,
+      "topping": 32
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 14,
+    "fields": {
+      "flavor": 7,
+      "topping": 13
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 15,
+    "fields": {
+      "flavor": 7,
+      "topping": 19
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 16,
+    "fields": {
+      "flavor": 7,
+      "topping": 32
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 17,
+    "fields": {
+      "flavor": 8,
+      "topping": 25
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 18,
+    "fields": {
+      "flavor": 8,
+      "topping": 32
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 19,
+    "fields": {
+      "flavor": 9,
+      "topping": 28
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 20,
+    "fields": {
+      "flavor": 9,
+      "topping": 32
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 21,
+    "fields": {
+      "flavor": 10,
+      "topping": 25
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 22,
+    "fields": {
+      "flavor": 10,
+      "topping": 28
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 23,
+    "fields": {
+      "flavor": 10,
+      "topping": 32
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 24,
+    "fields": {
+      "flavor": 11,
+      "topping": 14
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 25,
+    "fields": {
+      "flavor": 11,
+      "topping": 32
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 26,
+    "fields": {
+      "flavor": 12,
+      "topping": 25
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 27,
+    "fields": {
+      "flavor": 12,
+      "topping": 35
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 28,
+    "fields": {
+      "flavor": 13,
+      "topping": 17
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 29,
+    "fields": {
+      "flavor": 14,
+      "topping": 12
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 30,
+    "fields": {
+      "flavor": 14,
+      "topping": 14
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 31,
+    "fields": {
+      "flavor": 14,
+      "topping": 24
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 32,
+    "fields": {
+      "flavor": 14,
+      "topping": 26
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 33,
+    "fields": {
+      "flavor": 15,
+      "topping": 13
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 34,
+    "fields": {
+      "flavor": 15,
+      "topping": 19
+    }
+  },
+  {
+    "model": "turtleapi.CustardTopping",
+    "pk": 35,
+    "fields": {
+      "flavor": 15,
+      "topping": 32
+    }
+  }
+]
