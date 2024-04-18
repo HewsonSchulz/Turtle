@@ -211,7 +211,7 @@
     "model": "turtleapi.custard",
     "pk": 27,
     "fields": {
-      "flavor": "OREO® Cookie Cheesecake",
+      "flavor": "OREO Cheesecake",
       "image_path": null
     }
   },
@@ -219,7 +219,7 @@
     "model": "turtleapi.custard",
     "pk": 28,
     "fields": {
-      "flavor": "OREO® Cookie Overload",
+      "flavor": "OREO Overload",
       "image_path": null
     }
   },
