@@ -6,10 +6,10 @@
       "user": 1,
       "date_employed": "2021-01-01T00:00:00.000Z",
       "date_unemployed": null,
-      "fav_position": null,
+      "rank": 4,
+      "fav_position": 10,
       "fav_food": null,
-      "fav_custard": null,
-      "rank": null
+      "fav_custard": 24
     }
   }
 ]
