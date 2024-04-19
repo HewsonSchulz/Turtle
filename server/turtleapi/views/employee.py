@@ -20,6 +20,21 @@ class Employees(ViewSet):
                 {'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+    def retrieve(self, request, pk=None):
+        try:
+            employee = Employee.objects.get(pk=pk)
+            return Response(
+                EmployeeSerializer(
+                    employee, many=False, context={'request': request}
+                ).data
+            )
+        except Employee.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as ex:
+            return Response(
+                {'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
 
 class EmployeeSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source='user.username')
