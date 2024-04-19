@@ -7,8 +7,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.authtoken.models import Token
-from .view_utils import calc_missing_props
 from turtleapi.models import Employee, Rank, Position, Custard, MenuItem
+from .view_utils import calc_missing_props
 
 
 @csrf_exempt
