@@ -7,6 +7,5 @@ from .custard_topping import CustardTopping
 from .topping import Topping
 from .menu_item import MenuItem
 from .trait import Trait
-from .item_trait import ItemTrait
 from .game_history import GameHistory
 from .victory import Victory

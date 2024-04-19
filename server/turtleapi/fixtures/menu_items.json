@@ -4,6 +4,7 @@
     "pk": 1,
     "fields": {
       "item": "Applesauce",
+      "trait": null,
       "image_path": null
     }
   },
@@ -12,6 +13,7 @@
     "pk": 2,
     "fields": {
       "item": "Beef Pot Roast",
+      "trait": null,
       "image_path": null
     }
   },
@@ -20,6 +22,7 @@
     "pk": 3,
     "fields": {
       "item": "Buffalo Chicken Tenders",
+      "trait": 9,
       "image_path": null
     }
   },
@@ -28,6 +31,7 @@
     "pk": 4,
     "fields": {
       "item": "ButterBurger",
+      "trait": 1,
       "image_path": null
     }
   },
@@ -36,6 +40,7 @@
     "pk": 5,
     "fields": {
       "item": "ButterBurger Cheese",
+      "trait": 1,
       "image_path": null
     }
   },
@@ -44,6 +49,7 @@
     "pk": 6,
     "fields": {
       "item": "Butterfly Jumbo Shrimp",
+      "trait": 7,
       "image_path": null
     }
   },
@@ -52,6 +58,7 @@
     "pk": 7,
     "fields": {
       "item": "Chicken Cashew Salad",
+      "trait": 6,
       "image_path": null
     }
   },
@@ -60,6 +67,7 @@
     "pk": 8,
     "fields": {
       "item": "Chili Cheddar Fries",
+      "trait": 2,
       "image_path": null
     }
   },
@@ -68,6 +76,7 @@
     "pk": 9,
     "fields": {
       "item": "Coleslaw",
+      "trait": null,
       "image_path": null
     }
   },
@@ -76,6 +85,7 @@
     "pk": 10,
     "fields": {
       "item": "Corn Dog",
+      "trait": null,
       "image_path": null
     }
   },
@@ -84,6 +94,7 @@
     "pk": 11,
     "fields": {
       "item": "Cranberry Bacon Bleu Salad",
+      "trait": 6,
       "image_path": null
     }
   },
@@ -92,6 +103,7 @@
     "pk": 12,
     "fields": {
       "item": "Crispy Chicken",
+      "trait": 3,
       "image_path": null
     }
   },
@@ -100,6 +112,7 @@
     "pk": 13,
     "fields": {
       "item": "Crinkle Cut Fries",
+      "trait": 4,
       "image_path": null
     }
   },
@@ -108,6 +121,7 @@
     "pk": 14,
     "fields": {
       "item": "Garden Fresco Salad",
+      "trait": 6,
       "image_path": null
     }
   },
@@ -116,6 +130,7 @@
     "pk": 15,
     "fields": {
       "item": "Garden Side Salad",
+      "trait": 6,
       "image_path": null
     }
   },
@@ -124,6 +139,7 @@
     "pk": 16,
     "fields": {
       "item": "George's Chili",
+      "trait": 2,
       "image_path": null
     }
   },
@@ -132,6 +148,7 @@
     "pk": 17,
     "fields": {
       "item": "Grilled Cheese",
+      "trait": 5,
       "image_path": null
     }
   },
@@ -140,6 +157,7 @@
     "pk": 18,
     "fields": {
       "item": "Grilled Chicken",
+      "trait": null,
       "image_path": null
     }
   },
@@ -148,6 +166,7 @@
     "pk": 19,
     "fields": {
       "item": "Grilled Reuben Melt",
+      "trait": 5,
       "image_path": null
     }
   },
@@ -156,6 +175,7 @@
     "pk": 20,
     "fields": {
       "item": "Harvest Veggie Burger",
+      "trait": null,
       "image_path": null
     }
   },
@@ -164,6 +184,7 @@
     "pk": 21,
     "fields": {
       "item": "Mashed Potatoes & Gravy",
+      "trait": 8,
       "image_path": null
     }
   },
@@ -172,6 +193,7 @@
     "pk": 22,
     "fields": {
       "item": "Mushroom & Swiss",
+      "trait": 1,
       "image_path": null
     }
   },
@@ -180,6 +202,7 @@
     "pk": 23,
     "fields": {
       "item": "North Atlantic Cod",
+      "trait": 7,
       "image_path": null
     }
   },
@@ -188,6 +211,7 @@
     "pk": 24,
     "fields": {
       "item": "Northwoods Walleye",
+      "trait": 7,
       "image_path": null
     }
   },
@@ -196,6 +220,7 @@
     "pk": 25,
     "fields": {
       "item": "Onion Rings",
+      "trait": 4,
       "image_path": null
     }
   },
@@ -204,6 +229,7 @@
     "pk": 26,
     "fields": {
       "item": "Original Chicken Tenders",
+      "trait": 9,
       "image_path": null
     }
   },
@@ -212,6 +238,7 @@
     "pk": 27,
     "fields": {
       "item": "Pork Loin",
+      "trait": null,
       "image_path": null
     }
   },
@@ -220,6 +247,7 @@
     "pk": 28,
     "fields": {
       "item": "Pretzel Bites",
+      "trait": 4,
       "image_path": null
     }
   },
@@ -228,6 +256,7 @@
     "pk": 29,
     "fields": {
       "item": "Sourdough Melt",
+      "trait": 5,
       "image_path": null
     }
   },
@@ -236,6 +265,7 @@
     "pk": 30,
     "fields": {
       "item": "Spicy Crispy Chicken",
+      "trait": 3,
       "image_path": null
     }
   },
@@ -244,6 +274,7 @@
     "pk": 31,
     "fields": {
       "item": "Steamed Broccoli",
+      "trait": 8,
       "image_path": null
     }
   },
@@ -252,6 +283,7 @@
     "pk": 32,
     "fields": {
       "item": "The Culver's Bacon Deluxe",
+      "trait": 1,
       "image_path": null
     }
   },
@@ -260,6 +292,7 @@
     "pk": 33,
     "fields": {
       "item": "The Culver's Deluxe",
+      "trait": 1,
       "image_path": null
     }
   },
@@ -268,6 +301,7 @@
     "pk": 34,
     "fields": {
       "item": "Wisconsin Cheese Curds",
+      "trait": 4,
       "image_path": null
     }
   },
@@ -276,6 +310,7 @@
     "pk": 35,
     "fields": {
       "item": "Wisconsin Swiss Melt",
+      "trait": 5,
       "image_path": null
     }
   }
