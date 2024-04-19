@@ -6,6 +6,7 @@ from turtleapi.views import Employees
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'employees', Employees, 'employee')
+router.register(r'users', Employees, 'user')
 
 urlpatterns = [
     path('', include(router.urls)),
