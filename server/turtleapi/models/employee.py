@@ -9,14 +9,12 @@ class Employee(models.Model):
     date_employed = models.DateTimeField()
     date_unemployed = models.DateTimeField(null=True, blank=True)
     fav_position = models.ForeignKey(
-        'Position', on_delete=models.SET_NULL, null=True, related_name='employees'
+        'Position', on_delete=models.CASCADE, related_name='employees'
     )
     fav_food = models.ForeignKey(
-        'MenuItem', on_delete=models.SET_NULL, null=True, related_name='employees'
+        'MenuItem', on_delete=models.CASCADE, related_name='employees'
     )
     fav_custard = models.ForeignKey(
-        'Custard', on_delete=models.SET_NULL, null=True, related_name='employees'
+        'Custard', on_delete=models.CASCADE, related_name='employees'
     )
-    rank = models.ForeignKey(
-        'Rank', on_delete=models.SET_NULL, null=True, related_name='employees'
-    )
+    rank = models.ForeignKey('Rank', on_delete=models.CASCADE, related_name='employees')
