@@ -1,118 +1,118 @@
 [
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 1,
     "fields": {
       "base": "Butter Pecan"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 2,
     "fields": {
       "base": "Caramel"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 3,
     "fields": {
       "base": "Cheesecake"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 4,
     "fields": {
       "base": "Chocolate"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 5,
     "fields": {
       "base": "Dark Chocolate"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 6,
     "fields": {
       "base": "Espresso"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 7,
     "fields": {
       "base": "Lemon"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 8,
     "fields": {
       "base": "Lemon Swirl"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 9,
     "fields": {
       "base": "Mango"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 10,
     "fields": {
       "base": "Marshmallow"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 11,
     "fields": {
       "base": "Mint"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 12,
     "fields": {
       "base": "Peanut Butter"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 13,
     "fields": {
       "base": "Peach"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 14,
     "fields": {
       "base": "Raspberry"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 15,
     "fields": {
       "base": "Strawberry"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 16,
     "fields": {
       "base": "Vanilla"
     }
   },
   {
-    "model": "turtleapi.CustardBase",
+    "model": "turtleapi.custardbase",
     "pk": 17,
     "fields": {
       "base": "Vanilla-Chocolate Swirl"
