@@ -91,6 +91,7 @@ def register_user(request):
         # create new employee
         new_employee = Employee.objects.create(
             user=new_user,
+            isAdmin=False,
             date_employed=req_body.get('date_employed'),
             date_unemployed=req_body.get('date_unemployed'),
             rank=rank,

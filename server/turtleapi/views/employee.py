@@ -53,6 +53,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'last_name',
             'date_joined',
             'last_login',
+            'isAdmin',
             'date_employed',
             'date_unemployed',
             'rank',

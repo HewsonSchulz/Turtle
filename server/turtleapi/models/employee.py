@@ -6,6 +6,7 @@ User = get_user_model()
 
 class Employee(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    isAdmin = models.BooleanField(default=False)
     date_employed = models.DateTimeField()
     date_unemployed = models.DateTimeField(null=True, blank=True)
     fav_position = models.ForeignKey(
