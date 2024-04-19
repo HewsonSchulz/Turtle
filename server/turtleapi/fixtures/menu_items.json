@@ -1,0 +1,282 @@
+[
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 1,
+    "fields": {
+      "item": "Applesauce",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 2,
+    "fields": {
+      "item": "Beef Pot Roast",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 3,
+    "fields": {
+      "item": "Buffalo Chicken Tenders",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 4,
+    "fields": {
+      "item": "ButterBurger",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 5,
+    "fields": {
+      "item": "ButterBurger Cheese",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 6,
+    "fields": {
+      "item": "Butterfly Jumbo Shrimp",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 7,
+    "fields": {
+      "item": "Chicken Cashew Salad",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 8,
+    "fields": {
+      "item": "Chili Cheddar Fries",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 9,
+    "fields": {
+      "item": "Coleslaw",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 10,
+    "fields": {
+      "item": "Corn Dog",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 11,
+    "fields": {
+      "item": "Cranberry Bacon Bleu Salad",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 12,
+    "fields": {
+      "item": "Crispy Chicken",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 13,
+    "fields": {
+      "item": "Crinkle Cut Fries",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 14,
+    "fields": {
+      "item": "Garden Fresco Salad",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 15,
+    "fields": {
+      "item": "Garden Side Salad",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 16,
+    "fields": {
+      "item": "George's Chili",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 17,
+    "fields": {
+      "item": "Grilled Cheese",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 18,
+    "fields": {
+      "item": "Grilled Chicken",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 19,
+    "fields": {
+      "item": "Grilled Reuben Melt",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 20,
+    "fields": {
+      "item": "Harvest Veggie Burger",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 21,
+    "fields": {
+      "item": "Mashed Potatoes & Gravy",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 22,
+    "fields": {
+      "item": "Mushroom & Swiss",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 23,
+    "fields": {
+      "item": "North Atlantic Cod",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 24,
+    "fields": {
+      "item": "Northwoods Walleye",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 25,
+    "fields": {
+      "item": "Onion Rings",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 26,
+    "fields": {
+      "item": "Original Chicken Tenders",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 27,
+    "fields": {
+      "item": "Pork Loin",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 28,
+    "fields": {
+      "item": "Pretzel Bites",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 29,
+    "fields": {
+      "item": "Sourdough Melt",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 30,
+    "fields": {
+      "item": "Spicy Crispy Chicken",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 31,
+    "fields": {
+      "item": "Steamed Broccoli",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 32,
+    "fields": {
+      "item": "The Culver's Bacon Deluxe",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 33,
+    "fields": {
+      "item": "The Culver's Deluxe",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 34,
+    "fields": {
+      "item": "Wisconsin Cheese Curds",
+      "image_path": null
+    }
+  },
+  {
+    "model": "turtleapi.menuitem",
+    "pk": 35,
+    "fields": {
+      "item": "Wisconsin Swiss Melt",
+      "image_path": null
+    }
+  }
+]
