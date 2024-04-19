@@ -9,10 +9,28 @@
       "username": "hewson",
       "first_name": "Hewson",
       "last_name": "Schulz",
-      "email": "hewson@bruh.com",
+      "email": "",
       "is_staff": false,
       "is_active": true,
       "date_joined": "2024-04-16 16:36:13.865203Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$3Nv8C2BO4hi6tcKMePncTs$KJchw+ApYj9odc7nvFslLqR8rYdv+e9CPorE9bTsz74=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "em.grace.00",
+      "first_name": "Emma",
+      "last_name": "Crum",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-04-19 17:47:35.467203Z",
       "groups": [],
       "user_permissions": []
     }

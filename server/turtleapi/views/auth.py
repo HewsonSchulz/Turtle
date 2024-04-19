@@ -79,7 +79,7 @@ def register_user(request):
         # create new user
         new_user = User.objects.create_user(
             username=req_body.get('username'),
-            email=req_body.get('email'),
+            email=req_body.get('email', ''),
             password=req_body.get('password'),
             first_name=req_body.get('first_name'),
             last_name=req_body.get('last_name'),
