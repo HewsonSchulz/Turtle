@@ -8,6 +8,7 @@ from django.utils import timezone
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from .view_utils import calc_missing_props
+from turtleapi.models import Employee, Rank, Position, Custard, MenuItem
 
 
 @csrf_exempt
@@ -15,7 +16,6 @@ def register_user(request):
     '''user creation'''
 
     if request.method == 'POST':
-
         try:
             req_body = json.loads(request.body)
         except JSONDecodeError:
@@ -27,8 +27,20 @@ def register_user(request):
             )
 
         missing_props_msg = calc_missing_props(
-            req_body, ['username', 'email', 'password', 'first_name', 'last_name']
+            req_body,
+            [
+                'username',
+                'password',
+                'first_name',
+                'last_name',
+                'date_employed',
+                'rank',
+                'fav_position',
+                'fav_custard',
+                'fav_food',
+            ],
         )
+
         if missing_props_msg:
             return JsonResponse(
                 {'valid': False, 'message': missing_props_msg},
@@ -42,22 +54,56 @@ def register_user(request):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
+        try:
+            rank = Rank.objects.get(pk=req_body.get('rank'))
+            fav_position = Position.objects.get(pk=req_body.get('fav_position'))
+            fav_custard = Custard.objects.get(pk=req_body.get('fav_custard'))
+            fav_food = MenuItem.objects.get(pk=req_body.get('fav_food'))
+        except Rank.DoesNotExist as ex:
+            return JsonResponse(
+                {'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST
+            )
+        except Position.DoesNotExist as ex:
+            return JsonResponse(
+                {'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST
+            )
+        except Custard.DoesNotExist as ex:
+            return JsonResponse(
+                {'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST
+            )
+        except MenuItem.DoesNotExist as ex:
+            return JsonResponse(
+                {'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST
+            )
+
         # create new user
         new_user = User.objects.create_user(
-            username=req_body['username'],
-            email=req_body['email'],
-            password=req_body['password'],
-            first_name=req_body['first_name'],
-            last_name=req_body['last_name'],
+            username=req_body.get('username'),
+            email=req_body.get('email'),
+            password=req_body.get('password'),
+            first_name=req_body.get('first_name'),
+            last_name=req_body.get('last_name'),
         )
 
         # create new token
         token = Token.objects.create(user=new_user)
 
+        # create new employee
+        new_employee = Employee.objects.create(
+            user=new_user,
+            date_employed=req_body.get('date_employed'),
+            date_unemployed=req_body.get('date_unemployed'),
+            rank=rank,
+            fav_position=fav_position,
+            fav_custard=fav_custard,
+            fav_food=fav_food,
+        )
+
         return JsonResponse(
-            {'valid': True, 'token': token.key, 'id': new_user.id},
+            {'valid': True, 'token': token.key, 'id': new_employee.id},
             status=status.HTTP_201_CREATED,
         )
+
     else:
         return HttpResponseNotAllowed(['POST'])
 
@@ -89,7 +135,7 @@ def login_user(request):
             )
 
         auth_user = authenticate(
-            username=req_body['username'], password=req_body['password']
+            username=req_body.get('username'), password=req_body.get('password')
         )
 
         if auth_user:

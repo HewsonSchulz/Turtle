@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 
 
 class Employees(ViewSet):
-
     def list(self, request):
         try:
             employees = Employee.objects.all()
