@@ -3,7 +3,7 @@ from json.decoder import JSONDecodeError
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from turtleapi.models import Custard, CustardBase
+from turtleapi.models import Custard, CustardBase, Topping
 from .view_utils import calc_missing_props
 
 
@@ -55,7 +55,7 @@ class CustardFlavors(ViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        if Custard.objects.filter(flavor=req_body['flavor']).exists():
+        if Custard.objects.filter(flavor=req_body.get('flavor')).exists():
             # custard flavor already exists
             return Response(
                 {'valid': False, 'message': 'That custard flavor already exists'},
@@ -63,7 +63,13 @@ class CustardFlavors(ViewSet):
             )
 
         try:
-            base = CustardBase.objects.get(pk=req_body.get('base'))
+            try:
+                # base id was provided
+                base = CustardBase.objects.get(pk=req_body.get('base'))
+            except ValueError:
+                # base name was provided
+                base = CustardBase.objects.get(base=req_body.get('base'))
+
         except CustardBase.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -73,6 +79,23 @@ class CustardFlavors(ViewSet):
             image_path=req_body.get('image_path'),
             base=base,
         )
+
+        # add toppings
+        toppings = req_body.get('toppings', [])
+        if len(toppings) > 0:
+            for new_topping in toppings:
+                try:
+                    try:
+                        # topping id was provided
+                        topping = Topping.objects.get(pk=new_topping)
+                    except ValueError:
+                        # topping name was provided
+                        topping = Topping.objects.get(topping=new_topping)
+
+                    new_custard.toppings.add(topping)
+                except Topping.DoesNotExist:
+                    # ignore toppings that do not exist
+                    pass  #!
 
         return Response(
             {

@@ -47,7 +47,7 @@ def register_user(request):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        if User.objects.filter(username=req_body['username']).exists():
+        if User.objects.filter(username=req_body.get('username')).exists():
             # username is taken
             return JsonResponse(
                 {'valid': False, 'message': 'That username is already in use'},
