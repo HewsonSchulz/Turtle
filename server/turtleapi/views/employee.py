@@ -40,10 +40,16 @@ class EmployeeSerializer(serializers.ModelSerializer):
     last_name = serializers.CharField(source='user.last_name')
     date_joined = serializers.DateTimeField(source='user.date_joined')
     last_login = serializers.DateTimeField(source='user.last_login')
-    rank = serializers.CharField(source='rank.rank')
-    fav_position = serializers.CharField(source='fav_position.position')
-    fav_custard = serializers.CharField(source='fav_custard.flavor')
-    fav_food = serializers.CharField(source='fav_food.item')
+    rank = serializers.CharField(source='rank.rank', allow_null=True, required=False)
+    fav_position = serializers.CharField(
+        source='fav_position.position', allow_null=True, required=False
+    )
+    fav_custard = serializers.CharField(
+        source='fav_custard.flavor', allow_null=True, required=False
+    )
+    fav_food = serializers.CharField(
+        source='fav_food.item', allow_null=True, required=False
+    )
 
     class Meta:
         model = Employee
@@ -55,6 +61,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'date_joined',
             'last_login',
             'isAdmin',
+            'isGuest',
             'date_employed',
             'date_unemployed',
             'rank',
@@ -62,3 +69,22 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'fav_custard',
             'fav_food',
         ]
+
+    def to_representation(self, instance):
+        '''if given user is a guest, exclude certain fields'''
+        representation = super().to_representation(instance)
+        excluded_fields = [
+            'first_name',
+            'last_name',
+            'isAdmin',
+            'date_employed',
+            'date_unemployed',
+            'rank',
+            'fav_position',
+            'fav_custard',
+            'fav_food',
+        ]
+        if instance.isGuest:
+            for field in excluded_fields:
+                representation.pop(field)
+        return representation
