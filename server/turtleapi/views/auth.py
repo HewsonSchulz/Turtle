@@ -20,9 +20,7 @@ def register_user(request):
             req_body = json.loads(request.body)
         except JSONDecodeError:
             return JsonResponse(
-                {
-                    'message': 'Your request contains invalid json',
-                },
+                {'message': 'Your request contains invalid json'},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -117,9 +115,7 @@ def login_user(request):
         req_body = json.loads(request.body)
     except JSONDecodeError:
         return JsonResponse(
-            {
-                'message': 'Your request contains invalid json',
-            },
+            {'message': 'Your request contains invalid json'},
             status=status.HTTP_400_BAD_REQUEST,
         )
 

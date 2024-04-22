@@ -41,9 +41,7 @@ class CustardFlavors(ViewSet):
             req_body = json.loads(request.body)
         except JSONDecodeError:
             return Response(
-                {
-                    'message': 'Your request contains invalid json',
-                },
+                {'message': 'Your request contains invalid json'},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -103,6 +101,86 @@ class CustardFlavors(ViewSet):
                 **CustardSerializer(new_custard, context={'request': request}).data,
             },
             status=status.HTTP_201_CREATED,
+        )
+
+    def update(self, request, pk=None):
+        try:
+            req_body = json.loads(request.body)
+        except JSONDecodeError:
+            return Response(
+                {'message': 'Your request contains invalid json'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            custard = Custard.objects.get(pk=pk)
+        except Custard.DoesNotExist:
+            return Response(
+                {'valid': False, 'message': 'That custard flavor does not exist'},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        # update flavor
+        if req_body.get('flavor'):
+            if (
+                Custard.objects.filter(flavor=req_body.get('flavor'))
+                .exclude(pk=custard.pk)
+                .exists()
+            ):
+                # custard flavor already exists
+                return Response(
+                    {'valid': False, 'message': 'That custard flavor already exists'},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            else:
+                custard.flavor = req_body.get('flavor')
+
+        # update base
+        try:
+            try:
+                # base id was provided
+                base = CustardBase.objects.get(pk=req_body.get('base'))
+            except ValueError:
+                # base name was provided
+                base = CustardBase.objects.get(base=req_body.get('base'))
+
+            custard.base = base
+
+        except CustardBase.DoesNotExist:
+            # base was not provided
+            pass  #!
+
+        # update image
+        # TODO: implement support for uploading images
+        if req_body.get('image_path'):
+            custard.image_path = req_body.get('image_path')
+
+        custard.save()
+
+        # update toppings
+        if req_body.get('toppings') or isinstance(req_body.get('toppings'), list):
+            custard.toppings.clear()
+            toppings = req_body.get('toppings', [])
+            if len(toppings) > 0:
+                for new_topping in toppings:
+                    try:
+                        try:
+                            # topping id was provided
+                            topping = Topping.objects.get(pk=new_topping)
+                        except ValueError:
+                            # topping name was provided
+                            topping = Topping.objects.get(topping=new_topping)
+
+                        custard.toppings.add(topping)
+                    except Topping.DoesNotExist:
+                        # ignore toppings that do not exist
+                        pass  #!
+
+        return Response(
+            {
+                'valid': True,
+                **CustardSerializer(custard, context={'request': request}).data,
+            }
         )
 
 
