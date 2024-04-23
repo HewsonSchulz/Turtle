@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  /* background-color: bruh; */
+  margin: 0;
+  width: 100%;
+  padding: 0.5rem;
+  position: fixed;
+  top: 0;
+}
+
+.navbar-item {
+  flex-basis: 20%;
+  list-style-type: none;
+  text-align: center;
+  color: #0c6ffd;
+}
+
+.navbar-link {
+  text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 1px;
+  /* ? */
+  color: #0c6ffd;
+}
+
+.navbar-logout {
+  margin-left: auto;
+}
+
+.navbar-link:hover {
+  color: #0c6ffd;
+}
+
+#selected {
+  color: #0c6ffd;
+  -webkit-text-stroke: 1px;
+}
