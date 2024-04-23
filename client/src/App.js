@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react'
 import { ApplicationViews } from './components/ApplicationViews'
-//! import { getUserById } from './managers/userManager'
+import { saveUser } from './helper'
 
 export const App = () => {
-  const [loggedInUser, setLoggedInUser] = useState()
+  const [loggedInUser, setLoggedInUser] = useState(null)
 
   useEffect(() => {
     const user = localStorage.getItem('turtle_user')
-    //! if (!!user) {
-    //!   getUserById(JSON.parse(user).id).then(setLoggedInUser)
-    //! } else {
-    //!   setLoggedInUser(null)
-    //! }
+    if (!!user) {
+      saveUser(JSON.parse(user), setLoggedInUser)
+    }
   }, [])
 
   return (

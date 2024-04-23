@@ -29,8 +29,8 @@ font-family: 'Lato', sans-serif;
   --appBackground: #222222;
 } */
 
-.content-container {
-  margin-top: 80px;
+body {
+  font-family: 'Lato', sans-serif;
 }
 
 /* prevents all the links in the app from having default underline */
