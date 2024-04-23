@@ -20,7 +20,6 @@
   text-decoration: none;
   font-family: 'Quicksand', sans-serif;
   letter-spacing: 1px;
-  /* ? */
   color: #0c6ffd;
 }
 
@@ -30,6 +29,7 @@
 
 .navbar-link:hover {
   color: #0c6ffd;
+  -webkit-text-stroke: 1px;
 }
 
 #selected {

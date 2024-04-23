@@ -3,6 +3,7 @@ import { AuthorizedRoute } from './auth/AuthorizedRoute'
 import { Register } from './auth/Register'
 import { Login } from './auth/Login'
 import { NavBar } from './nav/NavBar'
+import { CustardsList } from './custard/CustardsList'
 
 export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
   return (
@@ -17,7 +18,7 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
         }>
         <Route index element={<>{/*!Home Page*/}</>} />
 
-        <Route path='/flavors' element={<>!Custard Flavors Page</>} />
+        <Route path='/flavors' element={<CustardsList />} />
       </Route>
 
       <Route
