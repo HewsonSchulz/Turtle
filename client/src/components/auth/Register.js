@@ -8,7 +8,7 @@ import './auth.css'
 export const Register = ({ setLoggedInUser }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [invalid, setInvalid] = useState('')
+  const [isInvalid, setIsInvalid] = useState({ username: false, password: false })
   const [message, setMessage] = useState({ username: '', password: '' })
 
   const navigate = useNavigate()
@@ -27,23 +27,26 @@ export const Register = ({ setLoggedInUser }) => {
         switch (tokenData.message) {
           case 'That username is already in use':
             updateStateObj(setMessage, 'username', tokenData.message)
-            setInvalid('username')
+            updateStateObj(setIsInvalid, 'username', true)
             break
           case 'Missing properties: username, password':
-            updateStateObj(setMessage, 'password', 'Please enter a username and password')
-            setInvalid('all')
+            updateStateObj(setMessage, 'username', 'Please enter a username')
+            updateStateObj(setMessage, 'password', 'Please enter a password')
+            updateStateObj(setIsInvalid, 'username', true)
+            updateStateObj(setIsInvalid, 'password', true)
             break
           case 'Missing property: username':
             updateStateObj(setMessage, 'username', 'Please enter a username')
-            setInvalid('username')
+            updateStateObj(setIsInvalid, 'username', true)
             break
           case 'Missing property: password':
             updateStateObj(setMessage, 'password', 'Please enter a password')
-            setInvalid('password')
+            updateStateObj(setIsInvalid, 'password', true)
             break
           default:
             updateStateObj(setMessage, 'password', tokenData.message)
-            setInvalid('all')
+            updateStateObj(setIsInvalid, 'username', true)
+            updateStateObj(setIsInvalid, 'password', true)
         }
       }
     })
@@ -59,9 +62,9 @@ export const Register = ({ setLoggedInUser }) => {
             type='text'
             value={username}
             placeholder='Username'
-            invalid={invalid === 'username' || invalid === 'all'}
+            invalid={isInvalid.username}
             onChange={(e) => {
-              setInvalid('')
+              updateStateObj(setIsInvalid, 'username', false)
               setUsername(e.target.value.replace(/\s+/g, '').toLowerCase())
             }}
           />
@@ -74,9 +77,9 @@ export const Register = ({ setLoggedInUser }) => {
             type='password'
             value={password}
             placeholder='Password'
-            invalid={invalid === 'password' || invalid === 'all'}
+            invalid={isInvalid.password}
             onChange={(e) => {
-              setInvalid('')
+              updateStateObj(setIsInvalid, 'password', false)
               setPassword(e.target.value)
             }}
           />

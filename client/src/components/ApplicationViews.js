@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
 import { AuthorizedRoute } from './auth/AuthorizedRoute'
 import { Register } from './auth/Register'
 import { Login } from './auth/Login'
@@ -6,7 +6,15 @@ import { Login } from './auth/Login'
 export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
   return (
     <Routes>
-      <Route path='/' element={<>!Bruh</>} />
+      <Route
+        path='/'
+        element={
+          <AuthorizedRoute loggedInUser={loggedInUser}>
+            <Outlet />
+          </AuthorizedRoute>
+        }>
+        <Route index element={<>!!!BRUH</>} />
+      </Route>
 
       <Route
         path='/register'
@@ -25,6 +33,8 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
           </AuthorizedRoute>
         }
       />
+
+      <Route path='*' element={<Navigate to={'/'} replace />} />
     </Routes>
   )
 }
