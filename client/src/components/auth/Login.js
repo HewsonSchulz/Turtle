@@ -6,12 +6,18 @@ import './auth.css'
 import { saveUser, updateStateObj } from '../../helper'
 
 export const Login = ({ setLoggedInUser }) => {
-  const [username, setUsername] = useState('hewson') // default username
+  const [username, setUsername] = useState('johndoe') // default username
   const [password, setPassword] = useState('bruh') // default password
-  const [invalid, setInvalid] = useState('')
+  const [isInvalid, setIsInvalid] = useState({ username: false, password: false })
   const [message, setMessage] = useState({ username: '', password: '' })
-
   const navigate = useNavigate()
+
+  const resetValidity = () => {
+    updateStateObj(setMessage, 'username', '')
+    updateStateObj(setMessage, 'password', '')
+    updateStateObj(setIsInvalid, 'username', false)
+    updateStateObj(setIsInvalid, 'password', false)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -21,25 +27,27 @@ export const Login = ({ setLoggedInUser }) => {
         saveUser(tokenData, setLoggedInUser)
         navigate('/')
       } else {
-        updateStateObj(setMessage, 'username', '')
-        updateStateObj(setMessage, 'password', '')
+        resetValidity()
 
         switch (tokenData.message) {
           case 'Missing properties: username, password':
-            updateStateObj(setMessage, 'password', 'Please enter a username and password')
-            setInvalid('all')
+            updateStateObj(setMessage, 'username', 'Please enter a username')
+            updateStateObj(setMessage, 'password', 'Please enter a password')
+            updateStateObj(setIsInvalid, 'username', true)
+            updateStateObj(setIsInvalid, 'password', true)
             break
           case 'Missing property: username':
             updateStateObj(setMessage, 'username', 'Please enter a username')
-            setInvalid('username')
+            updateStateObj(setIsInvalid, 'username', true)
             break
           case 'Missing property: password':
             updateStateObj(setMessage, 'password', 'Please enter a password')
-            setInvalid('password')
+            updateStateObj(setIsInvalid, 'password', true)
             break
           default:
             updateStateObj(setMessage, 'password', tokenData.message)
-            setInvalid('all')
+            updateStateObj(setIsInvalid, 'username', true)
+            updateStateObj(setIsInvalid, 'password', true)
         }
       }
     })
@@ -55,9 +63,9 @@ export const Login = ({ setLoggedInUser }) => {
             type='text'
             value={username}
             placeholder='Username'
-            invalid={invalid === 'username' || invalid === 'all'}
+            invalid={isInvalid.username}
             onChange={(e) => {
-              setInvalid('')
+              updateStateObj(setIsInvalid, 'username', false)
               setUsername(e.target.value.replace(/\s+/g, '').toLowerCase())
             }}
           />
@@ -70,9 +78,9 @@ export const Login = ({ setLoggedInUser }) => {
             type='password'
             value={password}
             placeholder='Password'
-            invalid={invalid === 'password' || invalid === 'all'}
+            invalid={isInvalid.password}
             onChange={(e) => {
-              setInvalid('')
+              updateStateObj(setIsInvalid, 'password', false)
               setPassword(e.target.value)
             }}
           />

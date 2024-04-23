@@ -21,7 +21,7 @@
     "model": "auth.user",
     "pk": 2,
     "fields": {
-      "password": "pbkdf2_sha256$720000$3Nv8C2BO4hi6tcKMePncTs$KJchw+ApYj9odc7nvFslLqR8rYdv+e9CPorE9bTsz74=",
+      "password": "pbkdf2_sha256$720000$TQ5jtClM4U1BsRdAITfVX0$MQClsJMY2wlS/2oKzW9Klpcmd95pGMbceFB2oxYbahE=",
       "last_login": null,
       "is_superuser": false,
       "username": "em.grace.00",
@@ -30,7 +30,25 @@
       "email": "",
       "is_staff": false,
       "is_active": true,
-      "date_joined": "2024-04-19 17:47:35.467203Z",
+      "date_joined": "2024-04-23 18:28:26.392390Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$J4FZENLX5umHBZ3aKtUYfn$VV3KpZbuhAFIiKT3XTQzhtX3i3OX+NgqZDb7QMo2fGE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "johndoe",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-04-23 19:06:10.942849Z",
       "groups": [],
       "user_permissions": []
     }

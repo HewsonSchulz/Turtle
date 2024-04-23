@@ -28,5 +28,20 @@
       "fav_food": 3,
       "fav_custard": 24
     }
+  },
+  {
+    "model": "turtleapi.employee",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "isAdmin": false,
+      "isGuest": true,
+      "date_employed": null,
+      "date_unemployed": null,
+      "rank": null,
+      "fav_position": null,
+      "fav_food": null,
+      "fav_custard": null
+    }
   }
 ]
