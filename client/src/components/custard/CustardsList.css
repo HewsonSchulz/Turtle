@@ -1,0 +1,33 @@
+.custards-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.custards-list__title {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.custards-list__flavors {
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.custards-list__flavor {
+  margin-bottom: 30px;
+}
+
+.custards-list__flavor-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.custards-list__flavor-description {
+  display: flex;
+}
+
+.custards-list__toppings {
+  display: flex;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { listFlavors } from '../../managers/custardManager'
+import './CustardsList.css'
 
 export const CustardsList = () => {
   const [flavors, setFlavors] = useState([])
@@ -8,19 +9,20 @@ export const CustardsList = () => {
     listFlavors().then(setFlavors)
   }, [])
 
-  //TODO: permanent styling
   return (
-    <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-      <h2 style={{ fontWeight: 'bold', fontSize: '20px', textAlign: 'center' }}>Custard Flavors</h2>
-      <div style={{ marginLeft: '50px', marginTop: '20px' }}>
+    <div className='custards-list'>
+      <h2 className='custards-list__title'>Custard Flavors</h2>
+      <div className='custards-list__flavors'>
         {flavors.map((flavor) => (
-          <ul key={flavor.id} style={{ marginBottom: '30px' }}>
-            <li style={{ fontWeight: 'bold', marginBottom: '10px' }}>{flavor.flavor}</li>
-            <li style={{ display: 'flex' }}>
+          <ul key={flavor.id} className='custards-list__flavor'>
+            <li className='custards-list__flavor-name'>{flavor.flavor}</li>
+            <li className='custards-list__flavor-description'>
               {flavor.base} base, with&nbsp;
-              <ul style={{ display: 'flex' }}>
+              <ul className='custards-list__toppings'>
                 {flavor.toppings.map((topping, index, array) => (
-                  <li key={index}>{index === array.length - 1 ? `and ${topping}.` : `${topping},`}&nbsp;</li>
+                  <li key={index} className='custards-list__topping'>
+                    {index === array.length - 1 ? `and ${topping}.` : `${topping},`}&nbsp;
+                  </li>
                 ))}
               </ul>
             </li>
