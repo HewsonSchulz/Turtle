@@ -31,6 +31,7 @@ font-family: 'Lato', sans-serif;
 
 body {
   font-family: 'Lato', sans-serif;
+  margin-top: 50px;
 }
 
 /* prevents all the links in the app from having default underline */

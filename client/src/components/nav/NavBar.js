@@ -7,36 +7,36 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
   const url = useLocation().pathname
 
   return (
-    <ul className='navbar'>
-      <li className='navbar-item'>
+    <ul className='navibar'>
+      <li className='navibar-item'>
         {loggedInUser && (
-          <Link to='/' className='navbar-link' id={url === '/' ? 'selected' : ''}>
+          <Link to='/' className='navibar-link' id={url === '/' ? 'selected' : ''}>
             Home
           </Link>
         )}
       </li>
 
-      <li className='navbar-item'>
-        <Link to='/flavors' className='navbar-link' id={url === '/flavors' ? 'selected' : ''}>
+      <li className='navibar-item'>
+        <Link to='/flavors' className='navibar-link' id={url === '/flavors' ? 'selected' : ''}>
           Custard
         </Link>
       </li>
 
       {localStorage.getItem('turtle_user') ? (
-        <li className='navbar-item navbar-logout'>
+        <li className='navibar-item navibar-logout'>
           <Link
             onClick={() => {
               localStorage.removeItem('turtle_user')
               setLoggedInUser(null)
               navigate('/login', { replace: true })
             }}
-            className='navbar-link'>
+            className='navibar-link'>
             Logout
           </Link>
         </li>
       ) : (
-        <li className='navbar-item navbar-logout'>
-          <Link to='/login' className='navbar-link'>
+        <li className='navibar-item navibar-logout'>
+          <Link to='/login' className='navibar-link'>
             Login
           </Link>
         </li>
