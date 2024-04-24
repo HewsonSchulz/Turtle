@@ -21,7 +21,12 @@ export const CustardsList = () => {
               <ul className='custards-list__toppings'>
                 {flavor.toppings.map((topping, index, array) => (
                   <li key={index} className='custards-list__topping'>
-                    {index === array.length - 1 ? `and ${topping}.` : `${topping},`}&nbsp;
+                    {index === array.length - 1
+                      ? array.length > 1
+                        ? `and ${topping}.`
+                        : ` ${topping}.`
+                      : `${topping},`}
+                    &nbsp;
                   </li>
                 ))}
               </ul>
