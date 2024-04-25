@@ -4,6 +4,7 @@ import { Register } from './auth/Register'
 import { Login } from './auth/Login'
 import { NavBar } from './nav/NavBar'
 import { CustardsList } from './custard/CustardsList'
+import { CustardForm } from './custard/CustardForm'
 
 export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
   return (
@@ -18,7 +19,10 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
         }>
         <Route index element={<>{/*!Home Page*/}</>} />
 
-        <Route path='/flavors' element={<CustardsList />} />
+        <Route path='/flavors'>
+          <Route index element={<CustardsList />} />
+          <Route path='new' element={<CustardForm />} />
+        </Route>
       </Route>
 
       <Route

@@ -22,6 +22,12 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
         </Link>
       </li>
 
+      <li className='navibar-item'>
+        <Link to='/flavors/new' className='navibar-link' id={url === '/flavors/new' ? 'selected' : ''}>
+          Add Flavor
+        </Link>
+      </li>
+
       {localStorage.getItem('turtle_user') ? (
         <li className='navibar-item navibar-logout'>
           <Link

@@ -7,3 +7,7 @@ export const retrieveFlavor = async (pk) => {
 export const listFlavors = async () => {
   return await fetch(`${apiUrl}/custards`, fetchOptions('GET')).then((res) => res.json())
 }
+
+export const listToppings = async () => {
+  return await fetch(`${apiUrl}/toppings`, fetchOptions('GET')).then((res) => res.json())
+}
