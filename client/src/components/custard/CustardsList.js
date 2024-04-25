@@ -16,7 +16,9 @@ export const CustardsList = () => {
           <ul key={flavor.id} className='custards-list__flavor'>
             <li className='custards-list__flavor-name'>{flavor.flavor}</li>
             <li className='custards-list__flavor-description'>
-              {flavor.base} base, with&nbsp;
+              <i>
+                {flavor.base} base{flavor.toppings.length ? ', with ' : '.'}
+              </i>
               <ul className='custards-list__toppings'>
                 {flavor.toppings.map((topping, index, array) => (
                   <li key={index} className='custards-list__topping'>

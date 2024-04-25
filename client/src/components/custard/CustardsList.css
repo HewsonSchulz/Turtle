@@ -26,6 +26,9 @@
 
 .custards-list__flavor-description {
   display: flex;
+  i {
+    margin-right: 3px;
+  }
 }
 
 .custards-list__toppings {

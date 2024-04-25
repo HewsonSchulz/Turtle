@@ -1,16 +1,23 @@
 import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 import { Button } from 'reactstrap'
-import { listToppings } from '../../managers/custardManager'
+import { createFlavor, listCustardBases, listToppings } from '../../managers/custardManager'
+import { useNavigate } from 'react-router-dom'
 
 export const CustardForm = () => {
-  const [name, setName] = useState('')
-  const [base, setBase] = useState('')
+  const [flavorName, setFlavorName] = useState('')
+  const [selectedBase, setSelectedBase] = useState('')
   const [selectedToppings, setSelectedToppings] = useState([])
+  const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const { data: toppings } = useQuery({
     queryKey: ['toppings'],
     queryFn: listToppings,
+  })
+  const { data: custardBases } = useQuery({
+    queryKey: ['custardBases'],
+    queryFn: listCustardBases,
   })
 
   const handleToppingChange = (topping) => {
@@ -25,7 +32,19 @@ export const CustardForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    //TODO: handle form submission
+
+    createFlavor({
+      flavor: flavorName,
+      base: selectedBase,
+      toppings: selectedToppings,
+    }).then((res) => {
+      if (res.valid) {
+        queryClient.invalidateQueries(['flavors'])
+        navigate('/flavors')
+      } else {
+        //TODO: handle invalid request
+      }
+    })
   }
 
   return (
@@ -34,11 +53,18 @@ export const CustardForm = () => {
         <div>
           <div>
             <label htmlFor='name'>Name:</label>
-            <input type='text' id='name' value={name} onChange={(e) => setName(e.target.value)} />
+            <input type='text' id='name' value={flavorName} onChange={(e) => setFlavorName(e.target.value)} />
           </div>
           <div>
             <label htmlFor='base'>Base:</label>
-            <input type='text' id='base' value={base} onChange={(e) => setBase(e.target.value)} />
+            <select id='base' value={selectedBase} onChange={(e) => setSelectedBase(e.target.value)}>
+              <option value={''}>Select a base</option>
+              {custardBases?.map((base) => (
+                <option key={base} value={base}>
+                  {base}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
         <div>

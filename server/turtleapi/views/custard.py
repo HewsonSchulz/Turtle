@@ -10,7 +10,7 @@ from .view_utils import calc_missing_props
 class CustardFlavors(ViewSet):
     def list(self, request):
         try:
-            custards = Custard.objects.all()
+            custards = Custard.objects.all().order_by('flavor')
             return Response(
                 CustardSerializer(
                     custards, many=True, context={'request': request}

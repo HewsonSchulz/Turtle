@@ -1,15 +1,15 @@
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from turtleapi.models import Topping
+from turtleapi.models import CustardBase
 
 
-class Toppings(ViewSet):
+class CustardBases(ViewSet):
     def list(self, request):
         try:
-            topping_objs = Topping.objects.all().order_by('topping')
-            toppings = [topping.topping for topping in topping_objs]
-            return Response(toppings)
+            base_objs = CustardBase.objects.all().order_by('base')
+            bases = [base.base for base in base_objs]
+            return Response(bases)
 
         except Exception as ex:
             return Response(
@@ -18,13 +18,13 @@ class Toppings(ViewSet):
 
     def retrieve(self, request, pk=None):
         try:
-            topping = Topping.objects.get(pk=pk)
+            base = CustardBase.objects.get(pk=pk)
             return Response(
-                ToppingSerializer(
-                    topping, many=False, context={'request': request}
+                CustardBaseSerializer(
+                    base, many=False, context={'request': request}
                 ).data
             )
-        except Topping.DoesNotExist as ex:
+        except CustardBase.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as ex:
             return Response(
@@ -32,7 +32,7 @@ class Toppings(ViewSet):
             )
 
 
-class ToppingSerializer(serializers.ModelSerializer):
+class CustardBaseSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Topping
-        fields = ['id', 'topping']
+        model = CustardBase
+        fields = ['id', 'base']
