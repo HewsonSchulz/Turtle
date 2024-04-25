@@ -53,7 +53,7 @@ class CustardFlavors(ViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        if Custard.objects.filter(flavor=req_body.get('flavor')).exists():
+        if Custard.objects.filter(flavor=req_body.get('flavor').strip()).exists():
             # custard flavor already exists
             return Response(
                 {'valid': False, 'message': 'That custard flavor already exists'},
@@ -73,7 +73,7 @@ class CustardFlavors(ViewSet):
 
         # create custard flavor
         new_custard = Custard.objects.create(
-            flavor=req_body.get('flavor'),
+            flavor=req_body.get('flavor').strip(),
             image_path=req_body.get('image_path'),
             base=base,
         )
@@ -81,6 +81,7 @@ class CustardFlavors(ViewSet):
         # add toppings
         toppings = req_body.get('toppings', [])
         if len(toppings) > 0:
+            toppings = sorted(toppings, key=lambda x: x.lower())
             for new_topping in toppings:
                 try:
                     try:
@@ -123,7 +124,7 @@ class CustardFlavors(ViewSet):
         # update flavor
         if req_body.get('flavor'):
             if (
-                Custard.objects.filter(flavor=req_body.get('flavor'))
+                Custard.objects.filter(flavor=req_body.get('flavor').strip())
                 .exclude(pk=custard.pk)
                 .exists()
             ):
@@ -133,7 +134,7 @@ class CustardFlavors(ViewSet):
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             else:
-                custard.flavor = req_body.get('flavor')
+                custard.flavor = req_body.get('flavor').strip()
 
         # update base
         try:
@@ -162,6 +163,7 @@ class CustardFlavors(ViewSet):
             custard.toppings.clear()
             toppings = req_body.get('toppings', [])
             if len(toppings) > 0:
+                toppings = sorted(toppings, key=lambda x: x.lower())
                 for new_topping in toppings:
                     try:
                         try:
