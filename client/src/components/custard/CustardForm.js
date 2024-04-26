@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
-import { Button } from 'reactstrap'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import { createFlavor, listCustardBases, listToppings } from '../../managers/custardManager'
 import { useNavigate } from 'react-router-dom'
 
@@ -42,49 +42,70 @@ export const CustardForm = () => {
         queryClient.invalidateQueries(['flavors'])
         navigate('/flavors')
       } else {
-        //TODO: handle invalid request
+        switch (res.message) {
+          case 'Missing properties: flavor, base':
+            window.alert('Please specify a flavor name, and base for your custard')
+            break
+          case 'Missing property: flavor':
+            window.alert('Please specify a flavor name for your custard')
+            break
+          case 'Missing property: base':
+            window.alert('Please specify a base for your custard')
+            break
+          default:
+            window.alert(res.message)
+        }
       }
     })
   }
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+      <Form style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <div>
-          <div>
-            <label htmlFor='name'>Name:</label>
-            <input type='text' id='name' value={flavorName} onChange={(e) => setFlavorName(e.target.value)} />
-          </div>
-          <div>
-            <label htmlFor='base'>Base:</label>
-            <select id='base' value={selectedBase} onChange={(e) => setSelectedBase(e.target.value)}>
+          <FormGroup>
+            <Label for='name'>Flavor Name:</Label>{' '}
+            <Input
+              type='text'
+              id='name'
+              value={flavorName}
+              onChange={(e) => setFlavorName(e.target.value)}
+              placeholder='Birthday Cake'
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for='base'>Base:</Label>{' '}
+            <Input type='select' id='base' value={selectedBase} onChange={(e) => setSelectedBase(e.target.value)}>
               <option value={''}>Select a base</option>
               {custardBases?.map((base) => (
                 <option key={base} value={base}>
                   {base}
                 </option>
               ))}
-            </select>
-          </div>
+            </Input>
+          </FormGroup>
+
+          <Button color='primary' onClick={handleSubmit} style={{ marginTop: '100px' }}>
+            Save
+          </Button>
         </div>
-        <div>
-          <label>Toppings:</label>
+        <FormGroup>
+          <Label>Toppings:</Label>
           {toppings?.map((topping) => (
-            <div key={topping}>
-              <input
-                type='checkbox'
-                id={topping}
-                checked={selectedToppings.includes(topping)}
-                onChange={() => handleToppingChange(topping)}
-              />
-              <label htmlFor={topping}>{topping}</label>
-            </div>
+            <FormGroup check key={topping}>
+              <Label check>
+                <Input
+                  type='checkbox'
+                  id={topping}
+                  checked={selectedToppings.includes(topping)}
+                  onChange={() => handleToppingChange(topping)}
+                />{' '}
+                {topping}
+              </Label>
+            </FormGroup>
           ))}
-        </div>
-      </div>
-      <Button color='primary' onClick={handleSubmit}>
-        Save
-      </Button>
+        </FormGroup>
+      </Form>
     </div>
   )
 }
