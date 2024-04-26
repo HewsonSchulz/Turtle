@@ -83,11 +83,15 @@ export const CustardForm = () => {
 
   useEffect(() => {
     if (!!custardFlavor) {
-      setFlavorName(custardFlavor.flavor)
-      setSelectedBase(custardFlavor.base)
-      setSelectedToppings(custardFlavor.toppings)
+      if (!!custardFlavor.id) {
+        setFlavorName(custardFlavor.flavor)
+        setSelectedBase(custardFlavor.base)
+        setSelectedToppings(custardFlavor.toppings)
+      } else {
+        navigate('/flavors/new')
+      }
     }
-  }, [custardFlavor])
+  }, [custardFlavor, navigate])
 
   return (
     <div>
