@@ -106,7 +106,7 @@ export const CustardForm = () => {
           <FormGroup>
             <Label for='base'>Base:</Label>{' '}
             <Input type='select' id='base' value={selectedBase} onChange={(e) => setSelectedBase(e.target.value)}>
-              <option value={''}>Select a base</option>
+              {!flavorId && <option value={''}>Select a base</option>}
               {custardBases?.map((base) => (
                 <option key={base} value={base}>
                   {base}

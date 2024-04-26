@@ -27,7 +27,7 @@ class Employees(ViewSet):
                 ).data
             )
         except Employee.DoesNotExist as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return Response(
                 {'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
