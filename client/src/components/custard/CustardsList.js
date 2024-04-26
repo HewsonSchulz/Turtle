@@ -1,12 +1,28 @@
-import { useQuery } from '@tanstack/react-query'
-import { listFlavors } from '../../managers/custardManager'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { destroyFlavor, listFlavors } from '../../managers/custardManager'
+import { Button } from 'reactstrap'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { scrollToTop } from '../../helper'
 import './CustardsList.css'
 
 export const CustardsList = () => {
+  const navigate = useNavigate()
+  const queryClient = useQueryClient()
   const { data: flavors } = useQuery({
     queryKey: ['flavors'],
     queryFn: listFlavors,
   })
+
+  const handleDelete = (flavor) => {
+    if (window.confirm(`Are you sure you want to delete ${flavor.flavor}?`)) {
+      destroyFlavor(flavor.id).then(queryClient.invalidateQueries(['flavors']))
+    }
+  }
+
+  useEffect(() => {
+    scrollToTop()
+  }, [])
 
   return (
     <div className='custards-list'>
@@ -14,24 +30,32 @@ export const CustardsList = () => {
       <div className='custards-list__flavors'>
         {flavors?.map((flavor) => (
           <ul key={flavor.id} className='custards-list__flavor'>
-            <li className='custards-list__flavor-name'>{flavor.flavor}</li>
-            <li className='custards-list__flavor-description'>
-              <i>
-                {flavor.base} base{flavor.toppings.length ? ', with ' : '.'}
-              </i>
-              <ul className='custards-list__toppings'>
-                {flavor.toppings.map((topping, index, array) => (
-                  <li key={index} className='custards-list__topping'>
-                    {index === array.length - 1
-                      ? array.length > 1
-                        ? `and ${topping}.`
-                        : ` ${topping}.`
-                      : `${topping},`}
-                    &nbsp;
-                  </li>
-                ))}
-              </ul>
-            </li>
+            <Button color='danger' className='delete-btn' onClick={() => handleDelete(flavor)}>
+              Delete
+            </Button>
+            <Button color='warning' className='edit-btn' onClick={() => navigate(`/flavors/edit/${flavor.id}`)}>
+              Edit
+            </Button>
+            <div>
+              <li className='custards-list__flavor-name'>{flavor.flavor}</li>
+              <li className='custards-list__flavor-description'>
+                <i>
+                  {flavor.base} base{flavor.toppings.length ? ', with ' : '.'}
+                </i>
+                <ul className='custards-list__toppings'>
+                  {flavor.toppings.map((topping, index, array) => (
+                    <li key={index} className='custards-list__topping'>
+                      {index === array.length - 1
+                        ? array.length > 1
+                          ? `and ${topping}.`
+                          : ` ${topping}.`
+                        : `${topping},`}
+                      &nbsp;
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </div>
           </ul>
         ))}
       </div>

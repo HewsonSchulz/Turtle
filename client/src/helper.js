@@ -45,3 +45,8 @@ export const saveUser = (data, setLoggedInUser) => {
     setLoggedInUser(newUser)
   })
 }
+
+// scroll to top of page
+export const scrollToTop = () => {
+  window.scrollTo(0, 0)
+}

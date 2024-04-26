@@ -9,6 +9,7 @@ import {
   updateFlavor,
 } from '../../managers/custardManager'
 import { useNavigate, useParams } from 'react-router-dom'
+import { scrollToTop } from '../../helper'
 
 export const CustardForm = () => {
   const [flavorName, setFlavorName] = useState('')
@@ -80,6 +81,10 @@ export const CustardForm = () => {
       }
     })
   }
+
+  useEffect(() => {
+    scrollToTop()
+  }, [])
 
   useEffect(() => {
     if (!!custardFlavor) {

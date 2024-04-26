@@ -11,12 +11,19 @@
 }
 
 .custards-list__flavors {
-  margin-left: 50px;
+  margin-left: 10px;
   margin-top: 20px;
 }
 
 .custards-list__flavor {
   margin-bottom: 30px;
+  display: flex;
+  .delete-btn {
+    margin-right: 10px;
+  }
+  .edit-btn {
+    margin-right: 35px;
+  }
 }
 
 .custards-list__flavor-name {
