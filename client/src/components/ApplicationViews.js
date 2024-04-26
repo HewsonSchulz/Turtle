@@ -22,6 +22,10 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
         <Route path='/flavors'>
           <Route index element={<CustardsList />} />
           <Route path='new' element={<CustardForm />} />
+          <Route path='edit'>
+            <Route index element={<Navigate to={'/flavors'} replace />} />
+            <Route path=':flavorId' element={<CustardForm />} />
+          </Route>
         </Route>
       </Route>
 

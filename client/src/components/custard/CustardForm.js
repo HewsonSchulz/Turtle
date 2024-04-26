@@ -1,8 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
-import { createFlavor, listCustardBases, listToppings } from '../../managers/custardManager'
-import { useNavigate } from 'react-router-dom'
+import {
+  createFlavor,
+  listCustardBases,
+  listToppings,
+  retrieveFlavor,
+  updateFlavor,
+} from '../../managers/custardManager'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export const CustardForm = () => {
   const [flavorName, setFlavorName] = useState('')
@@ -10,6 +16,7 @@ export const CustardForm = () => {
   const [selectedToppings, setSelectedToppings] = useState([])
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const { flavorId } = useParams()
 
   const { data: toppings } = useQuery({
     queryKey: ['toppings'],
@@ -18,6 +25,11 @@ export const CustardForm = () => {
   const { data: custardBases } = useQuery({
     queryKey: ['custardBases'],
     queryFn: listCustardBases,
+  })
+  const { data: custardFlavor } = useQuery({
+    queryKey: ['flavor', flavorId],
+    queryFn: () => retrieveFlavor(flavorId),
+    enabled: !!flavorId,
   })
 
   const handleToppingChange = (topping) => {
@@ -30,10 +42,20 @@ export const CustardForm = () => {
     }
   }
 
+  const createOrUpdateFlavor = async (flavor) => {
+    if (!flavorId) {
+      // create new custard flavor
+      return await createFlavor(flavor)
+    } else {
+      // edit existing custard flavor
+      return await updateFlavor(flavor, flavorId)
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    createFlavor({
+    createOrUpdateFlavor({
       flavor: flavorName,
       base: selectedBase,
       toppings: selectedToppings,
@@ -58,6 +80,14 @@ export const CustardForm = () => {
       }
     })
   }
+
+  useEffect(() => {
+    if (!!custardFlavor) {
+      setFlavorName(custardFlavor.flavor)
+      setSelectedBase(custardFlavor.base)
+      setSelectedToppings(custardFlavor.toppings)
+    }
+  }, [custardFlavor])
 
   return (
     <div>
