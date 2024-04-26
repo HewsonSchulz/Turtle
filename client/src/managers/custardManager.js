@@ -17,7 +17,7 @@ export const updateFlavor = async (flavor, pk) => {
 }
 
 export const destroyFlavor = async (pk) => {
-  return await fetch(`${apiUrl}/custards/${pk}`, fetchOptions('DELETE')).then((res) => res.json())
+  return await fetch(`${apiUrl}/custards/${pk}`, fetchOptions('DELETE'))
 }
 
 export const listToppings = async () => {

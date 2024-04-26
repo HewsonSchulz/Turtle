@@ -14,9 +14,10 @@ export const CustardsList = () => {
     queryFn: listFlavors,
   })
 
-  const handleDelete = (flavor) => {
+  const handleDelete = async (flavor) => {
     if (window.confirm(`Are you sure you want to delete ${flavor.flavor}?`)) {
-      destroyFlavor(flavor.id).then(queryClient.invalidateQueries(['flavors']))
+      await destroyFlavor(flavor.id)
+      queryClient.invalidateQueries(['flavors'])
     }
   }
 

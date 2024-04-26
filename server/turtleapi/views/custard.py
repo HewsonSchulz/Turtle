@@ -185,6 +185,19 @@ class CustardFlavors(ViewSet):
             }
         )
 
+    def destroy(self, request, pk=None):
+        try:
+            custard = Custard.objects.get(pk=pk)
+        except Custard.DoesNotExist:
+            return Response(
+                {'message': 'That custard flavor does not exist'},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        custard.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class CustardSerializer(serializers.ModelSerializer):
     base = serializers.CharField(source='base.base')
