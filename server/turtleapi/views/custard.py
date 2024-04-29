@@ -3,8 +3,9 @@ from json.decoder import JSONDecodeError
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from turtleapi.models import Custard, CustardBase, Topping
+from turtleapi.models import Custard, CustardBase, Topping, Employee
 from .view_utils import calc_missing_props
+from .employee import EmployeeSerializer
 
 
 class CustardFlavors(ViewSet):
@@ -73,6 +74,7 @@ class CustardFlavors(ViewSet):
 
         # create custard flavor
         new_custard = Custard.objects.create(
+            creator_id=request.auth.user.id,
             flavor=req_body.get('flavor').strip(),
             image_path=req_body.get('image_path'),
             base=base,
@@ -207,6 +209,7 @@ class CustardSerializer(serializers.ModelSerializer):
         model = Custard
         fields = [
             'id',
+            'creator_id',
             'flavor',
             'base',
             'toppings',
@@ -215,3 +218,7 @@ class CustardSerializer(serializers.ModelSerializer):
 
     def get_toppings(self, custard):
         return [topping.topping for topping in custard.toppings.all()]
+
+    # def get_creator(self, custard):
+    #     creator = Employee.objects.get(pk=custard.creator_id)
+    #     return EmployeeSerializer(creator, many=False).data
