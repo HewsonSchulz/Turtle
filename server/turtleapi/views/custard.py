@@ -117,10 +117,18 @@ class CustardFlavors(ViewSet):
 
         try:
             custard = Custard.objects.get(pk=pk)
+            employee = Employee.objects.get(user=request.auth.user)
         except Custard.DoesNotExist:
             return Response(
                 {'valid': False, 'message': 'That custard flavor does not exist'},
                 status=status.HTTP_404_NOT_FOUND,
+            )
+
+        if (employee.id != custard.creator_id) and (not employee.is_admin):
+            # user has invalid permission
+            return Response(
+                {'valid': False, 'message': '''You don't have permission to do that'''},
+                status=status.HTTP_401_UNAUTHORIZED,
             )
 
         # update flavor
@@ -190,10 +198,18 @@ class CustardFlavors(ViewSet):
     def destroy(self, request, pk=None):
         try:
             custard = Custard.objects.get(pk=pk)
+            employee = Employee.objects.get(user=request.auth.user)
         except Custard.DoesNotExist:
             return Response(
                 {'message': 'That custard flavor does not exist'},
                 status=status.HTTP_404_NOT_FOUND,
+            )
+
+        if (employee.id != custard.creator_id) and (not employee.is_admin):
+            # user has invalid permission
+            return Response(
+                {'valid': False, 'message': '''You don't have permission to do that'''},
+                status=status.HTTP_401_UNAUTHORIZED,
             )
 
         custard.delete()

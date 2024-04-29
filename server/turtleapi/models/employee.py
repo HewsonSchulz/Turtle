@@ -6,8 +6,8 @@ User = get_user_model()
 
 class Employee(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    isAdmin = models.BooleanField(default=False)
-    isGuest = models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=False)
+    is_guest = models.BooleanField(default=False)
     date_employed = models.DateTimeField(null=True)
     date_unemployed = models.DateTimeField(null=True, blank=True)
     fav_position = models.ForeignKey(

@@ -60,8 +60,8 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'last_name',
             'date_joined',
             'last_login',
-            'isAdmin',
-            'isGuest',
+            'is_admin',
+            'is_guest',
             'date_employed',
             'date_unemployed',
             'rank',
@@ -76,7 +76,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
         excluded_fields = [
             'first_name',
             'last_name',
-            'isAdmin',
+            'is_admin',
             'date_employed',
             'date_unemployed',
             'rank',
@@ -84,7 +84,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'fav_custard',
             'fav_food',
         ]
-        if instance.isGuest:
+        if instance.is_guest:
             for field in excluded_fields:
                 representation.pop(field)
         return representation

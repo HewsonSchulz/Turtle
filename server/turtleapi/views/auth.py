@@ -99,8 +99,8 @@ def register_user(request):
             # create new employee
             new_employee = Employee.objects.create(
                 user=new_user,
-                isAdmin=False,
-                isGuest=False,
+                is_admin=False,
+                is_guest=False,
                 date_employed=req_body.get('date_employed'),
                 date_unemployed=req_body.get('date_unemployed'),
                 rank=rank,
@@ -122,7 +122,7 @@ def register_user(request):
 
             # create new employee
             new_employee = Employee.objects.create(
-                user=new_user, isAdmin=False, isGuest=True
+                user=new_user, is_admin=False, is_guest=True
             )
 
         return JsonResponse(
