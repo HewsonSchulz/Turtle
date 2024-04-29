@@ -1,5 +1,4 @@
 from django.db import models
-from .custard import Custard
 
 
 class CustardBase(models.Model):

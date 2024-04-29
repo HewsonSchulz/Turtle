@@ -5,7 +5,6 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from turtleapi.models import Custard, CustardBase, Topping, Employee
 from .view_utils import calc_missing_props
-from .employee import EmployeeSerializer
 
 
 class CustardFlavors(ViewSet):
