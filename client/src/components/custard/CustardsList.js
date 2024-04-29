@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import { scrollToTop } from '../../helper'
 import './CustardsList.css'
 
-export const CustardsList = () => {
+export const CustardsList = ({ loggedInUser }) => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const { data: flavors } = useQuery({
@@ -31,12 +31,6 @@ export const CustardsList = () => {
       <div className='custards-list__flavors'>
         {flavors?.map((flavor) => (
           <ul key={flavor.id} className='custards-list__flavor'>
-            <Button color='danger' className='delete-btn' onClick={() => handleDelete(flavor)}>
-              Delete
-            </Button>
-            <Button color='warning' className='edit-btn' onClick={() => navigate(`/flavors/edit/${flavor.id}`)}>
-              Edit
-            </Button>
             <div>
               <li className='custards-list__flavor-name'>{flavor.flavor}</li>
               <li className='custards-list__flavor-description'>
@@ -57,6 +51,16 @@ export const CustardsList = () => {
                 </ul>
               </li>
             </div>
+            {(loggedInUser.is_admin || loggedInUser.id === flavor.creator_id) && (
+              <div className='custards-list__buttons'>
+                <Button color='warning' className='edit-btn' onClick={() => navigate(`/flavors/edit/${flavor.id}`)}>
+                  Edit
+                </Button>
+                <Button color='danger' className='delete-btn' onClick={() => handleDelete(flavor)}>
+                  Delete
+                </Button>
+              </div>
+            )}
           </ul>
         ))}
       </div>

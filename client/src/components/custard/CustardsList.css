@@ -18,12 +18,7 @@
 .custards-list__flavor {
   margin-bottom: 30px;
   display: flex;
-  .delete-btn {
-    margin-right: 10px;
-  }
-  .edit-btn {
-    margin-right: 35px;
-  }
+  justify-content: space-between;
 }
 
 .custards-list__flavor-name {
@@ -40,4 +35,8 @@
 
 .custards-list__toppings {
   display: flex;
+}
+
+.custards-list__buttons > * {
+  margin-right: 20px;
 }
