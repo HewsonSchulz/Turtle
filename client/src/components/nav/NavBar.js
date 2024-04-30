@@ -1,10 +1,29 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import './NavBar.css'
 
 export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
   const navigate = useNavigate()
   const url = useLocation().pathname
+  const [showLogout, setShowLogout] = useState(false)
+
+  const toggleDropdown = () => {
+    setShowLogout(!showLogout)
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem('turtle_user')
+    setLoggedInUser(null)
+    navigate('/login', { replace: true })
+    setShowLogout(false)
+  }
+
+  useEffect(() => {
+    setShowLogout(false)
+  }, [url])
 
   return (
     <>
@@ -15,20 +34,23 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
         </li>
         {localStorage.getItem('turtle_user') && (
           <Link className='navibar-link'>
-            <li
-              onClick={() => {
-                if (window.confirm('Would you like to logout?')) {
-                  localStorage.removeItem('turtle_user')
-                  setLoggedInUser(null)
-                  navigate('/login', { replace: true })
-                }
-              }}
-              className='header-item header__logout'>
-              Logged in as <i style={{ fontWeight: 'bold' }}>{loggedInUser.username}</i>
+            <li className='header-item header__logout' onClick={toggleDropdown}>
+              Logged in as{' '}
+              <i style={{ fontWeight: 'bold' }}>
+                {loggedInUser.username} &emsp;
+                <FontAwesomeIcon icon={faCaretDown} />
+              </i>
             </li>
+
+            {showLogout && (
+              <div className='logout__dropdown' onClick={handleLogout}>
+                <div className='header-item logout-btn'>Logout</div>
+              </div>
+            )}
           </Link>
         )}
       </ul>
+
       <ul className='navibar'>
         {loggedInUser && (
           <Link to='/' className='navibar-link'>

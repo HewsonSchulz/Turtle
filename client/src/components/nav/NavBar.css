@@ -43,7 +43,11 @@
 }
 
 .header__logout {
-  margin-right: 40px;
+  margin-right: 15px;
+}
+
+.header__logout:hover {
+  color: var(--gray);
 }
 
 .header__title > * {
@@ -63,4 +67,19 @@
   margin-left: 75px;
   margin-top: 7px;
   filter: invert();
+}
+
+.logout__dropdown {
+  position: fixed;
+  background-color: var(--primary-hover);
+  padding: 15px 15px;
+  padding-right: 101%;
+  margin-top: 19px;
+  margin-left: -15px;
+  box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.6);
+  opacity: 95%;
+}
+
+.logout__dropdown:hover {
+  background-color: var(--primary-dark);
 }
