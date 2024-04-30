@@ -11,7 +11,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom'
 import { scrollToTop } from '../../helper'
 
-export const CustardForm = () => {
+export const CustardForm = ({ loggedInUser }) => {
   const [flavorName, setFlavorName] = useState('')
   const [selectedBase, setSelectedBase] = useState('')
   const [selectedToppings, setSelectedToppings] = useState([])
@@ -85,6 +85,14 @@ export const CustardForm = () => {
   useEffect(() => {
     scrollToTop()
   }, [])
+
+  useEffect(() => {
+    if (!!loggedInUser && loggedInUser !== 'loading' && !!custardFlavor) {
+      if (!(loggedInUser.is_admin || loggedInUser.id === custardFlavor.creator_id)) {
+        navigate('/flavors/new')
+      }
+    }
+  }, [custardFlavor, loggedInUser, navigate])
 
   useEffect(() => {
     if (!!custardFlavor) {
