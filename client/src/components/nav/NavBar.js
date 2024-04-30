@@ -7,46 +7,49 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
   const url = useLocation().pathname
 
   return (
-    <ul className='navibar'>
-      <li className='navibar-item'>
-        {loggedInUser && (
-          <Link to='/' className='navibar-link' id={url === '/' ? 'selected' : ''}>
-            Home
+    <>
+      <ul className='header'>
+        <li className='header-item header__title'>
+          <img className='header__icon' src='/assets/turtle-icon.png' alt='turtle custard flavor' />
+          <img className='header__text' src='/assets/turtle-title.png' alt='turtle logo' />
+        </li>
+        {localStorage.getItem('turtle_user') && (
+          <Link className='navibar-link'>
+            <li
+              onClick={() => {
+                if (window.confirm('Would you like to logout?')) {
+                  localStorage.removeItem('turtle_user')
+                  setLoggedInUser(null)
+                  navigate('/login', { replace: true })
+                }
+              }}
+              className='header-item header__logout'>
+              Logged in as <i style={{ fontWeight: 'bold' }}>{loggedInUser.username}</i>
+            </li>
           </Link>
         )}
-      </li>
-
-      <li className='navibar-item'>
-        <Link to='/flavors' className='navibar-link' id={url === '/flavors' ? 'selected' : ''}>
-          Custard
-        </Link>
-      </li>
-
-      <li className='navibar-item'>
-        <Link to='/flavors/new' className='navibar-link' id={url === '/flavors/new' ? 'selected' : ''}>
-          Add Flavor
-        </Link>
-      </li>
-
-      {localStorage.getItem('turtle_user') ? (
-        <li className='navibar-item navibar-logout'>
-          <Link
-            onClick={() => {
-              localStorage.removeItem('turtle_user')
-              setLoggedInUser(null)
-              navigate('/login', { replace: true })
-            }}
-            className='navibar-link'>
-            Logout
+      </ul>
+      <ul className='navibar'>
+        {loggedInUser && (
+          <Link to='/' className='navibar-link'>
+            <li className='navibar-item' id={url === '/' ? 'selected' : ''}>
+              Home
+            </li>
           </Link>
-        </li>
-      ) : (
-        <li className='navibar-item navibar-logout'>
-          <Link to='/login' className='navibar-link'>
-            Login
-          </Link>
-        </li>
-      )}
-    </ul>
+        )}
+
+        <Link to='/flavors' className='navibar-link'>
+          <li className='navibar-item' id={url === '/flavors' ? 'selected' : ''}>
+            Custard
+          </li>
+        </Link>
+
+        <Link to='/flavors/new' className='navibar-link'>
+          <li className='navibar-item' id={url === '/flavors/new' ? 'selected' : ''}>
+            Add Flavor
+          </li>
+        </Link>
+      </ul>
+    </>
   )
 }

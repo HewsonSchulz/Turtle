@@ -172,7 +172,7 @@ def login_user(request):
         else:
             # user does not exist
             return JsonResponse(
-                {'valid': False, 'message': 'Invalid username or password'},
+                {'valid': False, 'message': 'Incorrect username or password'},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 

@@ -14,7 +14,9 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
         element={
           <AuthorizedRoute loggedInUser={loggedInUser}>
             <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
-            <Outlet />
+            <div className='app-container'>
+              <Outlet />
+            </div>
           </AuthorizedRoute>
         }>
         <Route index element={<>{/*!Home Page*/}</>} />

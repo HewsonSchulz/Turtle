@@ -1,28 +1,30 @@
 /** COLOR PALETTE **/
-/* :root {
-  --primary: #4cb44a;
-  --primary-dark: #3b8d39;
-  --primary-light: #59d457;
-  --primary-darker: #398536;
-
-  --secondary: #448cde;
-  --secondary-dark: #2870c3;
+:root {
+  --primary: #132e74;
+  --primary-dark: #0e193b;
+  --primary-hover: #0f204f;
 
   --info: #ffb400;
   --warning: #f61d1d;
 
-  --white: #ffffff;
-  --offWhite: #f2f2f3;
-  --dark: #3b3b3b;
-  --darker: #252525;
-  --outline: #c3c0c0;
+  --white: white;
+  --gray: lightgray;
+  /* --dark: #3b3b3b; */
+  /* --darker: #252525; */
 
-  --appBackground: #222222;
-} */
+  --outline: lightgray;
+
+  --appBackground: white;
+}
 
 body {
   font-family: sans-serif;
-  margin-top: 50px;
+  background-color: var(--appBackground);
+}
+
+.app-container {
+  margin-top: 80px;
+  margin-left: 210px;
 }
 
 /* prevents all the links in the app from having default underline */
