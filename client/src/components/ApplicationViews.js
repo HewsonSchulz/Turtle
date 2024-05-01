@@ -19,7 +19,7 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
             </div>
           </AuthorizedRoute>
         }>
-        <Route index element={<>{/*!Home Page*/}</>} />
+        <Route index element={<Navigate to={'/flavors'} replace />} />
 
         <Route path='/flavors'>
           <Route index element={<CustardsList loggedInUser={loggedInUser} />} />

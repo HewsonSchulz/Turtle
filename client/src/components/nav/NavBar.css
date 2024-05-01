@@ -52,20 +52,21 @@
 
 .header__title > * {
   top: 0;
+  user-select: none;
 }
 
 .header__icon {
   position: fixed;
   height: 70px;
   margin-left: 5px;
-  margin-top: -10px;
+  margin-top: -7px;
 }
 
 .header__text {
   position: fixed;
   height: 45px;
   margin-left: 75px;
-  margin-top: 7px;
+  margin-top: 10px;
   filter: invert();
 }
 

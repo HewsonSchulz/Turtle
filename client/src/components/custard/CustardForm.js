@@ -116,13 +116,19 @@ export const CustardForm = ({ loggedInUser }) => {
               type='text'
               id='name'
               value={flavorName}
+              className='custard-form__input'
               onChange={(e) => setFlavorName(e.target.value)}
               placeholder='Birthday Cake'
             />
           </FormGroup>
           <FormGroup>
             <Label for='base'>Base:</Label>{' '}
-            <Input type='select' id='base' value={selectedBase} onChange={(e) => setSelectedBase(e.target.value)}>
+            <Input
+              type='select'
+              id='base'
+              value={selectedBase}
+              className='custard-form__input'
+              onChange={(e) => setSelectedBase(e.target.value)}>
               {!flavorId && <option value={''}>Select a base</option>}
               {custardBases?.map((base) => (
                 <option key={base} value={base}>

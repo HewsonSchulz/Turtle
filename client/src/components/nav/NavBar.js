@@ -55,17 +55,9 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
       </ul>
 
       <ul className='navibar'>
-        {loggedInUser && (
-          <Link to='/' className='navibar-link'>
-            <li className='navibar-item' id={url === '/' ? 'selected' : ''}>
-              Home
-            </li>
-          </Link>
-        )}
-
         <Link to='/flavors' className='navibar-link'>
           <li className='navibar-item' id={url === '/flavors' ? 'selected' : ''}>
-            Custard
+            Home
           </li>
         </Link>
 

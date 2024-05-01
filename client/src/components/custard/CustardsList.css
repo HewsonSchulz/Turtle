@@ -40,3 +40,7 @@
 .custards-list__buttons > * {
   margin-right: 20px;
 }
+
+.custard-form__input {
+  user-select: none;
+}
