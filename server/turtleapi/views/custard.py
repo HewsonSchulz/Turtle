@@ -1,6 +1,5 @@
 import json
 from json.decoder import JSONDecodeError
-from django.http import QueryDict
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -256,7 +255,3 @@ class CustardSerializer(serializers.ModelSerializer):
 
     def get_toppings(self, custard):
         return [topping.topping for topping in custard.toppings.all()]
-
-    # def get_creator(self, custard):
-    #     creator = Employee.objects.get(pk=custard.creator_id)
-    #     return EmployeeSerializer(creator, many=False).data
