@@ -60,6 +60,7 @@
   height: 70px;
   margin-left: 5px;
   margin-top: -7px;
+  filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.4));
 }
 
 .header__text {
@@ -67,7 +68,7 @@
   height: 45px;
   margin-left: 75px;
   margin-top: 10px;
-  filter: invert();
+  filter: invert() drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.5));
 }
 
 .logout__dropdown {
