@@ -38,7 +38,10 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
               Logged in as{' '}
               <i style={{ fontWeight: 'bold' }}>
                 {loggedInUser.username} &emsp;
-                <FontAwesomeIcon icon={faCaretDown} />
+                <FontAwesomeIcon
+                  icon={faCaretDown}
+                  className={showLogout ? 'header__dropdown-btn flipped' : 'header__dropdown-btn'}
+                />
               </i>
             </li>
 
