@@ -187,10 +187,7 @@ class CustardFlavors(ViewSet):
         toppings = None
         if request.POST:
             # if request is using form-data
-            if request.POST.getlist('toppings[]') or isinstance(
-                request.POST.getlist('toppings[]'), list
-            ):
-                toppings = request.POST.getlist('toppings[]')
+            toppings = request.POST.getlist('toppings[]', [])
         else:
             if req_body.get('toppings') or isinstance(req_body.get('toppings'), list):
                 toppings = req_body.get('toppings')
