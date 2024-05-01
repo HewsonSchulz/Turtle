@@ -46,6 +46,7 @@
 }
 
 .custards-list__img {
+  user-select: none;
   max-width: 200px;
   max-height: 200px;
 }
