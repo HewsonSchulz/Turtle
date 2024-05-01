@@ -15,6 +15,7 @@ export const CustardForm = ({ loggedInUser }) => {
   const [flavorName, setFlavorName] = useState('')
   const [selectedBase, setSelectedBase] = useState('')
   const [selectedToppings, setSelectedToppings] = useState([])
+  const [selectedImage, setSelectedImage] = useState(null)
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const { flavorId } = useParams()
@@ -43,24 +44,26 @@ export const CustardForm = ({ loggedInUser }) => {
     }
   }
 
-  const createOrUpdateFlavor = async (flavor) => {
+  const createOrUpdateFlavor = async (flavorData) => {
     if (!flavorId) {
       // create new custard flavor
-      return await createFlavor(flavor)
+      return await createFlavor(flavorData)
     } else {
       // edit existing custard flavor
-      return await updateFlavor(flavor, flavorId)
+      return await updateFlavor(flavorData, flavorId)
     }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    createOrUpdateFlavor({
-      flavor: flavorName,
-      base: selectedBase,
-      toppings: selectedToppings,
-    }).then((res) => {
+    const formData = new FormData()
+    formData.append('flavor', flavorName)
+    formData.append('base', selectedBase)
+    selectedToppings.forEach((topping) => formData.append('toppings[]', topping))
+    if (selectedImage) formData.append('image', selectedImage)
+
+    createOrUpdateFlavor(formData).then((res) => {
       if (res.valid) {
         queryClient.invalidateQueries(['flavors'])
         navigate('/flavors')
@@ -136,6 +139,11 @@ export const CustardForm = ({ loggedInUser }) => {
                 </option>
               ))}
             </Input>
+          </FormGroup>
+
+          <FormGroup>
+            <Label for='image'>Image:</Label>{' '}
+            <Input type='file' id='image' accept='image/*' onChange={(e) => setSelectedImage(e.target.files[0])} />
           </FormGroup>
 
           <Button color='primary' onClick={handleSubmit} style={{ marginTop: '100px' }}>

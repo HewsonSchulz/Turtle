@@ -163,6 +163,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vscode
+/media
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can

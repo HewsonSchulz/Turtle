@@ -50,6 +50,7 @@ export const CustardsList = ({ loggedInUser }) => {
                   ))}
                 </ul>
               </li>
+              {flavor.image && <img src={flavor.image} alt={flavor.flavor} className='custards-list__img' />}
             </div>
             {(loggedInUser.is_admin || loggedInUser.id === flavor.creator_id) && (
               <div className='custards-list__buttons'>

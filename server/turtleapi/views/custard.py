@@ -1,5 +1,6 @@
 import json
 from json.decoder import JSONDecodeError
+from django.http import QueryDict
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -39,11 +40,17 @@ class CustardFlavors(ViewSet):
     def create(self, request):
         try:
             req_body = json.loads(request.body)
-        except JSONDecodeError:
-            return Response(
-                {'message': 'Your request contains invalid json'},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+        except (JSONDecodeError, UnicodeDecodeError):
+            if request.POST:
+
+                # if request is using form-data
+                req_body = request.POST
+                toppings = req_body.getlist('toppings[]', None)
+            else:
+                return Response(
+                    {'message': 'Your request contains invalid json'},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
 
         missing_props_msg = calc_missing_props(req_body, ['flavor', 'base'])
 
@@ -75,12 +82,17 @@ class CustardFlavors(ViewSet):
         new_custard = Custard.objects.create(
             creator_id=request.auth.user.id,
             flavor=req_body.get('flavor').strip(),
-            image_path=req_body.get('image_path'),
             base=base,
         )
 
+        # add image
+        if request.FILES.get('image'):
+            new_custard.image = request.FILES['image']
+            new_custard.save()
+
         # add toppings
-        toppings = req_body.get('toppings', [])
+        if not toppings:
+            toppings = req_body.get('toppings', [])
         if len(toppings) > 0:
             toppings = sorted(toppings, key=lambda x: x.lower())
             for new_topping in toppings:
@@ -108,11 +120,16 @@ class CustardFlavors(ViewSet):
     def update(self, request, pk=None):
         try:
             req_body = json.loads(request.body)
-        except JSONDecodeError:
-            return Response(
-                {'message': 'Your request contains invalid json'},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+        except (JSONDecodeError, UnicodeDecodeError):
+            if request.POST:
+                # if request is using form-data
+                req_body = request.POST
+                toppings = req_body.getlist('toppings[]', None)
+            else:
+                return Response(
+                    {'message': 'Your request contains invalid json'},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
 
         try:
             custard = Custard.objects.get(pk=pk)
@@ -160,17 +177,26 @@ class CustardFlavors(ViewSet):
             # base was not provided
             pass  #!
 
-        # update image
-        # TODO: implement support for uploading images
-        if req_body.get('image_path'):
-            custard.image_path = req_body.get('image_path')
+        # handle image upload
+        if request.FILES.get('image'):
+            custard.image = request.FILES['image']
 
         custard.save()
 
         # update toppings
-        if req_body.get('toppings') or isinstance(req_body.get('toppings'), list):
+        toppings = None
+        if request.POST:
+            # if request is using form-data
+            if request.POST.getlist('toppings[]') or isinstance(
+                request.POST.getlist('toppings[]'), list
+            ):
+                toppings = request.POST.getlist('toppings[]')
+        else:
+            if req_body.get('toppings') or isinstance(req_body.get('toppings'), list):
+                toppings = req_body.get('toppings')
+
+        if toppings or isinstance(toppings, list):
             custard.toppings.clear()
-            toppings = req_body.get('toppings', [])
             if len(toppings) > 0:
                 toppings = sorted(toppings, key=lambda x: x.lower())
                 for new_topping in toppings:
@@ -228,7 +254,7 @@ class CustardSerializer(serializers.ModelSerializer):
             'flavor',
             'base',
             'toppings',
-            'image_path',
+            'image',
         ]
 
     def get_toppings(self, custard):

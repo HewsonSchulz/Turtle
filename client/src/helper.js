@@ -9,17 +9,25 @@ export const fetchOptions = (method, body) => {
 
   const options = {
     method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
   }
 
   if (!!token) {
-    options.headers.Authorization = `Token ${token}`
+    options.headers = {
+      Authorization: `Token ${token}`,
+    }
   }
 
-  if (!!body) {
-    options.body = JSON.stringify(body)
+  if (body instanceof FormData) {
+    options.body = body
+  } else {
+    options.headers = {
+      ...options.headers,
+      'Content-Type': 'application/json',
+    }
+
+    if (!!body) {
+      options.body = JSON.stringify(body)
+    }
   }
 
   return options

@@ -44,3 +44,8 @@
 .custard-form__input {
   user-select: none;
 }
+
+.custards-list__img {
+  max-width: 200px;
+  max-height: 200px;
+}
