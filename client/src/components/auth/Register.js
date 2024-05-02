@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Button, FormFeedback, FormGroup, Input } from 'reactstrap'
+import { Form, Button, FormFeedback, FormGroup, Input } from 'reactstrap'
 import { registerGuest } from '../../managers/userManager'
 import { saveUser, updateStateObj } from '../../helper'
 import './auth.css'
@@ -54,7 +54,13 @@ export const Register = ({ setLoggedInUser }) => {
 
   return (
     <div className='login__container'>
-      <div className='login__card'>
+      <Form
+        className='login__card'
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            handleSubmit(e)
+          }
+        }}>
         <h1 className='login__header'>Sign Up For Turtle</h1>
         <FormGroup id='login__username'>
           <Input
@@ -63,6 +69,7 @@ export const Register = ({ setLoggedInUser }) => {
             value={username}
             placeholder='Username'
             invalid={isInvalid.username}
+            autoFocus
             onChange={(e) => {
               updateStateObj(setIsInvalid, 'username', false)
               setUsername(e.target.value.replace(/\s+/g, '').toLowerCase())
@@ -89,7 +96,7 @@ export const Register = ({ setLoggedInUser }) => {
         <Button color='primary' onClick={handleSubmit}>
           Register
         </Button>
-      </div>
+      </Form>
       <p className='login__register-link'>
         Already signed up? Log in{' '}
         <Link to='/login' id='auth-link'>

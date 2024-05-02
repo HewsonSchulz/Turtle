@@ -14,7 +14,7 @@ export const AuthorizedRoute = ({ children, loggedInUser, isPublicOnly }) => {
     }
   } else {
     // if the route does not require authorization
-    if (!loggedInUser) {
+    if (!loggedInUser || loggedInUser === 'loading') {
       // and the user is not logged in, allow entry
       return children
     } else {
