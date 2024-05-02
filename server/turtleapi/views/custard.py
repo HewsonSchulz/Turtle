@@ -251,6 +251,7 @@ class CustardSerializer(serializers.ModelSerializer):
             'base',
             'toppings',
             'image',
+            'is_default',
         ]
 
     def get_toppings(self, custard):

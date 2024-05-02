@@ -6,7 +6,8 @@
       "creator_id": 2,
       "flavor": "Andes Mint Avalanche",
       "base": 11,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -16,7 +17,8 @@
       "creator_id": 3,
       "flavor": "Blackberry Cobbler",
       "base": 16,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -26,7 +28,8 @@
       "creator_id": 2,
       "flavor": "Butter Pecan",
       "base": 1,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -36,7 +39,8 @@
       "creator_id": 1,
       "flavor": "Cappuccino Cookie Crumble",
       "base": 6,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -46,7 +50,8 @@
       "creator_id": 1,
       "flavor": "Caramel Cashew",
       "base": 16,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -56,7 +61,8 @@
       "creator_id": 3,
       "flavor": "Caramel Chocolate Pecan",
       "base": 4,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -66,7 +72,8 @@
       "creator_id": 2,
       "flavor": "Caramel Fudge Cookie Dough",
       "base": 16,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -76,7 +83,8 @@
       "creator_id": 3,
       "flavor": "Caramel Peanut Buttercup",
       "base": 12,
-      "image": "flavors/Caramel-PB-Cup.png"
+      "image": "flavors/Caramel-PB-Cup.png",
+      "is_default": true
     }
   },
   {
@@ -86,7 +94,8 @@
       "creator_id": 1,
       "flavor": "Caramel Pecan",
       "base": 16,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -96,7 +105,8 @@
       "creator_id": 1,
       "flavor": "Caramel Turtle",
       "base": 2,
-      "image": "flavors/Caramel-Turtle.png"
+      "image": "flavors/Caramel-Turtle.png",
+      "is_default": true
     }
   },
   {
@@ -106,7 +116,8 @@
       "creator_id": 3,
       "flavor": "Chocolate Caramel Twist",
       "base": 17,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -116,7 +127,8 @@
       "creator_id": 1,
       "flavor": "Chocolate Covered Strawberry",
       "base": 16,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -126,7 +138,8 @@
       "creator_id": 2,
       "flavor": "Chocolate Heath Crunch",
       "base": 4,
-      "image": "flavors/Choc-Heath-Crunch.png"
+      "image": "flavors/Choc-Heath-Crunch.png",
+      "is_default": true
     }
   },
   {
@@ -136,7 +149,8 @@
       "creator_id": 1,
       "flavor": "Chocolate Volcano",
       "base": 4,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -146,7 +160,8 @@
       "creator_id": 3,
       "flavor": "Crazy for Cookie Dough",
       "base": 17,
-      "image": "flavors/Crazy-for-Cookie-Dough.png"
+      "image": "flavors/Crazy-for-Cookie-Dough.png",
+      "is_default": true
     }
   },
   {
@@ -156,7 +171,8 @@
       "creator_id": 1,
       "flavor": "Creamy Lemon Crumble",
       "base": 8,
-      "image": "flavors/Creamy-Lemon-Crumble.png"
+      "image": "flavors/Creamy-Lemon-Crumble.png",
+      "is_default": true
     }
   },
   {
@@ -166,7 +182,8 @@
       "creator_id": 2,
       "flavor": "Dark Chocolate Decadence",
       "base": 5,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -176,7 +193,8 @@
       "creator_id": 1,
       "flavor": "Dark Chocolate PB Crunch",
       "base": 5,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -186,7 +204,8 @@
       "creator_id": 3,
       "flavor": "Devil's Food Cake",
       "base": 5,
-      "image": "flavors/Devils-Food-Cake.png"
+      "image": "flavors/Devils-Food-Cake.png",
+      "is_default": true
     }
   },
   {
@@ -196,7 +215,8 @@
       "creator_id": 2,
       "flavor": "Double Strawberry",
       "base": 15,
-      "image": "flavors/Double-Strawberry.png"
+      "image": "flavors/Double-Strawberry.png",
+      "is_default": true
     }
   },
   {
@@ -206,7 +226,8 @@
       "creator_id": 2,
       "flavor": "Espresso Toffee Bar",
       "base": 6,
-      "image": "flavors/Espresso-Toffee-Bar.png"
+      "image": "flavors/Espresso-Toffee-Bar.png",
+      "is_default": true
     }
   },
   {
@@ -216,7 +237,8 @@
       "creator_id": 3,
       "flavor": "Georgia Peach",
       "base": 13,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -226,7 +248,8 @@
       "creator_id": 2,
       "flavor": "Lemon Berry Layer Cake",
       "base": 16,
-      "image": "flavors/Lemon-Berry-Layer-Cake.png"
+      "image": "flavors/Lemon-Berry-Layer-Cake.png",
+      "is_default": true
     }
   },
   {
@@ -236,7 +259,8 @@
       "creator_id": 3,
       "flavor": "Midnight Toffee",
       "base": 5,
-      "image": "flavors/Midnight-Toffee.png"
+      "image": "flavors/Midnight-Toffee.png",
+      "is_default": true
     }
   },
   {
@@ -246,7 +270,8 @@
       "creator_id": 2,
       "flavor": "Mint Cookie",
       "base": 11,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -256,7 +281,8 @@
       "creator_id": 1,
       "flavor": "Mint Explosion",
       "base": 11,
-      "image": "flavors/Mint-Explosion.png"
+      "image": "flavors/Mint-Explosion.png",
+      "is_default": true
     }
   },
   {
@@ -266,7 +292,8 @@
       "creator_id": 2,
       "flavor": "OREO Cheesecake",
       "base": 3,
-      "image": "flavors/Oreo-Cheesecake.png"
+      "image": "flavors/Oreo-Cheesecake.png",
+      "is_default": true
     }
   },
   {
@@ -276,7 +303,8 @@
       "creator_id": 3,
       "flavor": "OREO Overload",
       "base": 4,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -286,7 +314,8 @@
       "creator_id": 1,
       "flavor": "Peach Crisp",
       "base": 13,
-      "image": "flavors/Peach-Crisp.png"
+      "image": "flavors/Peach-Crisp.png",
+      "is_default": true
     }
   },
   {
@@ -296,7 +325,8 @@
       "creator_id": 3,
       "flavor": "Raspberry Cheesecake",
       "base": 3,
-      "image": "flavors/Raspberry-Cheesecake.png"
+      "image": "flavors/Raspberry-Cheesecake.png",
+      "is_default": true
     }
   },
   {
@@ -306,7 +336,8 @@
       "creator_id": 1,
       "flavor": "Really Reese's",
       "base": 4,
-      "image": "flavors/Really-Reeses.png"
+      "image": "flavors/Really-Reeses.png",
+      "is_default": true
     }
   },
   {
@@ -316,7 +347,8 @@
       "creator_id": 3,
       "flavor": "Red Raspberry",
       "base": 14,
-      "image": "flavors/Red-Raspberry.png"
+      "image": "flavors/Red-Raspberry.png",
+      "is_default": true
     }
   },
   {
@@ -326,7 +358,8 @@
       "creator_id": 2,
       "flavor": "Salted Caramel Pecan Pie",
       "base": 16,
-      "image": "flavors/Salted-Caramel-Pecan-Pie.png"
+      "image": "flavors/Salted-Caramel-Pecan-Pie.png",
+      "is_default": true
     }
   },
   {
@@ -336,7 +369,8 @@
       "creator_id": 1,
       "flavor": "Salted Double Caramel Pecan",
       "base": 2,
-      "image": "flavors/Salted-Double-Caramel-Pecan.png"
+      "image": "flavors/Salted-Double-Caramel-Pecan.png",
+      "is_default": true
     }
   },
   {
@@ -346,7 +380,8 @@
       "creator_id": 2,
       "flavor": "Snickers Swirl",
       "base": 17,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -356,7 +391,8 @@
       "creator_id": 3,
       "flavor": "Strawberry Chocolate Parfait",
       "base": 16,
-      "image": "flavors/Strawberry-Chocolate-Parfait.png"
+      "image": "flavors/Strawberry-Chocolate-Parfait.png",
+      "is_default": true
     }
   },
   {
@@ -366,7 +402,8 @@
       "creator_id": 1,
       "flavor": "Turtle",
       "base": 16,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   },
   {
@@ -376,7 +413,8 @@
       "creator_id": 2,
       "flavor": "Turtle Cheesecake",
       "base": 3,
-      "image": "flavors/Turtle-Cheesecake.png"
+      "image": "flavors/Turtle-Cheesecake.png",
+      "is_default": true
     }
   },
   {
@@ -386,7 +424,8 @@
       "creator_id": 1,
       "flavor": "Turtle Dove",
       "base": 16,
-      "image": null
+      "image": null,
+      "is_default": true
     }
   }
 ]

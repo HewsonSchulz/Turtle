@@ -9,3 +9,4 @@ class Custard(models.Model):
     toppings = models.ManyToManyField(
         'Topping', through='CustardTopping', related_name='custards'
     )
+    is_default = models.BooleanField(default=False)
