@@ -247,6 +247,7 @@ class CustardSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'creator_id',
+            'created',
             'flavor',
             'base',
             'toppings',

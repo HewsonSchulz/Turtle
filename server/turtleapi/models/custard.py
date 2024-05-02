@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Custard(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     creator_id = models.IntegerField(default=1)
     flavor = models.CharField(max_length=255)
     base = models.ForeignKey('CustardBase', on_delete=models.CASCADE)

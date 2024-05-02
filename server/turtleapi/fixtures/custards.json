@@ -3,6 +3,7 @@
     "model": "turtleapi.custard",
     "pk": 1,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Andes Mint Avalanche",
       "base": 11,
@@ -14,6 +15,7 @@
     "model": "turtleapi.custard",
     "pk": 2,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Blackberry Cobbler",
       "base": 16,
@@ -25,6 +27,7 @@
     "model": "turtleapi.custard",
     "pk": 3,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Butter Pecan",
       "base": 1,
@@ -36,6 +39,7 @@
     "model": "turtleapi.custard",
     "pk": 4,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Cappuccino Cookie Crumble",
       "base": 6,
@@ -47,6 +51,7 @@
     "model": "turtleapi.custard",
     "pk": 5,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Caramel Cashew",
       "base": 16,
@@ -58,6 +63,7 @@
     "model": "turtleapi.custard",
     "pk": 6,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Caramel Chocolate Pecan",
       "base": 4,
@@ -69,6 +75,7 @@
     "model": "turtleapi.custard",
     "pk": 7,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Caramel Fudge Cookie Dough",
       "base": 16,
@@ -80,6 +87,7 @@
     "model": "turtleapi.custard",
     "pk": 8,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Caramel Peanut Buttercup",
       "base": 12,
@@ -91,6 +99,7 @@
     "model": "turtleapi.custard",
     "pk": 9,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Caramel Pecan",
       "base": 16,
@@ -102,6 +111,7 @@
     "model": "turtleapi.custard",
     "pk": 10,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Caramel Turtle",
       "base": 2,
@@ -113,6 +123,7 @@
     "model": "turtleapi.custard",
     "pk": 11,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Chocolate Caramel Twist",
       "base": 17,
@@ -124,6 +135,7 @@
     "model": "turtleapi.custard",
     "pk": 12,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Chocolate Covered Strawberry",
       "base": 16,
@@ -135,6 +147,7 @@
     "model": "turtleapi.custard",
     "pk": 13,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Chocolate Heath Crunch",
       "base": 4,
@@ -146,6 +159,7 @@
     "model": "turtleapi.custard",
     "pk": 14,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Chocolate Volcano",
       "base": 4,
@@ -157,6 +171,7 @@
     "model": "turtleapi.custard",
     "pk": 15,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Crazy for Cookie Dough",
       "base": 17,
@@ -168,6 +183,7 @@
     "model": "turtleapi.custard",
     "pk": 16,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Creamy Lemon Crumble",
       "base": 8,
@@ -179,6 +195,7 @@
     "model": "turtleapi.custard",
     "pk": 17,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Dark Chocolate Decadence",
       "base": 5,
@@ -190,6 +207,7 @@
     "model": "turtleapi.custard",
     "pk": 18,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Dark Chocolate PB Crunch",
       "base": 5,
@@ -201,6 +219,7 @@
     "model": "turtleapi.custard",
     "pk": 19,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Devil's Food Cake",
       "base": 5,
@@ -212,6 +231,7 @@
     "model": "turtleapi.custard",
     "pk": 20,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Double Strawberry",
       "base": 15,
@@ -223,6 +243,7 @@
     "model": "turtleapi.custard",
     "pk": 21,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Espresso Toffee Bar",
       "base": 6,
@@ -234,6 +255,7 @@
     "model": "turtleapi.custard",
     "pk": 22,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Georgia Peach",
       "base": 13,
@@ -245,6 +267,7 @@
     "model": "turtleapi.custard",
     "pk": 23,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Lemon Berry Layer Cake",
       "base": 16,
@@ -256,6 +279,7 @@
     "model": "turtleapi.custard",
     "pk": 24,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Midnight Toffee",
       "base": 5,
@@ -267,6 +291,7 @@
     "model": "turtleapi.custard",
     "pk": 25,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Mint Cookie",
       "base": 11,
@@ -278,6 +303,7 @@
     "model": "turtleapi.custard",
     "pk": 26,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Mint Explosion",
       "base": 11,
@@ -289,6 +315,7 @@
     "model": "turtleapi.custard",
     "pk": 27,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "OREO Cheesecake",
       "base": 3,
@@ -300,6 +327,7 @@
     "model": "turtleapi.custard",
     "pk": 28,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "OREO Overload",
       "base": 4,
@@ -311,6 +339,7 @@
     "model": "turtleapi.custard",
     "pk": 29,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Peach Crisp",
       "base": 13,
@@ -322,6 +351,7 @@
     "model": "turtleapi.custard",
     "pk": 30,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Raspberry Cheesecake",
       "base": 3,
@@ -333,6 +363,7 @@
     "model": "turtleapi.custard",
     "pk": 31,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Really Reese's",
       "base": 4,
@@ -344,6 +375,7 @@
     "model": "turtleapi.custard",
     "pk": 32,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Red Raspberry",
       "base": 14,
@@ -355,6 +387,7 @@
     "model": "turtleapi.custard",
     "pk": 33,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Salted Caramel Pecan Pie",
       "base": 16,
@@ -366,6 +399,7 @@
     "model": "turtleapi.custard",
     "pk": 34,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Salted Double Caramel Pecan",
       "base": 2,
@@ -377,6 +411,7 @@
     "model": "turtleapi.custard",
     "pk": 35,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Snickers Swirl",
       "base": 17,
@@ -388,6 +423,7 @@
     "model": "turtleapi.custard",
     "pk": 36,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 3,
       "flavor": "Strawberry Chocolate Parfait",
       "base": 16,
@@ -399,6 +435,7 @@
     "model": "turtleapi.custard",
     "pk": 37,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Turtle",
       "base": 16,
@@ -410,6 +447,7 @@
     "model": "turtleapi.custard",
     "pk": 38,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 2,
       "flavor": "Turtle Cheesecake",
       "base": 3,
@@ -421,6 +459,7 @@
     "model": "turtleapi.custard",
     "pk": 39,
     "fields": {
+      "created": "2024-05-02T00:00:00Z",
       "creator_id": 1,
       "flavor": "Turtle Dove",
       "base": 16,
