@@ -21,50 +21,63 @@ export const CustardsList = ({ loggedInUser }) => {
     }
   }
 
+  function getCustardDescription(flavor) {
+    let desc = `${flavor.base} base${flavor.toppings.length ? ', with ' : '.'}`
+
+    if (flavor.toppings.length > 0) {
+      desc += ' '
+      flavor.toppings.forEach((topping, index, array) => {
+        if (index === array.length - 1) {
+          if (array.length > 1) {
+            desc += `and ${topping.toLowerCase()}.`
+          } else {
+            desc += ` ${topping.toLowerCase()}.`
+          }
+        } else {
+          desc += `${topping.toLowerCase()}, `
+        }
+      })
+    }
+
+    return desc
+  }
+
   useEffect(() => {
     scrollToTop()
   }, [])
 
   return (
     <div className='custards-list'>
-      <h2 className='custards-list__title'>Custard Flavors</h2>
       <div className='custards-list__flavors'>
         {flavors?.map((flavor) => (
           <ul key={flavor.id} className='custards-list__flavor'>
-            <div>
-              <li className='custards-list__flavor-name'>{flavor.flavor}</li>
-              <li className='custards-list__flavor-description'>
-                <i>
-                  {flavor.base} base{flavor.toppings.length ? ', with ' : '.'}
-                </i>
-                <ul className='custards-list__toppings'>
-                  {flavor.toppings.map((topping, index, array) => (
-                    <li key={index} className='custards-list__topping'>
-                      {index === array.length - 1
-                        ? array.length > 1
-                          ? `and ${topping}.`
-                          : ` ${topping}.`
-                        : `${topping},`}
-                      &nbsp;
-                    </li>
-                  ))}
-                </ul>
-              </li>
-              {flavor.image && <img src={flavor.image} alt={flavor.flavor} className='custards-list__img' />}
+            <li className='custards-list__flavor-name'>{flavor.flavor}</li>
+            <div className='custards-list__img-container'>
+              {flavor.image ? (
+                <img src={flavor.image} alt={flavor.flavor} className='custards-list__img' />
+              ) : (
+                <img
+                  src={`/assets/turtle-icon-placeholder${((flavor.id - 1) % 3) + 1}.svg`}
+                  alt={flavor.flavor}
+                  className='custards-list__img'
+                />
+              )}
             </div>
-            {(loggedInUser.is_admin || loggedInUser.id === flavor.creator_id) && (
-              <div className='custards-list__buttons'>
-                <Button color='warning' className='edit-btn' onClick={() => navigate(`/flavors/edit/${flavor.id}`)}>
-                  Edit
-                </Button>
-                <Button color='danger' className='delete-btn' onClick={() => handleDelete(flavor)}>
-                  Delete
-                </Button>
-              </div>
-            )}
+            <li className='custards-list__flavor-description'>{getCustardDescription(flavor)}</li>
           </ul>
         ))}
       </div>
     </div>
   )
 }
+
+//* {(loggedInUser.is_admin || loggedInUser.id === flavor.creator_id) && (
+//*   <div className='custards-list__buttons'>
+//*     <Button color='warning' className='edit-btn' onClick={() => navigate(`/flavors/edit/${flavor.id}`)}>
+//*       Edit
+//*     </Button>
+//*     <Button color='danger' className='delete-btn' onClick={() => handleDelete(flavor)}>
+//*       Delete
+//*     </Button>
+//*   </div>
+//* )}

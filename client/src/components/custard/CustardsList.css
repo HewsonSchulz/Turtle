@@ -2,23 +2,29 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-}
 
-.custards-list__title {
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
+  --img-size: 200px;
 }
 
 .custards-list__flavors {
-  margin-left: 10px;
-  margin-top: 20px;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .custards-list__flavor {
-  margin-bottom: 30px;
+  margin: 0px 10px 30px 10px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-color: var(--white);
+  box-shadow: 10px 10px 20px var(--primary);
 }
 
 .custards-list__flavor-name {
@@ -28,9 +34,8 @@
 
 .custards-list__flavor-description {
   display: flex;
-  i {
-    margin-right: 3px;
-  }
+  margin-top: 20px;
+  line-height: 20px;
 }
 
 .custards-list__toppings {
@@ -45,8 +50,18 @@
   user-select: none;
 }
 
+.custards-list__img-container {
+  width: var(--img-size);
+  height: var(--img-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .custards-list__img {
   user-select: none;
-  max-width: 200px;
-  max-height: 200px;
+  width: calc(var(--img-size) + 40px);
+  height: calc(var(--img-size) + 40px);
+  margin-top: 15px;
+  /* filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3)); */
 }

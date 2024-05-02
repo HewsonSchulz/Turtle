@@ -14,17 +14,17 @@
 
   --outline: lightgray;
 
-  --appBackground: white;
+  --appBackground: lightgray;
 }
 
 body {
   font-family: sans-serif;
-  background-color: var(--appBackground);
 }
 
 .app-container {
-  margin-top: 80px;
-  margin-left: 210px;
+  margin-top: 65px;
+  margin-left: 200px;
+  background-color: var(--appBackground);
 }
 
 /* prevents all the links in the app from having default underline */
