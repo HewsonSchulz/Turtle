@@ -48,6 +48,7 @@ export const saveUser = (data, setLoggedInUser) => {
     const newUser = {
       ...userData,
       token: data.token,
+      new_custard: data.new_custard,
     }
     localStorage.setItem('turtle_user', JSON.stringify(newUser))
     setLoggedInUser(newUser)

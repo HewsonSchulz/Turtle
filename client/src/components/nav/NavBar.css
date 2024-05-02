@@ -32,10 +32,50 @@
 .navibar-item {
   list-style-type: none;
   padding: 15px 0px 15px 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navibar-item:hover {
   background-color: var(--primary-hover);
+}
+
+.navibar__new-custard {
+  margin-right: 20px;
+  border-radius: 100%;
+  background-color: var(--primary-light);
+  box-shadow: 0 0 0 6px var(--primary-light);
+  position: relative;
+  display: inline-block;
+}
+
+#new-custard__selected {
+  background-color: var(--primary-light);
+  box-shadow: 0 0 0 6px var(--primary-light);
+}
+
+.navibar__new-custard .tooltip {
+  visibility: hidden;
+  width: 150px;
+  background-color: rgba(14, 25, 59, 0.9);
+  color: var(--white);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+  bottom: 150%;
+  left: 148px;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  top: -10px;
+  height: 52px;
+}
+
+.navibar__new-custard:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 
 #selected {

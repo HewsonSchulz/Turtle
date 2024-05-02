@@ -67,19 +67,12 @@ def register_user(request):
                 fav_position = Position.objects.get(pk=req_body.get('fav_position'))
                 fav_custard = Custard.objects.get(pk=req_body.get('fav_custard'))
                 fav_food = MenuItem.objects.get(pk=req_body.get('fav_food'))
-            except Rank.DoesNotExist as ex:
-                return JsonResponse(
-                    {'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST
-                )
-            except Position.DoesNotExist as ex:
-                return JsonResponse(
-                    {'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST
-                )
-            except Custard.DoesNotExist as ex:
-                return JsonResponse(
-                    {'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST
-                )
-            except MenuItem.DoesNotExist as ex:
+            except (
+                Rank.DoesNotExist,
+                Position.DoesNotExist,
+                Custard.DoesNotExist,
+                MenuItem.DoesNotExist,
+            ) as ex:
                 return JsonResponse(
                     {'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST
                 )
@@ -164,11 +157,26 @@ def login_user(request):
 
         if auth_user:
             # user exists
+            prev_login = auth_user.last_login
             auth_user.last_login = timezone.now()
             auth_user.save()
 
             token = Token.objects.get(user=auth_user)
-            return JsonResponse({'valid': True, 'token': token.key, 'id': auth_user.id})
+
+            if prev_login:
+                # get custard that was created since last login
+                new_custard = Custard.objects.filter(created__gt=prev_login).count()
+            else:
+                new_custard = Custard.objects.count()
+
+            return JsonResponse(
+                {
+                    'valid': True,
+                    'token': token.key,
+                    'id': auth_user.id,
+                    'new_custard': new_custard,
+                }
+            )
         else:
             # user does not exist
             return JsonResponse(

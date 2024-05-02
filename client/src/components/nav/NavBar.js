@@ -32,6 +32,7 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
           <img className='header__icon' src='/assets/turtle-icon.png' alt='turtle custard flavor' />
           <img className='header__text' src='/assets/turtle-title.png' alt='turtle logo' />
         </li>
+
         {localStorage.getItem('turtle_user') && (
           <Link className='navibar-link'>
             <li className='header-item header__logout' onClick={toggleDropdown}>
@@ -57,7 +58,17 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
       <ul className='navibar'>
         <Link to='/flavors' className='navibar-link'>
           <li className='navibar-item' id={url === '/flavors' ? 'selected' : ''}>
-            Home
+            Home{' '}
+            {loggedInUser.new_custard > 0 && (
+              <i className='navibar__new-custard' id={url === '/flavors' ? 'new-custard__selected' : ''}>
+                {loggedInUser.new_custard < 10 ? <>&ensp;{loggedInUser.new_custard}&ensp;</> : loggedInUser.new_custard}
+                <span className='tooltip'>
+                  {`${loggedInUser.new_custard} new flavor${loggedInUser.new_custard !== 1 ? 's' : ''}`}
+                  <br />
+                  since your last login!
+                </span>
+              </i>
+            )}
           </li>
         </Link>
 
