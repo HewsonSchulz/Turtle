@@ -6,7 +6,7 @@
       "creator_id": 2,
       "flavor": "Andes Mint Avalanche",
       "base": 11,
-      "image": null,
+      "image": "flavors/Andes-Mint-Avalanche.png",
       "is_default": true
     }
   },
@@ -17,7 +17,7 @@
       "creator_id": 3,
       "flavor": "Blackberry Cobbler",
       "base": 16,
-      "image": null,
+      "image": "flavors/Blackberry-Cobbler.png",
       "is_default": true
     }
   },
@@ -28,7 +28,7 @@
       "creator_id": 2,
       "flavor": "Butter Pecan",
       "base": 1,
-      "image": null,
+      "image": "flavors/Butter-Pecan.png",
       "is_default": true
     }
   },
