@@ -10,6 +10,8 @@ import {
   updateFlavor,
 } from '../../managers/custardManager'
 import { useNavigate, useParams } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { scrollToTop } from '../../helper'
 import './CustardForm.css'
 
@@ -19,6 +21,7 @@ export const CustardForm = ({ loggedInUser }) => {
   const [selectedToppings, setSelectedToppings] = useState([])
   const [selectedImage, setSelectedImage] = useState(null)
   const [selectedImageUrl, setSelectedImageUrl] = useState(null)
+  const [imageKey, setImageKey] = useState(false)
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const { flavorId } = useParams()
@@ -40,6 +43,10 @@ export const CustardForm = ({ loggedInUser }) => {
     queryKey: ['flavor', 'random'],
     queryFn: () => retrieveRandomFlavor(),
   })
+
+  const resetImageKey = () => {
+    setImageKey(!imageKey)
+  }
 
   const handleToppingChange = (topping) => {
     if (selectedToppings.includes(topping)) {
@@ -123,6 +130,8 @@ export const CustardForm = ({ loggedInUser }) => {
 
       // clean up object url during component unmount
       return () => URL.revokeObjectURL(url)
+    } else {
+      setSelectedImageUrl(null)
     }
   }, [selectedImage])
 
@@ -145,7 +154,7 @@ export const CustardForm = ({ loggedInUser }) => {
         <FormGroup>
           <Label className='custard-form__input-label' for='name'>
             Flavor Name:
-          </Label>{' '}
+          </Label>
           <Input
             type='text'
             id='name'
@@ -159,7 +168,7 @@ export const CustardForm = ({ loggedInUser }) => {
         <FormGroup>
           <Label className='custard-form__input-label' for='base'>
             Custard Base:
-          </Label>{' '}
+          </Label>
           <Input
             type='select'
             id='base'
@@ -175,11 +184,23 @@ export const CustardForm = ({ loggedInUser }) => {
         </FormGroup>
 
         <FormGroup>
-          <Label className='custard-form__input-label' for='image'>
-            Image:
-          </Label>{' '}
+          <Label className='custard-form__input-label custard-form__img-label'>
+            <div>Image:</div>
+            {selectedImage && (
+              <FontAwesomeIcon
+                icon={faCircleXmark}
+                className='custard-form__img-cancel-btn'
+                onClick={() => {
+                  setSelectedImage(null)
+                  setSelectedImageUrl(null)
+                  resetImageKey()
+                }}
+              />
+            )}
+          </Label>
           <Input
             className='custard-form__input'
+            key={imageKey}
             type='file'
             id='image'
             accept='image/*'
@@ -201,7 +222,7 @@ export const CustardForm = ({ loggedInUser }) => {
                 id={topping}
                 checked={selectedToppings.includes(topping)}
                 onChange={() => handleToppingChange(topping)}
-              />{' '}
+              />
               <div className='custard-form__topping'>{topping}</div>
             </FormGroup>
           ))}

@@ -62,3 +62,20 @@
 .custard-form__input-label {
   margin-top: 20px;
 }
+
+.custard-form__img-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custard-form__img-cancel-btn {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-light);
+}
+
+.custard-form__img-cancel-btn:hover {
+  cursor: pointer;
+  color: var(--primary);
+}
