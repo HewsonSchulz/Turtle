@@ -27,3 +27,7 @@ export const listToppings = async () => {
 export const listCustardBases = async () => {
   return await fetch(`${apiUrl}/bases`, fetchOptions('GET')).then((res) => res.json())
 }
+
+export const retrieveRandomFlavor = async () => {
+  return await fetch(`${apiUrl}/custards?random`, fetchOptions('GET')).then((res) => res.json())
+}

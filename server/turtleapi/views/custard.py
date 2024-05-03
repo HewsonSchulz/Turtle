@@ -1,6 +1,7 @@
 import json
 from json.decoder import JSONDecodeError
 from django.core.exceptions import RequestDataTooBig
+from django.db.models import F
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -10,16 +11,19 @@ from .view_utils import calc_missing_props
 
 class CustardFlavors(ViewSet):
     def list(self, request):
-        try:
-            custards = Custard.objects.all().order_by('flavor')
+
+        is_random = 'random' in request.GET
+
+        if is_random:
+            # get one random default custard
+            custard = Custard.objects.filter(is_default=True).order_by('?').first()
+
+            return Response(custard.flavor)
+        else:
+            custard = Custard.objects.all().order_by('flavor')
+
             return Response(
-                CustardSerializer(
-                    custards, many=True, context={'request': request}
-                ).data
-            )
-        except Exception as ex:
-            return Response(
-                {'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                CustardSerializer(custard, many=True, context={'request': request}).data
             )
 
     def retrieve(self, request, pk=None):
@@ -32,10 +36,6 @@ class CustardFlavors(ViewSet):
             )
         except Custard.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-        except Exception as ex:
-            return Response(
-                {'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
 
     def create(self, request):
         try:

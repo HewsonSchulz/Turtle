@@ -6,6 +6,7 @@ import {
   listCustardBases,
   listToppings,
   retrieveFlavor,
+  retrieveRandomFlavor,
   updateFlavor,
 } from '../../managers/custardManager'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -34,6 +35,10 @@ export const CustardForm = ({ loggedInUser }) => {
     queryKey: ['flavor', flavorId],
     queryFn: () => retrieveFlavor(flavorId),
     enabled: !!flavorId,
+  })
+  const { data: randomFlavor } = useQuery({
+    queryKey: ['flavor', 'random'],
+    queryFn: () => retrieveRandomFlavor(),
   })
 
   const handleToppingChange = (topping) => {
@@ -148,8 +153,7 @@ export const CustardForm = ({ loggedInUser }) => {
             className='custard-form__input'
             autoFocus
             onChange={(e) => setFlavorName(e.target.value)}
-            //TODO: randomize flavor name placeholder
-            placeholder='Birthday Cake'
+            placeholder={randomFlavor}
           />
         </FormGroup>
         <FormGroup>
