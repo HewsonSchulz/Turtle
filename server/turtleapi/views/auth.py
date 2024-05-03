@@ -118,8 +118,17 @@ def register_user(request):
                 user=new_user, is_admin=False, is_guest=True
             )
 
+        # set last_login
+        new_user.last_login = timezone.now()
+        new_user.save()
+
         return JsonResponse(
-            {'valid': True, 'token': token.key, 'id': new_employee.id},
+            {
+                'valid': True,
+                'token': token.key,
+                'id': new_employee.id,
+                'new_custard': Custard.objects.count(),
+            },
             status=status.HTTP_201_CREATED,
         )
 
