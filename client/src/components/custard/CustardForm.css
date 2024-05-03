@@ -15,6 +15,7 @@
 .custard-form__content-a {
   display: flex;
   flex-direction: column;
+  margin-right: 20px;
 }
 
 .custard-form__content-b {
@@ -28,6 +29,10 @@
 .custard-form__content-b__header {
   font-weight: bold;
   padding: 20px 0px;
+}
+
+.custard-form__topping {
+  margin-top: 4px;
 }
 
 .custard-form__submit-btn {

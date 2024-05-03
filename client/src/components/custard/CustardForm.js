@@ -192,15 +192,13 @@ export const CustardForm = ({ loggedInUser }) => {
         <FormGroup className='custard-form__content-b'>
           {toppings?.map((topping) => (
             <FormGroup check key={topping}>
-              <Label check>
-                <Input
-                  type='checkbox'
-                  id={topping}
-                  checked={selectedToppings.includes(topping)}
-                  onChange={() => handleToppingChange(topping)}
-                />{' '}
-                {topping}
-              </Label>
+              <Input
+                type='checkbox'
+                id={topping}
+                checked={selectedToppings.includes(topping)}
+                onChange={() => handleToppingChange(topping)}
+              />{' '}
+              <div className='custard-form__topping'>{topping}</div>
             </FormGroup>
           ))}
         </FormGroup>
