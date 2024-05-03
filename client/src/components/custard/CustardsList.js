@@ -3,7 +3,7 @@ import { destroyFlavor, listFlavors } from '../../managers/custardManager'
 import { Button } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import { scrollToTop } from '../../helper'
+import { getPlaceholder, scrollToTop } from '../../helper'
 import './CustardsList.css'
 
 export const CustardsList = ({ loggedInUser }) => {
@@ -57,7 +57,7 @@ export const CustardsList = ({ loggedInUser }) => {
                 <img src={flavor.image} alt={flavor.flavor} className='custards-list__img' />
               ) : (
                 <img
-                  src={`/assets/turtle-icon-placeholder${((flavor.id - 1) % 3) + 1}.svg`}
+                  src={`/assets/turtle-icon-placeholder${getPlaceholder(flavor.id)}.svg`}
                   alt={flavor.flavor}
                   className='custards-list__img'
                 />

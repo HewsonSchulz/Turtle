@@ -123,12 +123,7 @@ def register_user(request):
         new_user.save()
 
         return JsonResponse(
-            {
-                'valid': True,
-                'token': token.key,
-                'id': new_employee.id,
-                'new_custard': Custard.objects.count(),
-            },
+            {'valid': True, 'token': token.key, 'id': new_employee.id},
             status=status.HTTP_201_CREATED,
         )
 

@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
 
-  --img-size: 200px;
+  --img-size: 240px;
 }
 
 .custards-list__flavors {
@@ -17,11 +17,11 @@
   margin: 0px 10px 30px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   min-width: 250px;
   max-width: 300px;
-  padding: 20px 20px;
+  padding: 20px 0px 10px 0px;
   border-radius: 15px;
   background-color: var(--white);
   box-shadow: 10px 10px 20px var(--primary);
@@ -34,7 +34,7 @@
 
 .custards-list__flavor-description {
   display: flex;
-  margin-top: 20px;
+  margin: 10px 20px 5px 20px;
   line-height: 20px;
 }
 
@@ -60,8 +60,8 @@
 
 .custards-list__img {
   user-select: none;
-  width: calc(var(--img-size) + 40px);
-  height: calc(var(--img-size) + 40px);
-  margin-top: 15px;
+  width: var(--img-size);
+  height: var(--img-size);
   object-fit: contain;
+  filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.4));
 }

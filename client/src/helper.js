@@ -59,3 +59,8 @@ export const saveUser = (data, setLoggedInUser) => {
 export const scrollToTop = () => {
   window.scrollTo(0, 0)
 }
+
+// get corresponding placeholder image
+export const getPlaceholder = (n, max = 3) => {
+  return ((n - 1) % max) + 1
+}

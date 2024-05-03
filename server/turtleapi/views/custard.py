@@ -1,5 +1,6 @@
 import json
 from json.decoder import JSONDecodeError
+from django.core.exceptions import RequestDataTooBig
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -50,6 +51,14 @@ class CustardFlavors(ViewSet):
                     {'message': 'Your request contains invalid json'},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
+        except RequestDataTooBig:
+            return Response(
+                {
+                    'valid': False,
+                    'message': 'That file is too big, please use a smaller image',
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         missing_props_msg = calc_missing_props(req_body, ['flavor', 'base'])
 
@@ -129,6 +138,14 @@ class CustardFlavors(ViewSet):
                     {'message': 'Your request contains invalid json'},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
+        except RequestDataTooBig:
+            return Response(
+                {
+                    'valid': False,
+                    'message': 'That file is too big, please use a smaller image',
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         try:
             custard = Custard.objects.get(pk=pk)

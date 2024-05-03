@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Form, FormGroup, Label, Input } from 'reactstrap'
 import {
   createFlavor,
   listCustardBases,
@@ -10,12 +10,14 @@ import {
 } from '../../managers/custardManager'
 import { useNavigate, useParams } from 'react-router-dom'
 import { scrollToTop } from '../../helper'
+import './CustardForm.css'
 
 export const CustardForm = ({ loggedInUser }) => {
   const [flavorName, setFlavorName] = useState('')
-  const [selectedBase, setSelectedBase] = useState('')
+  const [selectedBase, setSelectedBase] = useState('Vanilla')
   const [selectedToppings, setSelectedToppings] = useState([])
   const [selectedImage, setSelectedImage] = useState(null)
+  const [selectedImageUrl, setSelectedImageUrl] = useState(null)
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const { flavorId } = useParams()
@@ -70,10 +72,10 @@ export const CustardForm = ({ loggedInUser }) => {
       } else {
         switch (res.message) {
           case 'Missing properties: flavor, base':
-            window.alert('Please specify a flavor name, and base for your custard')
+            window.alert('Please enter a flavor name, and specify a base for your custard')
             break
           case 'Missing property: flavor':
-            window.alert('Please specify a flavor name for your custard')
+            window.alert('Please enter a flavor name for your custard')
             break
           case 'Missing property: base':
             window.alert('Please specify a base for your custard')
@@ -109,49 +111,85 @@ export const CustardForm = ({ loggedInUser }) => {
     }
   }, [custardFlavor, navigate])
 
+  useEffect(() => {
+    if (selectedImage) {
+      const url = URL.createObjectURL(selectedImage)
+      setSelectedImageUrl(url)
+
+      // clean up object url during component unmount
+      return () => URL.revokeObjectURL(url)
+    }
+  }, [selectedImage])
+
   return (
-    <div>
-      <Form style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-        <div>
-          <FormGroup>
-            <Label for='name'>Flavor Name:</Label>{' '}
-            <Input
-              type='text'
-              id='name'
-              value={flavorName}
-              className='custard-form__input'
-              onChange={(e) => setFlavorName(e.target.value)}
-              placeholder='Birthday Cake'
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for='base'>Base:</Label>{' '}
-            <Input
-              type='select'
-              id='base'
-              value={selectedBase}
-              className='custard-form__input'
-              onChange={(e) => setSelectedBase(e.target.value)}>
-              {!flavorId && <option value={''}>Select a base</option>}
-              {custardBases?.map((base) => (
-                <option key={base} value={base}>
-                  {base}
-                </option>
-              ))}
-            </Input>
-          </FormGroup>
-
-          <FormGroup>
-            <Label for='image'>Image:</Label>{' '}
-            <Input type='file' id='image' accept='image/*' onChange={(e) => setSelectedImage(e.target.files[0])} />
-          </FormGroup>
-
-          <Button color='primary' onClick={handleSubmit} style={{ marginTop: '100px' }}>
-            Save
-          </Button>
-        </div>
+    <Form className='custard-form'>
+      <div className='custard-form__content-a'>
+        {!!custardFlavor && !selectedImage ? (
+          <img
+            src={custardFlavor.image || `/assets/turtle-icon-placeholder1.svg`}
+            alt={custardFlavor.flavor || 'custard placeholder'}
+            className='custard-form__img'
+          />
+        ) : (
+          <img
+            src={selectedImageUrl || `/assets/turtle-icon-placeholder1.svg`}
+            alt={flavorName || 'custard placeholder'}
+            className='custard-form__img'
+          />
+        )}
         <FormGroup>
-          <Label>Toppings:</Label>
+          <Label className='custard-form__input-label' for='name'>
+            Flavor Name:
+          </Label>{' '}
+          <Input
+            type='text'
+            id='name'
+            value={flavorName}
+            className='custard-form__input'
+            autoFocus
+            onChange={(e) => setFlavorName(e.target.value)}
+            //TODO: randomize flavor name placeholder
+            placeholder='Birthday Cake'
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label className='custard-form__input-label' for='base'>
+            Custard Base:
+          </Label>{' '}
+          <Input
+            type='select'
+            id='base'
+            value={selectedBase}
+            className='custard-form__input'
+            onChange={(e) => setSelectedBase(e.target.value)}>
+            {custardBases?.map((base) => (
+              <option key={base} value={base}>
+                {base}
+              </option>
+            ))}
+          </Input>
+        </FormGroup>
+
+        <FormGroup>
+          <Label className='custard-form__input-label' for='image'>
+            Image:
+          </Label>{' '}
+          <Input
+            className='custard-form__input'
+            type='file'
+            id='image'
+            accept='image/*'
+            onChange={(e) => setSelectedImage(e.target.files[0])}
+          />
+        </FormGroup>
+
+        <button className='custard-form__submit-btn' onClick={handleSubmit}>
+          Create Flavor
+        </button>
+      </div>
+      <div>
+        <Label className='custard-form__content-b__header'>Toppings:</Label>
+        <FormGroup className='custard-form__content-b'>
           {toppings?.map((topping) => (
             <FormGroup check key={topping}>
               <Label check>
@@ -166,7 +204,7 @@ export const CustardForm = ({ loggedInUser }) => {
             </FormGroup>
           ))}
         </FormGroup>
-      </Form>
-    </div>
+      </div>
+    </Form>
   )
 }
