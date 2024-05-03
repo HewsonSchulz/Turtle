@@ -43,7 +43,7 @@
       "creator_id": 1,
       "flavor": "Cappuccino Cookie Crumble",
       "base": 6,
-      "image": null,
+      "image": "flavors/Cappuccino-Cookie-Crumble.png",
       "is_default": true
     }
   },
@@ -55,7 +55,7 @@
       "creator_id": 1,
       "flavor": "Caramel Cashew",
       "base": 16,
-      "image": null,
+      "image": "flavors/Caramel-Cashew.png",
       "is_default": true
     }
   },
@@ -67,7 +67,7 @@
       "creator_id": 3,
       "flavor": "Caramel Chocolate Pecan",
       "base": 4,
-      "image": null,
+      "image": "flavors/Caramel-Chocolate-Pecan.png",
       "is_default": true
     }
   },

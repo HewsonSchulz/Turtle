@@ -47,6 +47,7 @@
   box-shadow: 0 0 0 6px var(--primary-light);
   position: relative;
   display: inline-block;
+  user-select: none;
 }
 
 #new-custard__selected {

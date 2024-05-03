@@ -174,7 +174,11 @@ def login_user(request):
 
             if prev_login:
                 # get custard that was created since last login
-                new_custard = Custard.objects.filter(created__gt=prev_login).count()
+                new_custard = (
+                    Custard.objects.exclude(creator_id=auth_user.id)
+                    .filter(created__gt=prev_login)
+                    .count()
+                )
             else:
                 new_custard = Custard.objects.count()
 
