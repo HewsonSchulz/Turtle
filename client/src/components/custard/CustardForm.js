@@ -189,7 +189,7 @@ export const CustardForm = ({ loggedInUser }) => {
             {selectedImage && (
               <FontAwesomeIcon
                 icon={faCircleXmark}
-                className='custard-form__img-cancel-btn'
+                className='custard-form__cancel-btn'
                 onClick={() => {
                   setSelectedImage(null)
                   setSelectedImageUrl(null)

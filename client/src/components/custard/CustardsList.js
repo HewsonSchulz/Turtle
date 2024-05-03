@@ -1,13 +1,13 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { destroyFlavor, listFlavors } from '../../managers/custardManager'
-import { Button } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { getPlaceholder, scrollToTop } from '../../helper'
 import './CustardsList.css'
 
 export const CustardsList = ({ loggedInUser }) => {
-  const navigate = useNavigate()
   const queryClient = useQueryClient()
   const { data: flavors } = useQuery({
     queryKey: ['flavors'],
@@ -51,7 +51,19 @@ export const CustardsList = ({ loggedInUser }) => {
       <div className='custards-list__flavors'>
         {flavors?.map((flavor) => (
           <ul key={flavor.id} className='custards-list__flavor'>
-            <li className='custards-list__flavor-name'>{flavor.flavor}</li>
+            <li className='custards-list__flavor-name'>
+              <div className='whitespace' />
+              <div>{flavor.flavor}</div>
+              {loggedInUser.is_admin || loggedInUser.id === flavor.creator_id ? (
+                <FontAwesomeIcon
+                  icon={faCircleXmark}
+                  className='custard-form__cancel-btn custards-list__cancel-btn'
+                  onClick={() => handleDelete(flavor)}
+                />
+              ) : (
+                <div className='whitespace' />
+              )}
+            </li>
             <div className='custards-list__img-container'>
               {flavor.image ? (
                 <img src={flavor.image} alt={flavor.flavor} className='custards-list__img' />

@@ -69,13 +69,13 @@
   align-items: center;
 }
 
-.custard-form__img-cancel-btn {
+.custard-form__cancel-btn {
   width: 16px;
   height: 16px;
   color: var(--primary-light);
 }
 
-.custard-form__img-cancel-btn:hover {
+.custard-form__cancel-btn:hover {
   cursor: pointer;
   color: var(--primary);
 }
