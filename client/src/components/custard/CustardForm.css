@@ -3,8 +3,9 @@
   justify-content: space-evenly;
   margin: 25px 30px;
   height: 87%;
-  width: 80%;
   min-height: 770px;
+  width: calc(100% - 265px);
+  min-width: 730px;
   padding: 20px;
   border-radius: 20px;
   background-color: var(--white);
