@@ -466,5 +466,29 @@
       "image": "flavors/Turtle-Dove.png",
       "is_default": true
     }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 40,
+    "fields": {
+      "created": "2024-05-03T00:00:00Z",
+      "creator_id": 1,
+      "flavor": "Chocolate",
+      "base": 4,
+      "image": "flavors/Chocolate.png",
+      "is_default": false
+    }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 41,
+    "fields": {
+      "created": "2024-05-03T00:00:00Z",
+      "creator_id": 1,
+      "flavor": "Vanilla",
+      "base": 16,
+      "image": "flavors/Vanilla.png",
+      "is_default": false
+    }
   }
 ]
