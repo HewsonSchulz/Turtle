@@ -79,7 +79,7 @@
       "creator_id": 2,
       "flavor": "Caramel Fudge Cookie Dough",
       "base": 16,
-      "image": "flavors/Caramel-Fudge-Cookie.png",
+      "image": "flavors/Caramel-Fudge-Cookie-Dough.png",
       "is_default": true
     }
   },
@@ -103,7 +103,7 @@
       "creator_id": 1,
       "flavor": "Caramel Pecan",
       "base": 16,
-      "image": null,
+      "image": "flavors/Caramel-Pecan.png",
       "is_default": true
     }
   },
@@ -127,7 +127,7 @@
       "creator_id": 3,
       "flavor": "Chocolate Caramel Twist",
       "base": 17,
-      "image": null,
+      "image": "flavors/Chocolate-Caramel-Twist.png",
       "is_default": true
     }
   },
@@ -139,7 +139,7 @@
       "creator_id": 1,
       "flavor": "Chocolate Covered Strawberry",
       "base": 16,
-      "image": null,
+      "image": "flavors/Chocolate-Covered-Strawberry.png",
       "is_default": true
     }
   },
@@ -163,7 +163,7 @@
       "creator_id": 1,
       "flavor": "Chocolate Volcano",
       "base": 4,
-      "image": null,
+      "image": "flavors/Chocolate-Volcano.png",
       "is_default": true
     }
   },
@@ -199,7 +199,7 @@
       "creator_id": 2,
       "flavor": "Dark Chocolate Decadence",
       "base": 5,
-      "image": null,
+      "image": "flavors/Dark-Chocolate-Decadence.png",
       "is_default": true
     }
   },
@@ -211,7 +211,7 @@
       "creator_id": 1,
       "flavor": "Dark Chocolate PB Crunch",
       "base": 5,
-      "image": null,
+      "image": "flavors/Dark-Chocolate-PB-Crunch.png",
       "is_default": true
     }
   },
@@ -259,7 +259,7 @@
       "creator_id": 3,
       "flavor": "Georgia Peach",
       "base": 13,
-      "image": null,
+      "image": "flavors/Georgia-Peach.png",
       "is_default": true
     }
   },
@@ -295,7 +295,7 @@
       "creator_id": 2,
       "flavor": "Mint Cookie",
       "base": 11,
-      "image": null,
+      "image": "flavors/Mint-Oreo.png",
       "is_default": true
     }
   },
@@ -331,7 +331,7 @@
       "creator_id": 3,
       "flavor": "OREO Overload",
       "base": 4,
-      "image": null,
+      "image": "flavors/Oreo-Overload.png",
       "is_default": true
     }
   },
@@ -415,7 +415,7 @@
       "creator_id": 2,
       "flavor": "Snickers Swirl",
       "base": 17,
-      "image": null,
+      "image": "flavors/Snicker-Swirl.png",
       "is_default": true
     }
   },
@@ -439,7 +439,7 @@
       "creator_id": 1,
       "flavor": "Turtle",
       "base": 16,
-      "image": null,
+      "image": "flavors/Turtle.png",
       "is_default": true
     }
   },
@@ -463,7 +463,7 @@
       "creator_id": 1,
       "flavor": "Turtle Dove",
       "base": 16,
-      "image": null,
+      "image": "flavors/Turtle-Dove.png",
       "is_default": true
     }
   }
