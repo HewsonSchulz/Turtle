@@ -30,14 +30,21 @@ export const CustardsList = ({ loggedInUser }) => {
     if (flavor.toppings.length > 0) {
       desc += ' '
       flavor.toppings.forEach((topping, index, array) => {
+        let toppingText
+        if (topping.includes('OREO')) {
+          toppingText = 'OREO ' + topping.split('OREO')[1].toLowerCase()
+        } else {
+          toppingText = topping.toLowerCase()
+        }
+
         if (index === array.length - 1) {
           if (array.length > 1) {
-            desc += `and ${topping.toLowerCase()}.`
+            desc += `and ${toppingText}.`
           } else {
-            desc += ` ${topping.toLowerCase()}.`
+            desc += ` ${toppingText}.`
           }
         } else {
-          desc += `${topping.toLowerCase()}, `
+          desc += `${toppingText}, `
         }
       })
     }

@@ -157,7 +157,7 @@
     "model": "turtleapi.Topping",
     "pk": 23,
     "fields": {
-      "topping": "Mint"
+      "topping": "Mint Syrup"
     }
   },
   {
