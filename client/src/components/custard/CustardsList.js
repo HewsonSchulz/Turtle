@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { destroyFlavor, listFlavors } from '../../managers/custardManager'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
@@ -22,34 +22,6 @@ export const CustardsList = ({ loggedInUser }) => {
       await destroyFlavor(flavor.id)
       queryClient.invalidateQueries(['flavors'])
     }
-  }
-
-  function getCustardDescription(flavor) {
-    let desc = `${flavor.base} base${flavor.toppings.length ? ', with ' : '.'}`
-
-    if (flavor.toppings.length > 0) {
-      desc += ' '
-      flavor.toppings.forEach((topping, index, array) => {
-        let toppingText
-        if (topping.includes('OREO')) {
-          toppingText = 'OREO ' + topping.split('OREO')[1].toLowerCase()
-        } else {
-          toppingText = topping.toLowerCase()
-        }
-
-        if (index === array.length - 1) {
-          if (array.length > 1) {
-            desc += `and ${toppingText}.`
-          } else {
-            desc += ` ${toppingText}.`
-          }
-        } else {
-          desc += `${toppingText}, `
-        }
-      })
-    }
-
-    return desc
   }
 
   useEffect(() => {
@@ -94,7 +66,7 @@ export const CustardsList = ({ loggedInUser }) => {
                 />
               )}
             </div>
-            <li className='custards-list__flavor-description'>{getCustardDescription(flavor)}</li>
+            <li className='custards-list__flavor-description'>{flavor.description}</li>
           </ul>
         ))}
       </div>

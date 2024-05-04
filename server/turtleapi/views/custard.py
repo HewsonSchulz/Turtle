@@ -258,6 +258,7 @@ class CustardFlavors(ViewSet):
 class CustardSerializer(serializers.ModelSerializer):
     base = serializers.CharField(source='base.base')
     toppings = serializers.SerializerMethodField()
+    description = serializers.SerializerMethodField()
 
     class Meta:
         model = Custard
@@ -269,8 +270,31 @@ class CustardSerializer(serializers.ModelSerializer):
             'base',
             'toppings',
             'image',
+            'description',
             'is_default',
         ]
 
     def get_toppings(self, custard):
         return [topping.topping for topping in custard.toppings.all()]
+
+    def get_description(self, custard):
+        base = custard.base.base
+        toppings = [topping.topping for topping in custard.toppings.all()]
+        desc = f'''{base} base{', with ' if toppings else '.'}'''
+
+        if toppings:
+            for i, topping in enumerate(toppings):
+                if 'OREO' in topping:
+                    topping_text = 'OREO ' + topping.split('OREO')[1].lower()
+                else:
+                    topping_text = topping.lower()
+
+                if i == len(toppings) - 1:
+                    if len(toppings) > 1:
+                        desc += f'and {topping_text}.'
+                    else:
+                        desc += f' {topping_text}.'
+                else:
+                    desc += f'{topping_text}, '
+
+        return desc
