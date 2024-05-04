@@ -490,5 +490,17 @@
       "image": "flavors/Vanilla.png",
       "is_default": false
     }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 42,
+    "fields": {
+      "created": "2024-04-29T00:00:00Z",
+      "creator_id": 1,
+      "flavor": "How Now Brown Cow",
+      "base": 4,
+      "image": "flavors/How-Now-Brown-Cow.png",
+      "is_default": false
+    }
   }
 ]
