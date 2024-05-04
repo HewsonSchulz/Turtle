@@ -12,7 +12,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-import { scrollToTop } from '../../helper'
+import { getPlaceholder, scrollToTop } from '../../helper'
 import './CustardForm.css'
 
 export const CustardForm = ({ loggedInUser }) => {
@@ -140,7 +140,7 @@ export const CustardForm = ({ loggedInUser }) => {
       <div className='custard-form__content-a'>
         {!!custardFlavor && !selectedImage ? (
           <img
-            src={custardFlavor.image || `/assets/turtle-icon-placeholder1.svg`}
+            src={custardFlavor.image || `/assets/turtle-icon-placeholder${getPlaceholder(flavorId)}.svg`}
             alt={custardFlavor.flavor || 'custard placeholder'}
             className='custard-form__img'
           />
@@ -209,7 +209,7 @@ export const CustardForm = ({ loggedInUser }) => {
         </FormGroup>
 
         <button className='custard-form__submit-btn' onClick={handleSubmit}>
-          Create Flavor
+          {!flavorId ? 'Create Flavor' : 'Save Changes'}
         </button>
       </div>
       <div>

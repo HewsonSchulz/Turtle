@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { destroyFlavor, listFlavors } from '../../managers/custardManager'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
@@ -8,13 +8,16 @@ import { getPlaceholder, scrollToTop } from '../../helper'
 import './CustardsList.css'
 
 export const CustardsList = ({ loggedInUser }) => {
+  const navigate = useNavigate()
   const queryClient = useQueryClient()
   const { data: flavors } = useQuery({
     queryKey: ['flavors'],
     queryFn: listFlavors,
   })
 
-  const handleDelete = async (flavor) => {
+  const handleDelete = async (e, flavor) => {
+    e.stopPropagation()
+
     if (window.confirm(`Are you sure you want to delete ${flavor.flavor}?`)) {
       await destroyFlavor(flavor.id)
       queryClient.invalidateQueries(['flavors'])
@@ -50,7 +53,16 @@ export const CustardsList = ({ loggedInUser }) => {
     <div className='custards-list'>
       <div className='custards-list__flavors'>
         {flavors?.map((flavor) => (
-          <ul key={flavor.id} className='custards-list__flavor'>
+          <ul
+            key={flavor.id}
+            className={`custards-list__flavor ${
+              loggedInUser.is_admin || loggedInUser.id === flavor.creator_id ? 'custards-list__owned-flavor' : ''
+            }`}
+            onClick={() => {
+              if (loggedInUser.is_admin || loggedInUser.id === flavor.creator_id) {
+                navigate(`/flavors/edit/${flavor.id}`)
+              }
+            }}>
             <li className='custards-list__flavor-name'>
               <div className='whitespace' />
               <div>{flavor.flavor}</div>
@@ -58,7 +70,7 @@ export const CustardsList = ({ loggedInUser }) => {
                 <FontAwesomeIcon
                   icon={faCircleXmark}
                   className='custard-form__cancel-btn custards-list__cancel-btn'
-                  onClick={() => handleDelete(flavor)}
+                  onClick={(e) => handleDelete(e, flavor)}
                 />
               ) : (
                 <div className='whitespace' />
@@ -82,14 +94,3 @@ export const CustardsList = ({ loggedInUser }) => {
     </div>
   )
 }
-
-//* {(loggedInUser.is_admin || loggedInUser.id === flavor.creator_id) && (
-//*   <div className='custards-list__buttons'>
-//*     <Button color='warning' className='edit-btn' onClick={() => navigate(`/flavors/edit/${flavor.id}`)}>
-//*       Edit
-//*     </Button>
-//*     <Button color='danger' className='delete-btn' onClick={() => handleDelete(flavor)}>
-//*       Delete
-//*     </Button>
-//*   </div>
-//* )}
