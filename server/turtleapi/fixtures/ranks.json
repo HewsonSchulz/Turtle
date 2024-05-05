@@ -45,6 +45,13 @@
     "model": "turtleapi.rank",
     "pk": 7,
     "fields": {
+      "rank": "Assistant General Manager"
+    }
+  },
+  {
+    "model": "turtleapi.rank",
+    "pk": 8,
+    "fields": {
       "rank": "General Manager"
     }
   }
