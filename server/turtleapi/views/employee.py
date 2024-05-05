@@ -98,9 +98,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
         '''if given user is a guest, exclude certain fields'''
         representation = super().to_representation(instance)
         excluded_fields = [
-            'first_name',
-            'last_name',
-            'is_admin',
             'date_employed',
             'date_unemployed',
             'rank',

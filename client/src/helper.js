@@ -64,3 +64,9 @@ export const scrollToTop = () => {
 export const getPlaceholder = (n, max = 3) => {
   return ((n - 1) % max) + 1
 }
+
+// formats date returned from database
+export const formatDate = (dateString) => {
+  const date = new Date(dateString)
+  return date.toLocaleDateString()
+}
