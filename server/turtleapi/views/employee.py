@@ -1,7 +1,12 @@
+import json
+from json.decoder import JSONDecodeError
+from django.contrib.auth import get_user_model
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from turtleapi.models import Employee
+
+User = get_user_model()
 
 
 class Employees(ViewSet):
@@ -32,7 +37,6 @@ class Employees(ViewSet):
     def retrieve(self, request, pk=None):
         try:
             req_employee = Employee.objects.get(user=request.auth.user)
-
             employee = Employee.objects.get(pk=pk)
 
             if not (req_employee.is_admin or req_employee.id == employee.id):
@@ -56,6 +60,44 @@ class Employees(ViewSet):
                 {'message': ex.args[0]},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
+
+    def update(self, request, pk=None):
+        try:
+            req_body = json.loads(request.body)
+        except JSONDecodeError:
+            return Response(
+                {'message': 'Your request contains invalid json'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            req_employee = Employee.objects.get(user=request.auth.user)
+            user = User.objects.get(pk=pk)
+            employee = Employee.objects.get(user=user)
+
+        except (User.DoesNotExist, Employee.DoesNotExist) as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+        if not (req_employee.is_admin or req_employee.id == user.id):
+            # user has invalid permission
+            return Response(
+                {'message': '''You don't have permission to do that'''},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
+        # update employee
+        if req_body.get('first_name') is not None:
+            user.first_name = req_body.get('first_name', '').strip()
+        if req_body.get('last_name') is not None:
+            user.last_name = req_body.get('last_name', '').strip()
+        user.save()
+
+        return Response(
+            {
+                'valid': True,
+                **EmployeeSerializer(employee, context={'request': request}).data,
+            }
+        )
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
