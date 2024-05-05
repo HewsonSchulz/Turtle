@@ -1,23 +1,22 @@
 .profile-form {
   display: flex;
   justify-content: center;
-  margin: 90px 30px;
+  margin: 25px 30px;
   height: calc(100vh - 120px);
-  /* ! */
-  /* min-height: 770px; */
+  min-height: 420px;
   width: calc(100vw - 265px);
-  /* ! */
-  /* min-width: 730px; */
+  min-width: 270px;
   padding: 20px;
   border-radius: 20px;
   background-color: var(--white);
   box-shadow: 10px 10px 20px var(--primary);
+  position: fixed;
 }
 
 .profile-form__content-a {
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
+  margin-top: 20px;
 }
 
 .profile-form__item {

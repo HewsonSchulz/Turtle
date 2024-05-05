@@ -55,6 +55,15 @@ export const saveUser = (data, setLoggedInUser) => {
   })
 }
 
+// sets given user's first/last names and stores them
+export const loadUserNames = (data, setLoggedInUser) => {
+  const user = JSON.parse(localStorage.getItem('turtle_user'))
+  user.first_name = data.first_name
+  user.last_name = data.last_name
+  localStorage.setItem('turtle_user', JSON.stringify(user))
+  setLoggedInUser(user)
+}
+
 // scroll to top of page
 export const scrollToTop = () => {
   window.scrollTo(0, 0)

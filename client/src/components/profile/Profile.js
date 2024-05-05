@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Form, FormGroup, Input } from 'reactstrap'
 import './Profile.css'
-import { formatDate } from '../../helper'
+import { formatDate, loadUserNames } from '../../helper'
+import { updateUser } from '../../managers/userManager'
 
-export const Profile = ({ loggedInUser }) => {
+export const Profile = ({ loggedInUser, setLoggedInUser }) => {
   const [firstName, setFirstName] = useState(loggedInUser.first_name)
   const [lastName, setLastName] = useState(loggedInUser.last_name)
   const [isModified, setIsModified] = useState(false)
@@ -23,10 +24,17 @@ export const Profile = ({ loggedInUser }) => {
     }
   }, [firstName, lastName, loggedInUser])
 
-  const handleSaveChanges = () => {
-    // TODO: implement save logic
-    setIsModified(false)
-    window.alert(`Save changes: ${firstName} ${lastName}`)
+  const handleSaveChanges = (e) => {
+    e.preventDefault()
+
+    updateUser({ first_name: firstName, last_name: lastName }, loggedInUser.id).then((updatedUser) => {
+      if (updatedUser.valid) {
+        loadUserNames(updatedUser, setLoggedInUser)
+        setIsModified(false)
+      } else {
+        window.alert(updatedUser.message)
+      }
+    })
   }
 
   return (
@@ -65,7 +73,7 @@ export const Profile = ({ loggedInUser }) => {
           Joined on {formatDate(loggedInUser.date_joined)}
         </div>
 
-        <button className='profile-form__submit-btn' onClick={handleSaveChanges} disabled={!isModified}>
+        <button className='profile-form__submit-btn' onClick={(e) => handleSaveChanges(e)} disabled={!isModified}>
           Save Changes
         </button>
       </div>

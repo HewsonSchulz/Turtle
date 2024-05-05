@@ -19,3 +19,7 @@ export const retrieveUser = async (pk) => {
 export const listUsers = async () => {
   return await fetch(`${apiUrl}/users`, fetchOptions('GET')).then((res) => res.json())
 }
+
+export const updateUser = async (user, pk) => {
+  return await fetch(`${apiUrl}/users/${pk}`, fetchOptions('PUT', user)).then((res) => res.json())
+}
