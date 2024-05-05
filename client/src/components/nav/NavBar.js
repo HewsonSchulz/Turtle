@@ -78,6 +78,12 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
           </li>
         </Link>
 
+        <Link to='/profile' className='navibar-link'>
+          <li className='navibar-item' id={url === '/profile' ? 'selected' : ''}>
+            Profile
+          </li>
+        </Link>
+
         {loggedInUser && loggedInUser.is_admin && (
           <Link to='/employees' className='navibar-link'>
             <li className='navibar-item' id={url === '/employees' ? 'selected' : ''}>

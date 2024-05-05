@@ -6,6 +6,7 @@ import { NavBar } from './nav/NavBar'
 import { CustardsList } from './custard/CustardsList'
 import { CustardForm } from './custard/CustardForm'
 import { UsersList } from './user/UsersList'
+import { Profile } from './profile/Profile'
 
 export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
   return (
@@ -39,6 +40,8 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
             </AuthorizedRoute>
           }
         />
+
+        <Route path='/profile' element={<Profile />} />
       </Route>
 
       <Route
