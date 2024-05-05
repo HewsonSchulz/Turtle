@@ -5,6 +5,7 @@ import { Login } from './auth/Login'
 import { NavBar } from './nav/NavBar'
 import { CustardsList } from './custard/CustardsList'
 import { CustardForm } from './custard/CustardForm'
+import { UsersList } from './user/UsersList'
 
 export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
   return (
@@ -29,6 +30,15 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
             <Route path=':flavorId' element={<CustardForm loggedInUser={loggedInUser} />} />
           </Route>
         </Route>
+
+        <Route
+          path='/employees'
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser} isAdminOnly={true}>
+              <UsersList />
+            </AuthorizedRoute>
+          }
+        />
       </Route>
 
       <Route

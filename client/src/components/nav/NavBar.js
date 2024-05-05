@@ -77,6 +77,14 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
             Add Flavor
           </li>
         </Link>
+
+        {loggedInUser && loggedInUser.is_admin && (
+          <Link to='/employees' className='navibar-link'>
+            <li className='navibar-item' id={url === '/employees' ? 'selected' : ''}>
+              Employees
+            </li>
+          </Link>
+        )}
       </ul>
     </>
   )
