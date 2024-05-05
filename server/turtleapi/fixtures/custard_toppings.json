@@ -395,8 +395,8 @@
     "model": "turtleapi.custardtopping",
     "pk": 50,
     "fields": {
-      "flavor": 17,
-      "topping": 39
+      "flavor": 24,
+      "topping": 17
     }
   },
   {

@@ -5,7 +5,17 @@ from turtleapi.models import Employee
 
 
 class Employees(ViewSet):
+
     def list(self, request):
+        employee = Employee.objects.get(user=request.auth.user)
+
+        if not employee.is_admin:
+            # user has invalid permission
+            return Response(
+                {'message': '''You don't have permission to view this information'''},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
         try:
             employees = Employee.objects.all()
             return Response(
@@ -15,12 +25,25 @@ class Employees(ViewSet):
             )
         except Exception as ex:
             return Response(
-                {'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                {'message': ex.args[0]},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
 
     def retrieve(self, request, pk=None):
         try:
+            req_employee = Employee.objects.get(user=request.auth.user)
+
             employee = Employee.objects.get(pk=pk)
+
+            if not (req_employee.is_admin or req_employee.id == employee.id):
+                # user has invalid permission
+                return Response(
+                    {
+                        'message': '''You don't have permission to view this information'''
+                    },
+                    status=status.HTTP_401_UNAUTHORIZED,
+                )
+
             return Response(
                 EmployeeSerializer(
                     employee, many=False, context={'request': request}
@@ -30,7 +53,8 @@ class Employees(ViewSet):
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return Response(
-                {'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                {'message': ex.args[0]},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
 
 

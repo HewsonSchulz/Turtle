@@ -286,6 +286,14 @@ class CustardSerializer(serializers.ModelSerializer):
             for i, topping in enumerate(toppings):
                 if 'OREO' in topping:
                     topping_text = 'OREO ' + topping.split('OREO')[1].lower()
+                elif 'M&M' in topping:
+                    topping_text = 'M&M' + topping.split('M&M')[1].lower()
+                elif 'Reese' in topping:
+                    topping_text = 'Reese' + topping.split('Reese')[1].lower()
+                elif 'Andes' in topping:
+                    topping_text = 'Andes' + topping.split('Andes')[1].lower()
+                elif 'Dove' in topping:
+                    topping_text = 'Dove' + topping.split('Dove')[1].lower()
                 else:
                     topping_text = topping.lower()
 
