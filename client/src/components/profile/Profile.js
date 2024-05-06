@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Form, FormGroup, Input } from 'reactstrap'
 import './Profile.css'
-import { formatDate, loadUserNames } from '../../helper'
+import { formatDate, updateLocalObj } from '../../helper'
 import { updateUser } from '../../managers/userManager'
 
 export const Profile = ({ loggedInUser, setLoggedInUser }) => {
@@ -29,7 +29,10 @@ export const Profile = ({ loggedInUser, setLoggedInUser }) => {
 
     updateUser({ first_name: firstName, last_name: lastName }, loggedInUser.id).then((updatedUser) => {
       if (updatedUser.valid) {
-        loadUserNames(updatedUser, setLoggedInUser)
+        updateLocalObj(
+          { first_name: updatedUser.first_name, last_name: updatedUser.last_name, full_name: updatedUser.full_name },
+          setLoggedInUser
+        )
         setIsModified(false)
       } else {
         window.alert(updatedUser.message)

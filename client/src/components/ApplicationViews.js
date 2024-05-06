@@ -36,7 +36,7 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
           path='/employees'
           element={
             <AuthorizedRoute loggedInUser={loggedInUser} isAdminOnly={true}>
-              <UsersList loggedInUser={loggedInUser} />
+              <UsersList loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
             </AuthorizedRoute>
           }
         />

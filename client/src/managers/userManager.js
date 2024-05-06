@@ -23,3 +23,7 @@ export const listUsers = async () => {
 export const updateUser = async (user, pk) => {
   return await fetch(`${apiUrl}/users/${pk}`, fetchOptions('PUT', user)).then((res) => res.json())
 }
+
+export const toggleAdmin = async (pk) => {
+  return await fetch(`${apiUrl}/users/${pk}?admin`, fetchOptions('PUT')).then((res) => res.json())
+}

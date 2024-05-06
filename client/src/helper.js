@@ -41,6 +41,19 @@ export const updateStateObj = (setter, key, value) => {
   }))
 }
 
+// updates the value of a key within an object stored in local storage
+export const updateLocalObj = (dataObj, setState, storageItem = 'turtle_user') => {
+  const localUser = JSON.parse(localStorage.getItem(storageItem)) || {}
+
+  for (const key in dataObj) {
+    if (dataObj.hasOwnProperty(key)) {
+      localUser[key] = dataObj[key]
+    }
+  }
+  localStorage.setItem(storageItem, JSON.stringify(localUser))
+  setState(localUser)
+}
+
 // fetches a given user and stores it
 export const saveUser = (data, setLoggedInUser) => {
   localStorage.setItem('turtle_user', JSON.stringify(data))
@@ -53,16 +66,6 @@ export const saveUser = (data, setLoggedInUser) => {
     localStorage.setItem('turtle_user', JSON.stringify(newUser))
     setLoggedInUser(newUser)
   })
-}
-
-// sets given user's first/last names and stores them
-export const loadUserNames = (data, setLoggedInUser) => {
-  const user = JSON.parse(localStorage.getItem('turtle_user'))
-  user.first_name = data.first_name
-  user.last_name = data.last_name
-  user.full_name = data.full_name
-  localStorage.setItem('turtle_user', JSON.stringify(user))
-  setLoggedInUser(user)
 }
 
 // scroll to top of page
