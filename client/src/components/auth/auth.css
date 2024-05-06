@@ -5,12 +5,13 @@
   align-items: center;
   background-color: var(--primary);
   padding-bottom: 100%;
+  position: fixed;
+  width: 100vw;
 }
 
 .login__card {
   width: 500px;
   height: 400px;
-  /* border: solid black 5px; */
   background-color: var(--white);
   border-radius: 50px;
   margin: auto;
@@ -48,13 +49,14 @@
 
 .login__header {
   --margin-top: -230px;
+  --margin-left: -60px;
 }
 
 .login__header__icon {
   position: fixed;
   height: 160px;
-  margin-left: -210px;
   margin-top: calc(var(--margin-top) - 40px);
+  margin-left: calc(var(--margin-left) - 160px);
   filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.4));
 }
 
@@ -62,6 +64,6 @@
   position: fixed;
   height: 100px;
   margin-top: var(--margin-top);
-  margin-left: -50px;
+  margin-left: var(--margin-left);
   filter: invert() drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.5));
 }
