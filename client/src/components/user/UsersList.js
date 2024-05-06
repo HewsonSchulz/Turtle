@@ -2,12 +2,14 @@ import { useQuery } from '@tanstack/react-query'
 import { listUsers } from '../../managers/userManager'
 import { formatDate } from '../../helper'
 import './UsersList.css'
+import { useNavigate } from 'react-router-dom'
 
-export const UsersList = () => {
+export const UsersList = ({ loggedInUser }) => {
   const { data: employees } = useQuery({
     queryKey: ['employees'],
     queryFn: listUsers,
   })
+  const navigate = useNavigate()
 
   const getHeader = (employee) => {
     if (!!employee.full_name) {
@@ -30,7 +32,14 @@ export const UsersList = () => {
     <div className='users-list'>
       <div className='users-list__employees'>
         {employees?.map((employee) => (
-          <div key={employee.id} className='users-list__employee'>
+          <div
+            key={employee.id}
+            className={`users-list__employee ${loggedInUser.id === employee.id ? 'users-list__link' : ''}`}
+            onClick={() => {
+              if (loggedInUser.id === employee.id) {
+                navigate('/profile')
+              }
+            }}>
             {getHeader(employee)}
             <div className='users-list__employee-date-joined'>Joined: {formatDate(employee.date_joined)}</div>
             <div className='users-list__footer'>

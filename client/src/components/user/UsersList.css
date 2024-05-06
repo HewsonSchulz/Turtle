@@ -54,3 +54,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+.users-list__link:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 20px var(--primary), 0px 0px 30px var(--primary), 0px 0px 30px var(--primary);
+  transition: box-shadow 0.2s ease-in-out;
+}
