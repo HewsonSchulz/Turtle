@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { listUsers } from '../../managers/userManager'
 import { formatDate } from '../../helper'
-import './UsersList.css'
 import { useNavigate } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleArrowDown, faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
+import './UsersList.css'
 
 export const UsersList = ({ loggedInUser }) => {
   const { data: employees } = useQuery({
@@ -23,7 +25,6 @@ export const UsersList = ({ loggedInUser }) => {
     return (
       <div className='users-list__employee-header'>
         <i className='users-list__employee-name'>{employee.username}</i>
-        {employee.is_admin && <div className='users-list__employee-admin'>ADMIN</div>}
       </div>
     )
   }
@@ -44,7 +45,11 @@ export const UsersList = ({ loggedInUser }) => {
             <div className='users-list__employee-date-joined'>Joined: {formatDate(employee.date_joined)}</div>
             <div className='users-list__footer'>
               <div className='users-list__employee-last-login'>Last login: {formatDate(employee.last_login)}</div>
-              {employee.is_admin && !!employee.full_name && <div className='users-list__employee-admin'>ADMIN</div>}
+              {employee.is_admin ? (
+                <FontAwesomeIcon icon={faCircleArrowDown} className='users-list__admin-btn users-list__demote-btn' />
+              ) : (
+                <FontAwesomeIcon icon={faCircleArrowUp} className='users-list__admin-btn users-list__promote-btn' />
+              )}
             </div>
           </div>
         ))}

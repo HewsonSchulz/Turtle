@@ -23,7 +23,7 @@
   background-color: var(--white);
   box-shadow: 10px 10px 20px var(--primary);
   max-width: 400px;
-  min-width: 190px;
+  min-width: 300px;
 }
 
 .users-list__employee-header {
@@ -31,6 +31,10 @@
   justify-content: space-between;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.users-list__employee-date-joined {
+  margin-top: 10px;
 }
 
 .users-list__employee-date-joined,
@@ -53,10 +57,31 @@
 .users-list__footer {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
+.users-list__link {
+  transition: box-shadow 0.2s ease-in-out;
+}
 .users-list__link:hover {
   cursor: pointer;
   box-shadow: 10px 10px 20px var(--primary), 0px 0px 30px var(--primary), 0px 0px 30px var(--primary);
   transition: box-shadow 0.2s ease-in-out;
+}
+
+.users-list__admin-btn {
+  font-size: 30px;
+  color: var(--primary);
+  transition: color 0.2s ease-in-out;
+}
+
+.users-list__admin-btn:hover {
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+}
+.users-list__promote-btn:hover {
+  color: var(--admin);
+}
+.users-list__demote-btn:hover {
+  color: var(--non-admin);
 }
