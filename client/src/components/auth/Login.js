@@ -6,8 +6,8 @@ import './auth.css'
 import { saveUser, updateStateObj } from '../../helper'
 
 export const Login = ({ setLoggedInUser }) => {
-  const [username, setUsername] = useState('johndoe') // default username
-  const [password, setPassword] = useState('bruh') // default password
+  const [username, setUsername] = useState('') // default username
+  const [password, setPassword] = useState('') // default password
   const [isInvalid, setIsInvalid] = useState({ username: false, password: false })
   const [message, setMessage] = useState({ username: '', password: '' })
   const navigate = useNavigate()
@@ -62,7 +62,11 @@ export const Login = ({ setLoggedInUser }) => {
             handleSubmit(e)
           }
         }}>
-        <h1 className='login__header'>Log In To Turtle</h1>
+        <div className='login__header'>
+          <img className='login__header__icon' src='/assets/turtle-icon.png' alt='turtle custard flavor' />
+          <img className='login__header__text' src='/assets/turtle-title.png' alt='turtle logo' />
+        </div>
+        <h1 className='login__title'>Login</h1>
         <FormGroup id='login__username'>
           <Input
             id='login__username-input'

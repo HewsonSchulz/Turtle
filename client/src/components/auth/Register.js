@@ -61,7 +61,11 @@ export const Register = ({ setLoggedInUser }) => {
             handleSubmit(e)
           }
         }}>
-        <h1 className='login__header'>Sign Up For Turtle</h1>
+        <div className='login__header'>
+          <img className='login__header__icon' src='/assets/turtle-icon.png' alt='turtle custard flavor' />
+          <img className='login__header__text' src='/assets/turtle-title.png' alt='turtle logo' />
+        </div>
+        <h1 className='login__title'>Register</h1>
         <FormGroup id='login__username'>
           <Input
             id='login__username-input'
