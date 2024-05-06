@@ -42,6 +42,8 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
         />
 
         <Route path='/profile' element={<Profile loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
+
+        <Route path='/about' element={<>!About</>} />
       </Route>
 
       <Route

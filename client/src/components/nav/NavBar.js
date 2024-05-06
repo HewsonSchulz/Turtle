@@ -99,6 +99,14 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
             </li>
           </Link>
         )}
+
+        <div className='navibar__whitespace' style={{ flexGrow: 1 }}></div>
+
+        <Link to='/about' className='navibar-link'>
+          <li className='navibar-item navibar__about' id={url === '/about' ? 'selected' : ''}>
+            About
+          </li>
+        </Link>
       </ul>
     </>
   )

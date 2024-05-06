@@ -130,3 +130,7 @@
 .flipped {
   transform: scaleY(-1);
 }
+
+.navibar__about {
+  margin-bottom: 10px;
+}

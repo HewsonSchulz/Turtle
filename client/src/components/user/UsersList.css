@@ -14,7 +14,7 @@
 }
 
 .users-list__employee {
-  margin-bottom: 30px;
+  margin: 0px 50px 30px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
