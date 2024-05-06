@@ -22,8 +22,8 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
   }
 
   const getDisplayName = () => {
-    if (!!loggedInUser.first_name || !!loggedInUser.last_name) {
-      return `${loggedInUser.first_name} ${loggedInUser.last_name}`
+    if (!!loggedInUser.full_name) {
+      return loggedInUser.full_name
     }
 
     return loggedInUser.username

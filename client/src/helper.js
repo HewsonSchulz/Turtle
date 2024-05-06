@@ -60,6 +60,7 @@ export const loadUserNames = (data, setLoggedInUser) => {
   const user = JSON.parse(localStorage.getItem('turtle_user'))
   user.first_name = data.first_name
   user.last_name = data.last_name
+  user.full_name = data.full_name
   localStorage.setItem('turtle_user', JSON.stringify(user))
   setLoggedInUser(user)
 }

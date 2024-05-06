@@ -104,6 +104,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source='user.username')
     first_name = serializers.CharField(source='user.first_name')
     last_name = serializers.CharField(source='user.last_name')
+    full_name = serializers.SerializerMethodField()
     date_joined = serializers.DateTimeField(source='user.date_joined')
     last_login = serializers.DateTimeField(source='user.last_login')
     rank = serializers.CharField(source='rank.rank', allow_null=True, required=False)
@@ -124,6 +125,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'username',
             'first_name',
             'last_name',
+            'full_name',
             'date_joined',
             'last_login',
             'is_admin',
@@ -135,6 +137,11 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'fav_custard',
             'fav_food',
         ]
+
+    def get_full_name(self, employee):
+        if employee.user.first_name or employee.user.last_name:
+            return f'{employee.user.first_name} {employee.user.last_name}'
+        return ''
 
     def to_representation(self, instance):
         '''if given user is a guest, exclude certain fields'''
