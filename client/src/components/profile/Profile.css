@@ -21,6 +21,7 @@
 
 .profile-form__item {
   margin-top: 20px;
+  cursor: text;
 }
 
 .profile-form__submit-btn {

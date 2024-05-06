@@ -61,6 +61,7 @@
 
 .custard-form__input-label {
   margin-top: 20px;
+  cursor: text;
 }
 
 .custard-form__img-label {
@@ -78,4 +79,13 @@
 .custard-form__cancel-btn:hover {
   cursor: pointer;
   color: var(--primary);
+}
+
+.custard-form__content-b__header {
+  cursor: text;
+}
+
+.custard-form__checkbox,
+.custard-form__base-input {
+  cursor: pointer;
 }

@@ -173,7 +173,7 @@ export const CustardForm = ({ loggedInUser }) => {
             type='select'
             id='base'
             value={selectedBase}
-            className='custard-form__input'
+            className='custard-form__input custard-form__base-input'
             onChange={(e) => setSelectedBase(e.target.value)}>
             {custardBases?.map((base) => (
               <option key={base} value={base}>
@@ -219,6 +219,7 @@ export const CustardForm = ({ loggedInUser }) => {
             <FormGroup check key={topping}>
               <Input
                 type='checkbox'
+                className='custard-form__checkbox'
                 id={topping}
                 checked={selectedToppings.includes(topping)}
                 onChange={() => handleToppingChange(topping)}
