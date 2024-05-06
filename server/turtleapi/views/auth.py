@@ -24,7 +24,9 @@ def register_user(request):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        is_guest = request.GET.get('guest', '').lower() == 'true'
+        is_guest = (
+            'guest' in request.GET and request.GET.get('guest', '').lower() != 'false'
+        )
 
         if is_guest:
             missing_props_msg = calc_missing_props(

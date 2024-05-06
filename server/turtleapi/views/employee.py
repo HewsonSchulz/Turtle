@@ -63,14 +63,6 @@ class Employees(ViewSet):
 
     def update(self, request, pk=None):
         try:
-            req_body = json.loads(request.body)
-        except JSONDecodeError:
-            return Response(
-                {'message': 'Your request contains invalid json'},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
-
-        try:
             req_employee = Employee.objects.get(user=request.auth.user)
             user = User.objects.get(pk=pk)
             employee = Employee.objects.get(user=user)
@@ -78,10 +70,40 @@ class Employees(ViewSet):
         except (User.DoesNotExist, Employee.DoesNotExist) as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
+        if 'admin' in request.GET:
+            if not (req_employee.is_admin):
+                # user has invalid permission
+                return Response(
+                    {
+                        'valid': False,
+                        'message': '''You don't have permission to do that''',
+                    },
+                    status=status.HTTP_401_UNAUTHORIZED,
+                )
+
+            # update admin status
+            employee.is_admin = not employee.is_admin
+            employee.save()
+
+            return Response(
+                {
+                    'valid': True,
+                    **AdminSerializer(employee, context={'request': request}).data,
+                }
+            )
+
+        try:
+            req_body = json.loads(request.body)
+        except JSONDecodeError:
+            return Response(
+                {'message': 'Your request contains invalid json'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         if not (req_employee.is_admin or req_employee.id == user.id):
             # user has invalid permission
             return Response(
-                {'message': '''You don't have permission to do that'''},
+                {'valid': False, 'message': '''You don't have permission to do that'''},
                 status=status.HTTP_401_UNAUTHORIZED,
             )
 
@@ -158,3 +180,9 @@ class EmployeeSerializer(serializers.ModelSerializer):
             for field in excluded_fields:
                 representation.pop(field)
         return representation
+
+
+class AdminSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Employee
+        fields = ['id', 'is_admin']
