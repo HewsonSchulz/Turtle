@@ -13,10 +13,10 @@ const root = createRoot(container)
 const queryClient = new QueryClient()
 
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename='/Turtle'>
     <QueryClientProvider client={queryClient}>
       <App />
-      {/* <ReactQueryDevtools />  */}
+      {/* <ReactQueryDevtools /> */}
     </QueryClientProvider>
   </BrowserRouter>
 )
