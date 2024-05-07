@@ -1,6 +1,7 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "turtle-client",
+  "version": "1.0.0",
+  "homepage": "https://hewsonschulz.github.io/Turtle",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
