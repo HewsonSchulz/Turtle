@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Turtle/static/css/main.f5d85e4a.css",
-    "main.js": "/Turtle/static/js/main.5e320384.js",
+    "main.js": "/Turtle/static/js/main.1542756c.js",
     "index.html": "/Turtle/index.html",
     "main.f5d85e4a.css.map": "/Turtle/static/css/main.f5d85e4a.css.map",
-    "main.5e320384.js.map": "/Turtle/static/js/main.5e320384.js.map"
+    "main.1542756c.js.map": "/Turtle/static/js/main.1542756c.js.map"
   },
   "entrypoints": [
     "static/css/main.f5d85e4a.css",
-    "static/js/main.5e320384.js"
+    "static/js/main.1542756c.js"
   ]
 }
