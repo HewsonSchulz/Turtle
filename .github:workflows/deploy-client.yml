@@ -26,9 +26,13 @@ jobs:
         run: npm run build
         working-directory: ./client
 
+      - name: Copy build files to repository root
+        run: |
+          cp -r $GITHUB_WORKSPACE/client/build/* $GITHUB_WORKSPACE
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./client/build
+          publish_dir: .
           publish_branch: gh-pages
