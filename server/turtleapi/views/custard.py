@@ -6,6 +6,7 @@ from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from turtleapi.models import Custard, CustardBase, Topping, Employee
+from .employee import EmployeeSerializer
 from .view_utils import calc_missing_props
 
 
@@ -259,13 +260,15 @@ class CustardSerializer(serializers.ModelSerializer):
     base = serializers.CharField(source='base.base')
     toppings = serializers.SerializerMethodField()
     description = serializers.SerializerMethodField()
+    creator = serializers.SerializerMethodField()
 
     class Meta:
         model = Custard
         fields = [
             'id',
-            'creator_id',
             'created',
+            'creator_id',
+            'creator',
             'flavor',
             'base',
             'toppings',
@@ -306,3 +309,8 @@ class CustardSerializer(serializers.ModelSerializer):
                     desc += f'{topping_text}, '
 
         return desc
+
+    def get_creator(self, custard):
+        employee = Employee.objects.get(pk=custard.creator_id)
+        serialized = EmployeeSerializer(employee, many=False).data
+        return serialized.get('full_name')

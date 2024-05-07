@@ -21,14 +21,6 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
     setShowLogout(false)
   }
 
-  const getDisplayName = () => {
-    if (!!loggedInUser.full_name) {
-      return loggedInUser.full_name
-    }
-
-    return loggedInUser.username
-  }
-
   useEffect(() => {
     setShowLogout(false)
   }, [url])
@@ -46,7 +38,7 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
             <li className='header-item header__logout' onClick={toggleDropdown}>
               Logged in as{' '}
               <i style={{ fontWeight: 'bold' }}>
-                {getDisplayName()} &emsp;
+                {loggedInUser.full_name} &emsp;
                 <FontAwesomeIcon
                   icon={faCaretDown}
                   className={showLogout ? 'header__dropdown-btn flipped' : 'header__dropdown-btn'}

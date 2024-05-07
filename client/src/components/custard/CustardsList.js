@@ -55,6 +55,7 @@ export const CustardsList = ({ loggedInUser }) => {
                 <div className='whitespace' />
               )}
             </li>
+            {!flavor.is_default && <li className='custards-list__flavor-creator'>By {flavor.creator}</li>}
             <div className='custards-list__img-container'>
               {flavor.image ? (
                 <img src={flavor.image} alt={flavor.flavor} className='custards-list__img' />

@@ -163,7 +163,8 @@ class EmployeeSerializer(serializers.ModelSerializer):
     def get_full_name(self, employee):
         if employee.user.first_name or employee.user.last_name:
             return f'{employee.user.first_name} {employee.user.last_name}'
-        return ''
+
+        return employee.user.username
 
     def to_representation(self, instance):
         '''if given user is a guest, exclude certain fields'''

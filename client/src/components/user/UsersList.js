@@ -31,9 +31,7 @@ export const UsersList = ({ loggedInUser, setLoggedInUser }) => {
     } else {
       if (
         window.confirm(
-          employee.is_admin
-            ? `Remove ${employee.full_name ? employee.full_name : employee.username} as admin?`
-            : `Promote ${employee.full_name ? employee.full_name : employee.username} to admin?`
+          employee.is_admin ? `Remove ${employee.full_name} as admin?` : `Promote ${employee.full_name} to admin?`
         )
       ) {
         toggleAdmin(employee.id).then((res) => {
@@ -48,7 +46,7 @@ export const UsersList = ({ loggedInUser, setLoggedInUser }) => {
   }
 
   const getHeader = (employee) => {
-    if (!!employee.full_name) {
+    if (employee.full_name !== employee.username) {
       return (
         <div className='users-list__employee-header'>
           <i className='users-list__employee-name'>{employee.full_name}</i>

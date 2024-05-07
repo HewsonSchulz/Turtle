@@ -2,6 +2,7 @@
   background-color: var(--white);
   position: fixed;
   padding-bottom: 100%;
+  z-index: -1;
 }
 
 .about__header {
