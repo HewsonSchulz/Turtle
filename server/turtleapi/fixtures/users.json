@@ -3,7 +3,7 @@
     "model": "auth.user",
     "pk": 1,
     "fields": {
-      "password": "pbkdf2_sha256$720000$K5DkaVC9871lfTKtH0UoRx$OZTG8+rphJPs/h0yy0cm3v7dG+C270/evBbqwNygYXU=",
+      "password": "pbkdf2_sha256$720000$XGgJ3N88rFdumM4P1vO9R7$j4p6BdgFvK31pPd+yVrNuay9/1qlInEC4yUOTiZVGHE=",
       "last_login": "2024-05-03T00:00:00Z",
       "is_superuser": false,
       "username": "hewson",
@@ -31,24 +31,6 @@
       "is_staff": false,
       "is_active": true,
       "date_joined": "2024-04-23T18:28:26.392390Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "auth.user",
-    "pk": 3,
-    "fields": {
-      "password": "pbkdf2_sha256$720000$J4FZENLX5umHBZ3aKtUYfn$VV3KpZbuhAFIiKT3XTQzhtX3i3OX+NgqZDb7QMo2fGE=",
-      "last_login": "2024-05-03T00:00:00Z",
-      "is_superuser": false,
-      "username": "johndoe",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2024-04-23T19:06:10.942849Z",
       "groups": [],
       "user_permissions": []
     }
