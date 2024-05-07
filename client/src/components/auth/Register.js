@@ -62,8 +62,8 @@ export const Register = ({ setLoggedInUser }) => {
           }
         }}>
         <div className='login__header'>
-          <img className='login__header__icon' src='/turtle-icon.png' alt='turtle custard flavor' />
-          <img className='login__header__text' src='/turtle-title.png' alt='turtle logo' />
+          <img className='login__header__icon' src='/Turtle/turtle-icon.png' alt='turtle custard flavor' />
+          <img className='login__header__text' src='/Turtle/turtle-title.png' alt='turtle logo' />
         </div>
         <h1 className='login__title'>Register</h1>
         <FormGroup id='login__username'>

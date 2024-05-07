@@ -43,7 +43,7 @@ export const About = () => {
       </p>
       <ul className='about-container'>
         <a href='https://github.com/HewsonSchulz' target='_blank' rel='noopener noreferrer' className='about__item'>
-          <img className='about__img about__github' src='/github-icon.svg' alt='Github icon' />
+          <img className='about__img about__github' src='/Turtle/github-icon.svg' alt='Github icon' />
           <p className='about__desc about__github-desc'>GitHub</p>
         </a>
         <a
@@ -51,7 +51,7 @@ export const About = () => {
           target='_blank'
           rel='noopener noreferrer'
           className='about__item'>
-          <img className='about__img about__linkedin' src='/linkedin-icon.svg' alt='LinkedIn icon' />
+          <img className='about__img about__linkedin' src='/Turtle/linkedin-icon.svg' alt='LinkedIn icon' />
           <p className='about__desc about__linkedin-desc'>LinkedIn</p>
         </a>
         <a
@@ -59,7 +59,7 @@ export const About = () => {
           target='_blank'
           rel='noopener noreferrer'
           className='about__item'>
-          <img className='about__img about__nss' src='/nss-icon.svg' alt='Nashville Software School icon' />
+          <img className='about__img about__nss' src='/Turtle/nss-icon.svg' alt='Nashville Software School icon' />
           <p className='about__desc about__nss-desc'>NSS Cohort 68</p>
         </a>
         <a
@@ -67,7 +67,7 @@ export const About = () => {
           target='_blank'
           rel='noopener noreferrer'
           className='about__item'>
-          <img className='about__img about__resume' src='/doc-icon.svg' alt='resume icon' />
+          <img className='about__img about__resume' src='/Turtle/doc-icon.svg' alt='resume icon' />
           <p className='about__desc about__resume-desc'>Resume</p>
         </a>
       </ul>
