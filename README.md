@@ -1,4 +1,4 @@
-# ![](./client/public/readme/readme1.png)
+# ![](./client/public/assets/readme/readme1.png)
 
 Turtle is a full-stack application that was developed by [Hewson Schulz](https://github.com/HewsonSchulz) during his time at [Nashville Software School](https://nashvillesoftwareschool.com/). It was created for his final capstone project, and it uses [React](https://react.dev/) for its client-side, and [Django REST Framework](https://www.django-rest-framework.org/) for its server-side.
 
