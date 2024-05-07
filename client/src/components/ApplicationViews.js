@@ -7,6 +7,7 @@ import { CustardsList } from './custard/CustardsList'
 import { CustardForm } from './custard/CustardForm'
 import { UsersList } from './user/UsersList'
 import { Profile } from './profile/Profile'
+import { About } from './about/About'
 
 export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
   return (
@@ -43,7 +44,7 @@ export const ApplicationViews = ({ loggedInUser, setLoggedInUser }) => {
 
         <Route path='/profile' element={<Profile loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
 
-        <Route path='/about' element={<>!About</>} />
+        <Route path='/about' element={<About />} />
       </Route>
 
       <Route
