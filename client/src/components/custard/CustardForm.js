@@ -140,13 +140,13 @@ export const CustardForm = ({ loggedInUser }) => {
       <div className='custard-form__content-a'>
         {!!custardFlavor && !selectedImage ? (
           <img
-            src={custardFlavor.image || `/assets/turtle-icon-placeholder${getPlaceholder(flavorId)}.svg`}
+            src={custardFlavor.image || `/turtle-icon-placeholder${getPlaceholder(flavorId)}.svg`}
             alt={custardFlavor.flavor || 'custard placeholder'}
             className='custard-form__img'
           />
         ) : (
           <img
-            src={selectedImageUrl || `/assets/turtle-icon-placeholder1.svg`}
+            src={selectedImageUrl || `/turtle-icon-placeholder1.svg`}
             alt={flavorName || 'custard placeholder'}
             className='custard-form__img'
           />

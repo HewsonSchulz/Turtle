@@ -29,8 +29,8 @@ export const NavBar = ({ loggedInUser, setLoggedInUser }) => {
     <>
       <ul className='header'>
         <li className='header-item header__title'>
-          <img className='header__icon' src='/assets/turtle-icon.png' alt='turtle custard flavor' />
-          <img className='header__text' src='/assets/turtle-title.png' alt='turtle logo' />
+          <img className='header__icon' src='/turtle-icon.png' alt='turtle custard flavor' />
+          <img className='header__text' src='/turtle-title.png' alt='turtle logo' />
         </li>
 
         {localStorage.getItem('turtle_user') && (

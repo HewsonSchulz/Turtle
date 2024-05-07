@@ -61,7 +61,7 @@ export const CustardsList = ({ loggedInUser }) => {
                 <img src={flavor.image} alt={flavor.flavor} className='custards-list__img' />
               ) : (
                 <img
-                  src={`/assets/turtle-icon-placeholder${getPlaceholder(flavor.id)}.svg`}
+                  src={`/turtle-icon-placeholder${getPlaceholder(flavor.id)}.svg`}
                   alt={flavor.flavor}
                   className='custards-list__img'
                 />
