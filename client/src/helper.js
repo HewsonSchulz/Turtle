@@ -1,7 +1,7 @@
 import { retrieveUser } from './managers/userManager'
 
 // URL of the hosted API
-export const apiUrl = 'http://localhost:8000'
+export const apiUrl = 'https://turtle-api-s9lxu.ondigitalocean.app/'
 
 // generates options for fetch calls
 export const fetchOptions = (method, body) => {
