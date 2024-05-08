@@ -18,9 +18,8 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', get_random_secret_key())
 DEBUG = os.getenv('DEBUG', 'False')
 DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'False')
 
-ALLOWED_HOSTS = os.getenv(
-    'DJANGO_ALLOWED_HOSTS', 'turtle-api-s9lxu.ondigitalocean.app'
-).split(',')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
+
 # Application definition
 
 INSTALLED_APPS = [
