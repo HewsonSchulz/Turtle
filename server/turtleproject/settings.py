@@ -19,9 +19,8 @@ DEBUG = os.getenv('DEBUG', 'False')
 DEVELOPMENT_MODE = os.getenv('DEVELOPMENT_MODE', 'False')
 
 ALLOWED_HOSTS = os.getenv(
-    'DJANGO_ALLOWED_HOSTS', 'https://turtle-api-s9lxu.ondigitalocean.app/'
+    'DJANGO_ALLOWED_HOSTS', 'turtle-api-s9lxu.ondigitalocean.app'
 ).split(',')
-
 # Application definition
 
 INSTALLED_APPS = [
