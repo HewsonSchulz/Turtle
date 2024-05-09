@@ -502,5 +502,17 @@
       "image": "flavors/How-Now-Brown-Cow.png",
       "is_default": false
     }
+  },
+  {
+    "model": "turtleapi.custard",
+    "pk": 43,
+    "fields": {
+      "created": "2024-05-09T03:25:00Z",
+      "creator_id": 2,
+      "flavor": "Birthday Cake",
+      "base": 16,
+      "image": "flavors/birthday-cake-flavor.png",
+      "is_default": false
+    }
   }
 ]

@@ -702,5 +702,29 @@
       "flavor": 42,
       "topping": 31
     }
+  },
+  {
+    "model": "turtleapi.custardtopping",
+    "pk": 89,
+    "fields": {
+      "flavor": 43,
+      "topping": 6
+    }
+  },
+  {
+    "model": "turtleapi.custardtopping",
+    "pk": 90,
+    "fields": {
+      "flavor": 43,
+      "topping": 34
+    }
+  },
+  {
+    "model": "turtleapi.custardtopping",
+    "pk": 91,
+    "fields": {
+      "flavor": 43,
+      "topping": 40
+    }
   }
 ]
