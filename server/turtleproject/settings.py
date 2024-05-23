@@ -3,6 +3,7 @@ from django.core.management.utils import get_random_secret_key
 import os
 import sys
 import dj_database_url
+from .cdn.conf import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'turtleapi',
+    'storages',
 ]
 
 REST_FRAMEWORK = {
@@ -134,11 +136,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
