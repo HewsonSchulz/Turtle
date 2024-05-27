@@ -2,6 +2,8 @@ import json
 from json.decoder import JSONDecodeError
 from django.core.exceptions import RequestDataTooBig
 from django.db.models import F
+from django.core.mail import send_mail
+from django.conf import settings
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -118,10 +120,29 @@ class CustardFlavors(ViewSet):
                     # ignore toppings that do not exist
                     pass  #!
 
+        serializer = CustardSerializer(new_custard, context={'request': request})
+
+        # prepare email subject and message
+        subject = f'''Turtle: {serializer.data['creator']} made a new flavor!'''
+        message = f'''Flavor Name: {new_custard.flavor}
+Custard Base: {new_custard.base.base}
+Toppings: {', '.join([topping.topping for topping in new_custard.toppings.all()])}
+'''
+
+        # send email
+        send_mail(
+            subject=subject,
+            message=message,
+            #! these two values would not be the same in production
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[settings.EMAIL_HOST_USER],
+            fail_silently=False,
+        )
+
         return Response(
             {
                 'valid': True,
-                **CustardSerializer(new_custard, context={'request': request}).data,
+                **serializer.data,
             },
             status=status.HTTP_201_CREATED,
         )
