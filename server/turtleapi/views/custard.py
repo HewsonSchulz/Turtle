@@ -126,8 +126,7 @@ class CustardFlavors(ViewSet):
         subject = f'''Turtle: {serializer.data['creator']} made a new flavor!'''
         message = f'''Flavor Name: {new_custard.flavor}
 Custard Base: {new_custard.base.base}
-Toppings: {', '.join([topping.topping for topping in new_custard.toppings.all()])}
-'''
+Toppings: {', '.join([topping.topping for topping in new_custard.toppings.all()])}'''
 
         # send email
         send_mail(

@@ -3,3 +3,4 @@ from .employee import Employees
 from .custard import CustardFlavors
 from .topping import Toppings
 from .custard_base import CustardBases
+from .new_email import NewEmails
